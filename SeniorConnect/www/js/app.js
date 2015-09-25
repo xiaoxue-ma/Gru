@@ -40,17 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
+    .state('tab.chats', {
       url: '/chats',
       views: {
         'tab-chats': {
@@ -59,6 +49,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
+    .state('tab.community', {
+    url: '/community',
+    views: {
+      'tab-community': {
+        templateUrl: 'templates/tab-community.html',
+        controller: 'CommunityCtrl'
+      }
+    }
+    })
+
+    .state('tab.moments', {
+      url:'/moments',
+      views:{
+        'tab-moments':{
+          templateUrl: 'templates/tab-moments.html',
+          controller: 'MomentsCtrl'
+        }
+      }
+    })
+
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
@@ -69,12 +80,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.profile', {
+    url: '/profile',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-profile': {
+        templateUrl: 'templates/tab-profile.html',
+        controller: 'ProfileCtrl'
       }
     }
   });
