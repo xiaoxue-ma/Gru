@@ -46,6 +46,16 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services'])
     }
     })
 
+    .state('tab.community-event', {
+      url: '/community/event',
+      views: {
+        'tab-community': {
+          templateUrl: 'templates/community-event.html',
+          controller: 'CommunityEventCtrl'
+        }
+      }
+    })
+
     .state('tab.moments', {
       url:'/moments',
       views:{

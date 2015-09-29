@@ -316,7 +316,10 @@
   content: "\f3a0"; }
 
 .ion-android-person-add:before {
+  font-size: 30px;
+  color:#3155aa;
   content: "\f39f"; }
+
 
 .ion-android-phone-landscape:before {
   content: "\f3a1"; }

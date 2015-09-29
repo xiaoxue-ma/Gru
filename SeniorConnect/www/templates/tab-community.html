@@ -1,28 +1,40 @@
 <ion-view view-title="Community">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap" href="#/tab/community/event">
+        <img ng-src="../www/img/Tai Ji.jpg">
+        <h2>Tai Chi</h2>
+        <p>Joined</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap" href="">
+        <img ng-src="../www/img/social dance.jpg">
+        <h2>Social Dance</h2>
+        <p>Joined</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap" href="">
+        <img ng-src="../www/img/chess.png">
+        <h2>Chess</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-android-person-add icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
