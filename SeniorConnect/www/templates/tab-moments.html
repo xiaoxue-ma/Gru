@@ -1,75 +1,67 @@
 <ion-view view-title="Moments">
     <ion-content class="padding">
-        <div ng-repeat="item in feeds | orderBy: sorter(isBiographyMode)" class="list card">
+        <div class="list card">
             <!--header with user names and time-->
-            <a class="item item-avatar background-light-orange" href="#/tab/family/social/{{item.author.ID}}">
-                <img ng-src="{{serverIconAddress + item.author.icon}}">
-                <h2 class="content-light-white">{{item.author.nickname}}</h2>
-                <p class="content-light-white" ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}
-                    {{item.event_timestamp}}</p>
-                <p class="content-light-white" ng-if="!isBiographyMode">{{ 'social.posted_at' | translate }}
-                    {{item.timestamp}}</p>
+            <a class="item item-avatar">
+                <img src="../www/img/ionic.png">
+
+                <h2 class="content-light-white">author.nickname</h2>
+
+                <p class="content-light-white">posted at: 11:59pm</p>
             </a>
 
             <!--body part, display text and picture if any-->
-            <div class="item item-body background-light-orange">
-                <p class="content-light-white">{{item.text_content}}</p>
+            <div class="item item-body">
                 <!--Picture display-->
-                <p ng-if="item.picture_contents.length>0">
-          <span ng-repeat="pic in item.picture_contents">
-            <img style="width: 64px; height: 64px"
-                 ng-click="enlargePicture(pic.content)"
-                 ng-src="{{ serverPictureAddress + pic.content }}"/>
-            <br ng-if="($index+1)%3==0" />
-          </span>
-                </p>
-                <!--Pop up view of picture-->
-                <script id="image-modal.html" type="text/ng-template">
-                    <div class="modal image-modal transparent" ng-click="closeModal()">
-                        <ion-pane class="transparent">
-                            <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
-                        </ion-pane>
-                    </div>
-                </script>
-                <!--Tag display-->
-                <p ng-if="item.tags.length>0">
-          <span class="content-light-white"  ng-repeat="tag in item.tags">
-            #{{tag.text_content}}
-          </span>
-                </p>
+                <span>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <br/>
+                </span>
             </div>
             <!--icon bars to display comment and like bar-->
-            <div class="item tabs tabs-secondary tabs-icon-left background-light-orange">
-        <span class="tab-item content-light-white" ng-click="setDisplayPane(item.id, 1);">
-          <i class="icon ion-thumbsup"></i>
-          {{item.likes.length}} {{ 'social.like' | translate }}
-        </span>
-        <span class="tab-item content-light-white" ng-click="setDisplayPane(item.id, 2)">
-          <i class="icon ion-chatbox"></i>
-          {{item.comments.length}} {{ 'social.comment' | translate }}
-        </span>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <span class="tab-item content-light-white">
+                    <i class="icon ion-thumbsup"></i>
+                    Like it!
+                </span>
             </div>
-            <!--Likes-->
-            <div class="item item-divider background-light-orange"
-                 ng-if="currentItem == item.id && currentDisplayPane==1">
-                <a class="content-light-white" ng-hide="alreadyLiked(item)" ng-click="like(item)">
-                    <i class="icon ion-thumbsup"></i>{{ 'social.like_it' | translate }}
-                </a>
-                <a class="content-light-white" ng-show="alreadyLiked(item)" ng-click="dislike(item)">
-                    <i class="icon ion-thumbsdown"></i>{{ 'social.unlike_it' | translate }}
-                </a>
-            </div>
-            <!--Existing likes-->
-            <div class="item item-body background-light-orange" ng-if="(currentItem == item.id && currentDisplayPane==1 && item.likes.length>0)">
-                <p class="content-light-white">
-          <span ng-repeat="person in item.likes">
-            {{person.name}}
-          </span>
-                    {{ 'social.liked_it' | translate }}
-                </p>
-            </div>
-            </div>
+        </div>
 
+        <div class="list card">
+            <!--header with user names and time-->
+            <a class="item item-avatar">
+                <img src="../www/img/ionic.png">
 
+                <h2 class="content-light-white">author.nickname</h2>
+
+                <p class="content-light-white">posted at: 11:59pm</p>
+            </a>
+
+            <!--body part, display text and picture if any-->
+            <div class="item item-body">
+                <!--Picture display-->
+                <span>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <img style="width: 64px; height: 64px"
+                             src="../www/img/test.jpg"/>
+                        <br/>
+                </span>
+            </div>
+            <!--icon bars to display comment and like bar-->
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <span class="tab-item content-light-white">
+                    <i class="icon ion-thumbsup"></i>
+                    Like it!
+                </span>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
