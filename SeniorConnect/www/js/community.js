@@ -6,6 +6,19 @@ angular.module('sc.community',[])
 
   })
 
-.controller('CommunityEventCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('CommunityEventCtrl', function($scope) {
+    $scope.join = true;
+
+    $scope.toJoin = function(){
+      return $scope.join;
+    };
+
+    $scope.joinIt = function(){
+      $scope.join = false;
+    };
+    $scope.cancel = function(){
+      $scope.join = true;
+    };
+
+
 });
