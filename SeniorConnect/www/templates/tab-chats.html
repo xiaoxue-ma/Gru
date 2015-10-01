@@ -1,5 +1,15 @@
+
 <ion-view view-title="Chats">
+  <ion-nav-buttons side="primary">
+    <button  class="button button-icon icon ion-navicon" ></button>
+  </ion-nav-buttons>
   <ion-content>
+    <button class="button icon-left ion-person-add button-full button-positive">
+      Add new friend
+    </button>
+    <button class="button icon-left ion-android-add-circle button-full button-stable">
+      Create new group
+    </button>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">

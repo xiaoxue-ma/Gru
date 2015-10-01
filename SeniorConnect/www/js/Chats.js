@@ -21,4 +21,10 @@ angular.module('sc.chats', [])
 
   .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
     $scope.chat = Chats.get($stateParams.chatId);
+
+    $scope.sendMessage = function(sendMessageForm) {
+      var message = {
+        toId: $scope.toUser._id,
+        text: $scope.input.message
+      }}
   });

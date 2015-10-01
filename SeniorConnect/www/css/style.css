@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+.footer-btn-wrap {
+  position: relative;
+  height: 100%;
+  width: 50px;
+  top: 7px;
+}
+
+.footer-btn {
+  position: absolute !important;
+  bottom: 0;
+}
+
