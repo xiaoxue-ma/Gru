@@ -41,29 +41,67 @@
 </script>
 
 <script id="templates/home.html" type="text/ng-template">
-    <ion-view title="Home">
-        <ion-content class="padding">
-            <p>Example of Ionic tabs. Navigate to each tab, and
-                navigate to child views of each tab and notice how
-                each tab has its own navigation history.</p>
-            <p>
-                <a class="button icon icon-right ion-chevron-right" href="#/tab/home/facts">Scientific Facts</a>
-            </p>
+    <ion-view view-title="Home">
+        <ion-content>
+            <ion-list>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/home/{{chat.id}}">
+                    <img ng-src="{{chat.face}}">
+                    <h2>{{chat.name}}</h2>
+                    <p>{{chat.id}}</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        Delete
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
         </ion-content>
     </ion-view>
 </script>
 
 <script id="templates/facts.html" type="text/ng-template">
-    <ion-view title="Facts">
+    <!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+
+
+    <ion-view view-title="{{chat.name}}">
+
         <ion-content class="padding">
-            <p>Here we are starting on a nested state (home.facts), but since we have no history of going to this nested state from home, the back button still appears, knowing there is a parent state to navigate to. If there is a view to go back to in Ionic's history, the back button will default to that.</p>
-            <p>All the code is wrapped up in an angular module that needs to be included as a dependency of the app module. After that, you just have to replace <code>ion-nav-back-button</code> tag with <code>pr-nav-back-button</code> tag.</p>
-            <p>
-                <a class="button icon ion-home" ui-sref="^"> Home</a>
-                <a class="button icon icon-right ion-chevron-right"
-                   ui-sref=".facts2">More Facts</a>
-            </p>
+            <div class="button-bar">
+                <a class="button button-large button-clear button-positive icon-center ion-videocamera" href="#/tab/chats/{{chat.id}}/video"> Video Call</a>
+                <a class="button button-large button-clear button-positive icon-center ion-android-call"  href="#/tab/chats/{{chat.id}}/voice"> Voice Call</a>
+            </div>
+            <div class="message-wrapper">
+                <div>
+                    <img ng- class="profile-pic left" ng-src="{{chat.face}}"/>
+                    <div class="chat-bubble left">
+                        <p>
+                            {{chat.lastText}}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </ion-content>
+
+
+        <form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
+            <ion-footer-bar class="bar-light item-input-inset message-footer" keyboard-attach>
+                <label class="item-input-wrapper">
+                    <button class="button button-block icon-center ion-record button-positive" type="submit">Record</button>
+                </label>
+                <!--
+                <div class="footer-btn-wrap">
+                  <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                          ng-disabled="!input.message || input.message === ''">
+                  </button>
+                </div>
+                -->
+            </ion-footer-bar>
+        </form>
     </ion-view>
 </script>
 
@@ -109,7 +147,7 @@
     <ion-view title="Contact">
         <ion-content>
             <div class="list">
-                <a href="#/tab/home/facts" class="item">
+                <a href="#/tab/home/1" class="item">
                     <h2>Facts 2</h2>
                     <p>This links to the <code>home.facts.facts2</code> sub-state. Notice, the tab will switch to home, but we will still be able to navigate up the state tree to <code>home.facts</code> and <code>home</code></p>
                 </a>

@@ -13,21 +13,4 @@ angular.module('sc.friends',[])
     //});
 
     $scope.friends = Friends.all();
-    $scope.remove = function(chat) {
-      Friends.remove(friend);
-    };
-  })
-
-
-  .controller('FriendsDetailCtrl', function($scope, $stateParams, friends) {
-    $scope.friend =friends.get($stateParams.friendID);
-  })
-
-  .controller('FriendsAddCtrl', function($scope) {
-    $scope.add = true;
-
-    $scope.toAdd = function(){
-      return $scope.add;
-    };
-
   });

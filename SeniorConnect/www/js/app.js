@@ -42,7 +42,7 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       }
     })
     .state('chats.chat-detail', {
-      url: '/chats/:chatId',
+      url: '/:chatId',
       views: {
         'tab-chats@tab': {
           templateUrl: 'templates/chat-detail.html',
@@ -53,6 +53,7 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
 
     .state('tab.friends', {
       url: '/friends',
+      parent: "tab",
       views: {
         'tab-friends': {
           templateUrl: 'templates/tab-friends.html',
