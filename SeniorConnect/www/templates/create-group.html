@@ -1,0 +1,18 @@
+<ion-view view-title="Create New Group">
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="checkbox-light item-icon-right" ng-repeat="friend in friends" type="item-text-wrap"">
+      <label class="checkbox" style="vertical-align: middle">
+        <input type="checkbox">
+      </label>
+
+      <img ng-src="{{friend.face}}" width="40px" height="40px" style="border-radius: 50%; position: relative; vertical-align: middle" ><text padding-left ="10px">{{friend.name}}</text>
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>

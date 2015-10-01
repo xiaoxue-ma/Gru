@@ -27,4 +27,19 @@ angular.module('sc.chats', [])
         toId: $scope.chatId,
         text: $scope.input.message
       }}
+  })
+
+  .controller('CreateGroupCtrl', function($scope, Friends){
+    $scope.friends = Friends.all();
+    $scope.remove = function(chat) {
+      Friends.remove(friend);
+    };
+  })
+
+
+  .controller('GroupDetailCtrl', function($scope, $stateParams, friends) {
+    $scope.friend =friends.get($stateParams.friendID);
   });
+
+
+

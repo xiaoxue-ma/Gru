@@ -1,5 +1,8 @@
 <ion-view view-title="Chats">
   <ion-content>
+    <a class="button icon-left ion-android-add-circle button-full button-positive" href="#/tab/chats/creategroup">
+      Create new group
+    </a>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
