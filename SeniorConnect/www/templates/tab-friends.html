@@ -1,0 +1,24 @@
+<ion-view view-title="Friends">
+
+  <ion-content>
+    <button class="button icon-left ion-person-add button-full button-positive">
+      Add new friend
+    </button>
+    <button class="button icon-left ion-android-add-circle button-full button-stable">
+      Create new group
+    </button>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/chats/{{friend.id}}">
+        <img ng-src="{{friend.face}}">
+        <h2>{{friend.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(friend)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-view>

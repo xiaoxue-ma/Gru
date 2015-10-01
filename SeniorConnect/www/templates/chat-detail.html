@@ -7,28 +7,37 @@
 
 
 <ion-view view-title="{{chat.name}}">
-  <ion-nav-buttons side=secondary>
-    <button class="button button-clear button-positive icon-left ion-videocamera" href="#/tab/chats/{{chat.id}}/video">Video</button>
-    <button class="button button-clear button-positive icon-left ion-android-call" href="#/tab/chats/{{chat.id}}/voice">Call</button>
-  </ion-nav-buttons>
+
     <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
-  </ion-content>
+      <div class="button-bar">
+        <a class="button button-large button-clear button-positive icon-center ion-videocamera" href="#/tab/chats/{{chat.id}}/video"> Video Call</a>
+        <a class="button button-large button-clear button-positive icon-center ion-android-call"  href="#/tab/chats/{{chat.id}}/voice"> Voice Call</a>
+      </div>
+      <div class="message-wrapper">
+          <div>
+              <img ng- class="profile-pic left" ng-src="{{chat.face}}"/>
+              <div class="chat-bubble left">
+                <p>
+                  {{chat.lastText}}
+                </p>
+              </div>
+          </div>
+      </div>
+    </ion-content>
 
 
   <form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
     <ion-footer-bar class="bar-light item-input-inset message-footer" keyboard-attach>
       <label class="item-input-wrapper">
-        <input ng-model="input.message" type="text" placeholder="Send {{chat.name}} a message...">
+        <button class="button button-block icon-center ion-record button-positive" type="submit">Record</button>
       </label>
+      <!--
       <div class="footer-btn-wrap">
         <button class="button button-icon icon ion-android-send footer-btn" type="submit"
                 ng-disabled="!input.message || input.message === ''">
         </button>
       </div>
+      -->
     </ion-footer-bar>
   </form>
 </ion-view>

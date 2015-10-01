@@ -24,7 +24,7 @@ angular.module('sc.chats', [])
 
     $scope.sendMessage = function(sendMessageForm) {
       var message = {
-        toId: $scope.toUser._id,
+        toId: $scope.chatId,
         text: $scope.input.message
       }}
   });

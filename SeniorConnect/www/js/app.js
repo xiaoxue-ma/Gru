@@ -36,6 +36,16 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services'])
       }
     })
 
+    .state('tab.friends', {
+      url: '/friends',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/tab-friends.html',
+          controller: 'FriendsCtrl'
+        }
+      }
+    })
+
     .state('tab.community', {
     url: '/community',
     views: {
