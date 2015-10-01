@@ -53,7 +53,6 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
 
     .state('tab.friends', {
       url: '/friends',
-      parent: "tab",
       views: {
         'tab-friends': {
           templateUrl: 'templates/tab-friends.html',
@@ -63,9 +62,9 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
     })
 
     .state('tab.create-group', {
-      url: '/chats/creategroup',
+      url: '/friends/creategroup',
       views: {
-        'tab-chats': {
+        'tab-friends': {
           templateUrl: 'templates/create-group.html',
           controller: 'CreateGroupCtrl'
         }

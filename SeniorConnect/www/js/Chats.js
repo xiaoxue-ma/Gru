@@ -2,7 +2,7 @@
  * Created by Boss on 25/9/15.
  */
 
-angular.module('sc.chats', [])
+angular.module('sc.chats', ['sc.services'])
 
   .controller('ChatsCtrl', function($scope, Chats) {
     // With the new view caching in Ionic, Controllers are only called
@@ -20,6 +20,7 @@ angular.module('sc.chats', [])
   })
 
   .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+    console.log("chat");
     $scope.chat = Chats.get($stateParams.chatId);
 
     $scope.sendMessage = function(sendMessageForm) {
@@ -29,12 +30,7 @@ angular.module('sc.chats', [])
       }}
   })
 
-  .controller('CreateGroupCtrl', function($scope, Friends){
-    $scope.friends = Friends.all();
-    $scope.remove = function(chat) {
-      Friends.remove(friend);
-    };
-  })
+
 
 
   .controller('GroupDetailCtrl', function($scope, $stateParams, friends) {

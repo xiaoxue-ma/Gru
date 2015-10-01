@@ -13,4 +13,13 @@ angular.module('sc.friends',[])
     //});
 
     $scope.friends = Friends.all();
-  });
+  })
+  .controller('CreateGroupCtrl', function($scope, Friends){
+    $scope.friends = Friends.all();
+    console.log("here");
+    console.log($scope.friends);
+    $scope.remove = function(chat) {
+      Friends.remove(friend);
+    };
+  })
+;
