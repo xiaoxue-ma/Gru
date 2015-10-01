@@ -1,4 +1,4 @@
-angular.module('sc', ['ionic', 'sc.controllers', 'sc.services'])
+angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonIonic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,18 +20,33 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services'])
 
   // Learn more here: https://github.com/angular-ui/ui-router
   $stateProvider
+    .state('sc', {
+      abstract: true,
+      templateUrl: "templates/sc.html"
+    })
     .state('tab', {
     url: '/tab',
+      parent: "sc",
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
-    .state('tab.chats', {
+    .state('chats', {
       url: '/chats',
+      parent: "tab",
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-chats.html',
           controller: 'ChatsCtrl'
+        }
+      }
+    })
+    .state('chats.chat-detail', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats@tab': {
+          templateUrl: 'templates/chat-detail.html',
+          controller: 'ChatDetailCtrl'
         }
       }
     })
@@ -76,15 +91,7 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services'])
       }
     })
 
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+
 
   .state('tab.profile', {
     url: '/profile',
