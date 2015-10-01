@@ -10,8 +10,8 @@ def friends_get():
     user_id = request.args.get('user_id', None)
     user = models.User.query.get(int(user_id))
     all_friends = user.friends.all()
-    for friend in all_friends:
-        friend.fetch_relationship_detail(user)
+    # for friend in all_friends:
+    #     friend.fetch_relationship_detail(user)
     js = json.dumps([i.as_dict() for i in all_friends if i.status == 'confirmed'])
     return js
 
@@ -37,8 +37,8 @@ def get_friend_requests():
     user_id = request.args.get('user_id', None)
     user = models.User.query.get(int(user_id))
     all_friends = user.friends.all()
-    for friend in all_friends:
-        friend.fetch_relationship_detail(user)
+    # for friend in all_friends:
+    #     friend.fetch_relationship_detail(user)
     js = json.dumps([i.as_dict() for i in all_friends if i.status == 'pending'])
     return js
 

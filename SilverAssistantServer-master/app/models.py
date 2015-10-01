@@ -111,17 +111,14 @@ class User(db.Model):
         # if it is myself
         if from_user.ID == self.ID:
             self.relationship = 'Me'
-            self.nickname = self.name
             self.status = 'pending'
         else:
             instance = self.user_user_association_by_id2.filter_by(user_id1=from_user.ID).first()
             if instance:  # if there is a friend relationship
                 self.relationship = instance.relationship
-                self.nickname = instance.nickname if instance.nickname != '' else self.name
                 self.status = instance.status
             else:  # if they are not friends
                 self.relationship = ''
-                self.nickname = self.name
                 self.status = ''
 
     def __repr__(self):
