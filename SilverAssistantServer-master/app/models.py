@@ -74,10 +74,6 @@ class Status(db.Model):
         d['picture_contents'] = [i.as_dict() for i in pic]
         # liked by
         d['likes'] = [i.as_dict() for i in self.users_who_liked_this]
-        # comments
-        d['comments'] = [i.as_dict() for i in self.comments.order_by(Comment.id)]
-        #tags
-        d['tags'] = [i.as_dict() for i in self.tags]
         return d
 
 class Picture(db.Model):
