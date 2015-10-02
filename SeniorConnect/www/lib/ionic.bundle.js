@@ -41503,6 +41503,511 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
  * }
    * ```
    */
+//  IonicModule
+//    .provider('$ionicConfig', function() {
+//
+//      var provider = this;
+//      provider.platform = {};
+//      var PLATFORM = 'platform';
+//
+//      var configProperties = {
+//        views: {
+//          maxCache: PLATFORM,
+//          forwardCache: PLATFORM,
+//          transition: PLATFORM,
+//          swipeBackEnabled: PLATFORM,
+//          swipeBackHitWidth: PLATFORM
+//        },
+//        navBar: {
+//          alignTitle: PLATFORM,
+//          positionPrimaryButtons: PLATFORM,
+//          positionSecondaryButtons: PLATFORM,
+//          transition: PLATFORM
+//        },
+//        backButton: {
+//          icon: PLATFORM,
+//          text: PLATFORM,
+//          previousTitleText: PLATFORM
+//        },
+//        form: {
+//          checkbox: PLATFORM,
+//          toggle: PLATFORM
+//        },
+//        scrolling: {
+//          jsScrolling: PLATFORM
+//        },
+//        spinner: {
+//          icon: PLATFORM
+//        },
+//        tabs: {
+//          style: PLATFORM,
+//          position: PLATFORM
+//        },
+//        templates: {
+//          maxPrefetch: PLATFORM
+//        },
+//        platform: {}
+//      };
+//      createConfig(configProperties, provider, '');
+//
+//
+//
+//      // Default
+//      // -------------------------
+//      setPlatformConfig('default', {
+//
+//        views: {
+//          maxCache: 10,
+//          forwardCache: false,
+//          transition: 'ios',
+//          swipeBackEnabled: true,
+//          swipeBackHitWidth: 45
+//        },
+//
+//        navBar: {
+//          alignTitle: 'center',
+//          positionPrimaryButtons: 'left',
+//          positionSecondaryButtons: 'right',
+//          transition: 'view'
+//        },
+//
+//        backButton: {
+//          icon: 'ion-ios-arrow-back',
+//          text: 'Back',
+//          previousTitleText: true
+//        },
+//
+//        form: {
+//          checkbox: 'circle',
+//          toggle: 'large'
+//        },
+//
+//        scrolling: {
+//          jsScrolling: true
+//        },
+//
+//        spinner: {
+//          icon: 'ios'
+//        },
+//
+//        tabs: {
+//          style: 'standard',
+//          position: 'bottom'
+//        },
+//
+//        templates: {
+//          maxPrefetch: 30
+//        }
+//
+//      });
+//
+//
+//
+//      // iOS (it is the default already)
+//      // -------------------------
+//      setPlatformConfig('ios', {});
+//
+//
+//
+//      // Android
+//      // -------------------------
+//      setPlatformConfig('android', {
+//
+//        views: {
+//          transition: 'android',
+//          swipeBackEnabled: false
+//        },
+//
+//        navBar: {
+//          alignTitle: 'left',
+//          positionPrimaryButtons: 'right',
+//          positionSecondaryButtons: 'right'
+//        },
+//
+//        backButton: {
+//          icon: 'ion-android-arrow-back',
+//          text: false,
+//          previousTitleText: false
+//        },
+//
+//        form: {
+//          checkbox: 'square',
+//          toggle: 'small'
+//        },
+//
+//        spinner: {
+//          icon: 'android'
+//        },
+//
+//        tabs: {
+//          style: 'striped',
+//          position: 'top'
+//        }
+//
+//      });
+//
+//      // Windows Phone
+//      // -------------------------
+//      setPlatformConfig('windowsphone', {
+//        //scrolling: {
+//        //  jsScrolling: false
+//        //}
+//        spinner: {
+//          icon: 'android'
+//        }
+//      });
+//
+//
+//      provider.transitions = {
+//        views: {},
+//        navBar: {}
+//      };
+//
+//
+//      // iOS Transitions
+//      // -----------------------
+//      provider.transitions.views.ios = function(enteringEle, leavingEle, direction, shouldAnimate) {
+//
+//        function setStyles(ele, opacity, x, boxShadowOpacity) {
+//          var css = {};
+//          css[ionic.CSS.TRANSITION_DURATION] = d.shouldAnimate ? '' : 0;
+//          css.opacity = opacity;
+//          if (boxShadowOpacity > -1) {
+//            css.boxShadow = '0 0 10px rgba(0,0,0,' + (d.shouldAnimate ? boxShadowOpacity * 0.45 : 0.3) + ')';
+//          }
+//          css[ionic.CSS.TRANSFORM] = 'translate3d(' + x + '%,0,0)';
+//          ionic.DomUtil.cachedStyles(ele, css);
+//        }
+//
+//        var d = {
+//          run: function(step) {
+//            if (direction == 'forward') {
+//              setStyles(enteringEle, 1, (1 - step) * 99, 1 - step); // starting at 98% prevents a flicker
+//              setStyles(leavingEle, (1 - 0.1 * step), step * -33, -1);
+//
+//            } else if (direction == 'back') {
+//              setStyles(enteringEle, (1 - 0.1 * (1 - step)), (1 - step) * -33, -1);
+//              setStyles(leavingEle, 1, step * 100, 1 - step);
+//
+//            } else {
+//              // swap, enter, exit
+//              setStyles(enteringEle, 1, 0, -1);
+//              setStyles(leavingEle, 0, 0, -1);
+//            }
+//          },
+//          shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
+//        };
+//
+//        return d;
+//      };
+//
+//      provider.transitions.navBar.ios = function(enteringHeaderBar, leavingHeaderBar, direction, shouldAnimate) {
+//
+//        function setStyles(ctrl, opacity, titleX, backTextX) {
+//          var css = {};
+//          css[ionic.CSS.TRANSITION_DURATION] = d.shouldAnimate ? '' : '0ms';
+//          css.opacity = opacity === 1 ? '' : opacity;
+//
+//          ctrl.setCss('buttons-left', css);
+//          ctrl.setCss('buttons-right', css);
+//          ctrl.setCss('back-button', css);
+//
+//          css[ionic.CSS.TRANSFORM] = 'translate3d(' + backTextX + 'px,0,0)';
+//          ctrl.setCss('back-text', css);
+//
+//          css[ionic.CSS.TRANSFORM] = 'translate3d(' + titleX + 'px,0,0)';
+//          ctrl.setCss('title', css);
+//        }
+//
+//        function enter(ctrlA, ctrlB, step) {
+//          if (!ctrlA || !ctrlB) return;
+//          var titleX = (ctrlA.titleTextX() + ctrlA.titleWidth()) * (1 - step);
+//          var backTextX = (ctrlB && (ctrlB.titleTextX() - ctrlA.backButtonTextLeft()) * (1 - step)) || 0;
+//          setStyles(ctrlA, step, titleX, backTextX);
+//        }
+//
+//        function leave(ctrlA, ctrlB, step) {
+//          if (!ctrlA || !ctrlB) return;
+//          var titleX = (-(ctrlA.titleTextX() - ctrlB.backButtonTextLeft()) - (ctrlA.titleLeftRight())) * step;
+//          setStyles(ctrlA, 1 - step, titleX, 0);
+//        }
+//
+//        var d = {
+//          run: function(step) {
+//            var enteringHeaderCtrl = enteringHeaderBar.controller();
+//            var leavingHeaderCtrl = leavingHeaderBar && leavingHeaderBar.controller();
+//            if (d.direction == 'back') {
+//              leave(enteringHeaderCtrl, leavingHeaderCtrl, 1 - step);
+//              enter(leavingHeaderCtrl, enteringHeaderCtrl, 1 - step);
+//            } else {
+//              enter(enteringHeaderCtrl, leavingHeaderCtrl, step);
+//              leave(leavingHeaderCtrl, enteringHeaderCtrl, step);
+//            }
+//          },
+//          direction: direction,
+//          shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
+//        };
+//
+//        return d;
+//      };
+//
+//
+//      // Android Transitions
+//      // -----------------------
+//
+//      provider.transitions.views.android = function(enteringEle, leavingEle, direction, shouldAnimate) {
+//        shouldAnimate = shouldAnimate && (direction == 'forward' || direction == 'back');
+//
+//        function setStyles(ele, x) {
+//          var css = {};
+//          css[ionic.CSS.TRANSITION_DURATION] = d.shouldAnimate ? '' : 0;
+//          css[ionic.CSS.TRANSFORM] = 'translate3d(' + x + '%,0,0)';
+//          ionic.DomUtil.cachedStyles(ele, css);
+//        }
+//
+//        var d = {
+//          run: function(step) {
+//            if (direction == 'forward') {
+//              setStyles(enteringEle, (1 - step) * 99); // starting at 98% prevents a flicker
+//              setStyles(leavingEle, step * -100);
+//
+//            } else if (direction == 'back') {
+//              setStyles(enteringEle, (1 - step) * -100);
+//              setStyles(leavingEle, step * 100);
+//
+//            } else {
+//              // swap, enter, exit
+//              setStyles(enteringEle, 0);
+//              setStyles(leavingEle, 0);
+//            }
+//          },
+//          shouldAnimate: shouldAnimate
+//        };
+//
+//        return d;
+//      };
+//
+//      provider.transitions.navBar.android = function(enteringHeaderBar, leavingHeaderBar, direction, shouldAnimate) {
+//
+//        function setStyles(ctrl, opacity) {
+//          if (!ctrl) return;
+//          var css = {};
+//          css.opacity = opacity === 1 ? '' : opacity;
+//
+//          ctrl.setCss('buttons-left', css);
+//          ctrl.setCss('buttons-right', css);
+//          ctrl.setCss('back-button', css);
+//          ctrl.setCss('back-text', css);
+//          ctrl.setCss('title', css);
+//        }
+//
+//        return {
+//          run: function(step) {
+//            setStyles(enteringHeaderBar.controller(), step);
+//            setStyles(leavingHeaderBar && leavingHeaderBar.controller(), 1 - step);
+//          },
+//          shouldAnimate: shouldAnimate && (direction == 'forward' || direction == 'back')
+//        };
+//      };
+//
+//
+//      // No Transition
+//      // -----------------------
+//
+//      provider.transitions.views.none = function(enteringEle, leavingEle) {
+//        return {
+//          run: function(step) {
+//            provider.transitions.views.android(enteringEle, leavingEle, false, false).run(step);
+//          },
+//          shouldAnimate: false
+//        };
+//      };
+//
+//      provider.transitions.navBar.none = function(enteringHeaderBar, leavingHeaderBar) {
+//        return {
+//          run: function(step) {
+//            provider.transitions.navBar.ios(enteringHeaderBar, leavingHeaderBar, false, false).run(step);
+//            provider.transitions.navBar.android(enteringHeaderBar, leavingHeaderBar, false, false).run(step);
+//          },
+//          shouldAnimate: false
+//        };
+//      };
+//
+//
+//      // private: used to set platform configs
+//      function setPlatformConfig(platformName, platformConfigs) {
+//        configProperties.platform[platformName] = platformConfigs;
+//        provider.platform[platformName] = {};
+//
+//        addConfig(configProperties, configProperties.platform[platformName]);
+//
+//        createConfig(configProperties.platform[platformName], provider.platform[platformName], '');
+//      }
+//
+//
+//      // private: used to recursively add new platform configs
+//      function addConfig(configObj, platformObj) {
+//        for (var n in configObj) {
+//          if (n != PLATFORM && configObj.hasOwnProperty(n)) {
+//            if (angular.isObject(configObj[n])) {
+//              if (!isDefined(platformObj[n])) {
+//                platformObj[n] = {};
+//              }
+//              addConfig(configObj[n], platformObj[n]);
+//
+//            } else if (!isDefined(platformObj[n])) {
+//              platformObj[n] = null;
+//            }
+//          }
+//        }
+//      }
+//
+//
+//      // private: create methods for each config to get/set
+//      function createConfig(configObj, providerObj, platformPath) {
+//        forEach(configObj, function(value, namespace) {
+//
+//          if (angular.isObject(configObj[namespace])) {
+//            // recursively drill down the config object so we can create a method for each one
+//            providerObj[namespace] = {};
+//            createConfig(configObj[namespace], providerObj[namespace], platformPath + '.' + namespace);
+//
+//          } else {
+//            // create a method for the provider/config methods that will be exposed
+//            providerObj[namespace] = function(newValue) {
+//              if (arguments.length) {
+//                configObj[namespace] = newValue;
+//                return providerObj;
+//              }
+//              if (configObj[namespace] == PLATFORM) {
+//                // if the config is set to 'platform', then get this config's platform value
+//                var platformConfig = stringObj(configProperties.platform, ionic.Platform.platform() + platformPath + '.' + namespace);
+//                if (platformConfig || platformConfig === false) {
+//                  return platformConfig;
+//                }
+//                // didnt find a specific platform config, now try the default
+//                return stringObj(configProperties.platform, 'default' + platformPath + '.' + namespace);
+//              }
+//              return configObj[namespace];
+//            };
+//          }
+//
+//        });
+//      }
+//
+//      function stringObj(obj, str) {
+//        str = str.split(".");
+//        for (var i = 0; i < str.length; i++) {
+//          if (obj && isDefined(obj[str[i]])) {
+//            obj = obj[str[i]];
+//          } else {
+//            return null;
+//          }
+//        }
+//        return obj;
+//      }
+//
+//      provider.setPlatformConfig = setPlatformConfig;
+//
+//
+//      // private: Service definition for internal Ionic use
+//      /**
+//       * @ngdoc service
+//       * @name $ionicConfig
+//       * @module ionic
+//       * @private
+//       */
+//      provider.$get = function() {
+//        return provider;
+//      };
+//    })
+//// Fix for URLs in Cordova apps on Windows Phone
+//// http://blogs.msdn.com/b/msdn_answers/archive/2015/02/10/
+//// running-cordova-apps-on-windows-and-windows-phone-8-1-using-ionic-angularjs-and-other-frameworks.aspx
+//    .config(['$compileProvider', function($compileProvider) {
+//      $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|tel|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
+//      $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|content|blob|ms-appx|x-wmapp0):|data:image\//);
+//    }]);
+  //IonicModule
+  //  .directive('ionNavBackButton', ['$ionicConfig', '$document', function($ionicConfig, $document) {
+  //    return {
+  //      restrict: 'E',
+  //      require: '^ionNavBar',
+  //      compile: function(tElement, tAttrs) {
+  //
+  //        // clone the back button, but as a <div>
+  //        var buttonEle = $document[0].createElement('button');
+  //        for (var n in tAttrs.$attr) {
+  //          buttonEle.setAttribute(tAttrs.$attr[n], tAttrs[n]);
+  //        }
+  //
+  //        if (!tAttrs.ngClick) {
+  //          buttonEle.setAttribute('ng-click', '$ionicGoBack()');
+  //        }
+  //
+  //        buttonEle.className = 'button back-button hide buttons ' + (tElement.attr('class') || '');
+  //        buttonEle.innerHTML = tElement.html() || '';
+  //
+  //        var childNode;
+  //        var hasIcon = hasIconClass(tElement[0]);
+  //        var hasInnerText;
+  //        var hasButtonText;
+  //        var hasPreviousTitle;
+  //
+  //        for (var x = 0; x < tElement[0].childNodes.length; x++) {
+  //          childNode = tElement[0].childNodes[x];
+  //          if (childNode.nodeType === 1) {
+  //            if (hasIconClass(childNode)) {
+  //              hasIcon = true;
+  //            } else if (childNode.classList.contains('default-title')) {
+  //              hasButtonText = true;
+  //            } else if (childNode.classList.contains('previous-title')) {
+  //              hasPreviousTitle = true;
+  //            }
+  //          } else if (!hasInnerText && childNode.nodeType === 3) {
+  //            hasInnerText = !!childNode.nodeValue.trim();
+  //          }
+  //        }
+  //
+  //        function hasIconClass(ele) {
+  //          return /ion-|icon/.test(ele.className);
+  //        }
+  //
+  //        var defaultIcon = $ionicConfig.backButton.icon();
+  //        if (!hasIcon && defaultIcon && defaultIcon !== 'none') {
+  //          buttonEle.innerHTML = '<i class="icon ' + defaultIcon + '"></i> ' + buttonEle.innerHTML;
+  //          buttonEle.className += ' button-clear';
+  //        }
+  //
+  //        if (!hasInnerText) {
+  //          var buttonTextEle = $document[0].createElement('span');
+  //          buttonTextEle.className = 'back-text';
+  //
+  //          if (!hasButtonText && $ionicConfig.backButton.text()) {
+  //            buttonTextEle.innerHTML += '<span class="default-title">' + $ionicConfig.backButton.text() + '</span>';
+  //          }
+  //          if (!hasPreviousTitle && $ionicConfig.backButton.previousTitleText()) {
+  //            buttonTextEle.innerHTML += '<span class="previous-title"></span>';
+  //          }
+  //          buttonEle.appendChild(buttonTextEle);
+  //
+  //        }
+  //
+  //        tElement.attr('class', 'hide');
+  //        tElement.empty();
+  //
+  //        return {
+  //          pre: function($scope, $element, $attr, navBarCtrl) {
+  //            // only register the plain HTML, the navBarCtrl takes care of scope/compile/link
+  //            navBarCtrl.navElement('backButton', buttonEle.outerHTML);
+  //            buttonEle = null;
+  //          }
+  //        };
+  //      }
+  //    };
+  //  }]);
+
+
   IonicModule
     .directive('ionNavBackButton', [
       '$animate',
