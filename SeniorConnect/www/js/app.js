@@ -31,6 +31,12 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
     templateUrl: 'templates/tabs.html'
   })
 
+    .state('login', {
+      url: '/login',
+      parent:"sc",
+      templateUrl: 'templates/login.html'
+    })
+
     .state('chats', {
       url: '/chats',
       parent: "tab",
@@ -134,6 +140,6 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
+  $urlRouterProvider.otherwise('/login');
 
 });
