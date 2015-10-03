@@ -2,16 +2,26 @@
 
   <ion-content>
 
-    <ion-list>
-      <ion-item class="checkbox-light item-icon-right" ng-repeat="friend in friends" type="item-text-wrap"">
-      <label class="checkbox" style="vertical-align: middle">
-        <input type="checkbox">
+  <form name=CreateGroup ng-submit="createGroup(task)">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Enter Group Name Here:"  style="font-size: 20px">
       </label>
+      <h4>Select Friends</h4>
 
-      <img ng-src="{{friend.face}}" width="40px" height="40px" style="border-radius: 50%; position: relative; vertical-align: middle" ><text padding-left ="10px">{{friend.name}}</text>
+      <ion-list>
+        <ion-item class="checkbox-light item-icon-right" ng-repeat="friend in friends" type="item-text-wrap"">
+          <label class="checkbox" style="vertical-align: middle">
+            <input type="checkbox">
+          </label>
 
-      </ion-item>
-    </ion-list>
+          <img ng-src="{{friend.face}}" width="40px" height="40px" style="border-radius: 50%; position: relative; vertical-align: middle" ><text> {{friend.name}}</text>
+
+        </ion-item>
+      </ion-list>
+      <button type="submit" class="button button-block icon-center ion-checkmark-circled button-positive">Create Group</button>
+    </div>
+  </form>
 
   </ion-content>
 
