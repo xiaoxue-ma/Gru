@@ -22,4 +22,15 @@ angular.module('sc.friends',[])
       Friends.remove(friend);
     };
   })
+
+  .controller('GetPhoneContactListCtrl', function($scope, PhoneContactList){
+    $scope.phoneContactListPeople = PhoneContactList.all();
+    console.log("here");
+    console.log($scope.phoneContactListPeople);
+  })
+
+  .controller('PhoneContactListPersonCtrl', function($scope, $stateParams, phoneContactListPeople) {
+    $scope.phoneContactListPerson =phoneContactListPeople.get($stateParams.phoneContactListPersonID);
+  });
+
 ;
