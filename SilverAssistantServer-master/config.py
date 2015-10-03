@@ -1,6 +1,6 @@
 __author__ = 'Siyao'
 
-SQLALCHEMY_DATABASE_URI = 'mysql://silverassistant:silverassistant@127.0.0.1/silverassistant'
+SQLALCHEMY_DATABASE_URI = 'mysql://root@127.0.0.1/silverassistant'
 
 UPLOAD_FOLDER_PIC = '/app/static/pic/'
 UPLOAD_FOLDER_AUDIO = '/app/static/audio/'

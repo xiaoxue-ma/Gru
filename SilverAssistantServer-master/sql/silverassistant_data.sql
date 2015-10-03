@@ -28,6 +28,43 @@ INSERT INTO `chatgroup` (`id`, `name`) VALUES
 (1, 'FamilySNS'),
 (2, 'FS');
 
+
+INSERT INTO `user` (`ID`, `name`, `phone_number`, `password`, `description`, `verification_status`, `verification_code`, `icon`, `fb_token`) VALUES
+(1, 'Siyao', 94681496, '1234', NULL, 'verified', NULL, '1.jpg', 'CAALWAgarVpUBAGJ0O86OzqH4e1g7IpbIMFqCL0XFJZC5HwCuZCTZCRGWlxoaUi94kOs8FJe9993H5RtsrJleGgZAAqHRxN9ZBnQ8BgHuRnOcf43lfwivwNsqWqeHLqbQBvKBAbKt0akfDalvJqFKZBeR50ls8g9caRnAOUasZA9ZBoqL3oxbfpGpZBj3uFjKDfPADbHe19ASgmkRLkDAgWQ1g'),
+(2, 'Ailiya', 94681498, '1234', NULL, 'verified', NULL, '2.jpg', NULL),
+(3, 'Kaiyu', 94681499, '1234', NULL, 'verified', NULL, '3.jpg', NULL),
+(4, 'Siyaooooooooo', 6594681497, '12345', NULL, 'verified', '7bb74d', NULL, NULL),
+(11, 'Silver Assistant', 0, '0', 'Silver Assistant Official Account', 'verified', NULL, NULL, NULL);
+
+INSERT INTO `status` (`id`, `timestamp`, `event_timestamp`, `text_content`, `user_id`, `location`, `ta_question_id`) VALUES
+(1, '2015-01-05 08:52:30', '2014-11-03 16:00:00', 'lol', 1, NULL, NULL),
+(2, '2015-02-04 06:47:30', '2015-01-04 16:00:00', 'lol2', 1, NULL, NULL),
+(3, '2015-02-08 14:06:17', '2015-01-18 16:00:00', 'This is Ailiya''s post', 2, NULL, NULL),
+(4, '2015-02-08 14:06:17', '2014-12-15 16:00:00', 'This is Kaiyu''s first post', 3, NULL, NULL),
+(5, '2015-02-08 15:41:52', '2014-11-30 16:00:00', 'Siyao''s first post!', 1, NULL, NULL),
+(10, '2015-02-12 14:29:44', '2015-02-12 14:29:42', 'With pic!', 1, NULL, NULL),
+(11, '2015-08-18 14:13:31', '2015-08-18 14:13:31', 'try', 2, NULL, NULL),
+(12, '2015-09-24 15:32:50', '2015-09-24 15:32:50', 'Piccccc', 1, NULL, NULL),
+(13, '2015-09-24 15:35:17', '2015-09-24 15:35:17', 'Cdv', 1, NULL, NULL),
+(14, '2015-09-26 07:33:56', '2015-09-26 07:33:56', 'Roload off', 1, NULL, NULL),
+(15, '2015-09-26 07:45:43', '2015-09-26 07:45:43', 'Ddd', 1, NULL, NULL),
+(16, '2015-09-26 07:47:47', '2015-09-26 07:47:44', 'Eee', 1, NULL, NULL),
+(17, '2015-09-26 07:55:19', '2015-09-26 07:55:19', 'Eeeeee', 1, NULL, NULL),
+(18, '2015-09-26 08:03:17', '2015-09-26 08:03:17', 'Ref', 1, NULL, NULL),
+(19, '2015-09-26 09:43:12', '2015-09-26 09:43:12', 'O', 1, NULL, NULL);
+
+
+
+INSERT INTO `comment` (`id`, `text_content`, `status_id`, `sent_by_user_id`, `send_to_user_id`, `timestamp`) VALUES
+(1, 'a comment', 1, 2, 1, '0000-00-00 00:00:00'),
+(2, 'I like this!', 2, 3, 1, '2015-02-08 11:17:05'),
+(3, 'I like this too!', 2, 1, 3, '2015-02-08 11:17:05'),
+(8, 'inside after click', 1, 1, 2, '2015-02-09 15:44:06'),
+(9, 'Test comment on Ailiya''s status!', 3, 1, 2, '2015-02-09 15:50:31'),
+(11, 'Bio mode!', 5, 1, 1, '2015-02-09 17:14:21'),
+(12, 'bug fixed?', 10, 1, 1, '2015-05-07 16:22:55'),
+(13, 'no', 10, 2, 1, '2015-08-18 14:12:43');
+
 --
 -- Dumping data for table `chat_message`
 --
@@ -51,16 +88,6 @@ INSERT INTO `chat_message` (`id`, `type`, `from_user_id`, `to_user_id`, `text_co
 --
 -- Dumping data for table `comment`
 --
-
-INSERT INTO `comment` (`id`, `text_content`, `status_id`, `sent_by_user_id`, `send_to_user_id`, `timestamp`) VALUES
-(1, 'a comment', 1, 2, 1, '0000-00-00 00:00:00'),
-(2, 'I like this!', 2, 3, 1, '2015-02-08 11:17:05'),
-(3, 'I like this too!', 2, 1, 3, '2015-02-08 11:17:05'),
-(8, 'inside after click', 1, 1, 2, '2015-02-09 15:44:06'),
-(9, 'Test comment on Ailiya''s status!', 3, 1, 2, '2015-02-09 15:50:31'),
-(11, 'Bio mode!', 5, 1, 1, '2015-02-09 17:14:21'),
-(12, 'bug fixed?', 10, 1, 1, '2015-05-07 16:22:55'),
-(13, 'no', 10, 2, 1, '2015-08-18 14:12:43');
 
 --
 -- Dumping data for table `comment_user_like`
@@ -109,44 +136,8 @@ INSERT INTO `picture` (`id`, `content`, `status_id`) VALUES
 -- Dumping data for table `status`
 --
 
-INSERT INTO `status` (`id`, `timestamp`, `event_timestamp`, `text_content`, `user_id`, `location`, `ta_question_id`) VALUES
-(1, '2015-01-05 08:52:30', '2014-11-03 16:00:00', 'lol', 1, NULL, NULL),
-(2, '2015-02-04 06:47:30', '2015-01-04 16:00:00', 'lol2', 1, NULL, NULL),
-(3, '2015-02-08 14:06:17', '2015-01-18 16:00:00', 'This is Ailiya''s post', 2, NULL, NULL),
-(4, '2015-02-08 14:06:17', '2014-12-15 16:00:00', 'This is Kaiyu''s first post', 3, NULL, NULL),
-(5, '2015-02-08 15:41:52', '2014-11-30 16:00:00', 'Siyao''s first post!', 1, NULL, NULL),
-(10, '2015-02-12 14:29:44', '2015-02-12 14:29:42', 'With pic!', 1, NULL, NULL),
-(11, '2015-08-18 14:13:31', '2015-08-18 14:13:31', 'try', 2, NULL, NULL),
-(12, '2015-09-24 15:32:50', '2015-09-24 15:32:50', 'Piccccc', 1, NULL, NULL),
-(13, '2015-09-24 15:35:17', '2015-09-24 15:35:17', 'Cdv', 1, NULL, NULL),
-(14, '2015-09-26 07:33:56', '2015-09-26 07:33:56', 'Roload off', 1, NULL, NULL),
-(15, '2015-09-26 07:45:43', '2015-09-26 07:45:43', 'Ddd', 1, NULL, NULL),
-(16, '2015-09-26 07:47:47', '2015-09-26 07:47:44', 'Eee', 1, NULL, NULL),
-(17, '2015-09-26 07:55:19', '2015-09-26 07:55:19', 'Eeeeee', 1, NULL, NULL),
-(18, '2015-09-26 08:03:17', '2015-09-26 08:03:17', 'Ref', 1, NULL, NULL),
-(19, '2015-09-26 09:43:12', '2015-09-26 09:43:12', 'O', 1, NULL, NULL);
-
 --
 -- Dumping data for table `status_tag`
---
-
-INSERT INTO `status_tag` (`status_id`, `tag_id`, `tagged_by_user`, `timestamp`) VALUES
-(1, 1, 1, '2015-02-08 09:37:11'),
-(1, 2, 1, '2015-02-08 09:37:11'),
-(11, 16, 2, '2015-08-18 14:13:31'),
-(12, 14, 1, '2015-09-24 15:32:51');
-
---
--- Dumping data for table `status_user_like`
---
-
-INSERT INTO `status_user_like` (`status_id`, `user_id`, `timestamp`) VALUES
-(1, 1, '2015-01-05 15:08:12'),
-(4, 1, '2015-02-09 14:02:04'),
-(10, 2, '2015-08-18 14:12:31');
-
---
--- Dumping data for table `tag`
 --
 
 INSERT INTO `tag` (`id`, `text_content`) VALUES
@@ -168,16 +159,28 @@ INSERT INTO `tag` (`id`, `text_content`) VALUES
 (16, 'try'),
 (17, '');
 
+INSERT INTO `status_tag` (`status_id`, `tag_id`, `tagged_by_user`, `timestamp`) VALUES
+(1, 1, 1, '2015-02-08 09:37:11'),
+(1, 2, 1, '2015-02-08 09:37:11'),
+(11, 16, 2, '2015-08-18 14:13:31'),
+(12, 14, 1, '2015-09-24 15:32:51');
+
+--
+-- Dumping data for table `status_user_like`
+--
+
+INSERT INTO `status_user_like` (`status_id`, `user_id`, `timestamp`) VALUES
+(1, 1, '2015-01-05 15:08:12'),
+(4, 1, '2015-02-09 14:02:04'),
+(10, 2, '2015-08-18 14:12:31');
+
+--
+-- Dumping data for table `tag`
+--
+
 --
 -- Dumping data for table `user`
 --
-
-INSERT INTO `user` (`ID`, `name`, `phone_number`, `password`, `description`, `verification_status`, `verification_code`, `icon`, `fb_token`) VALUES
-(1, 'Siyao', 94681496, '1234', NULL, 'verified', NULL, '1.jpg', 'CAALWAgarVpUBAGJ0O86OzqH4e1g7IpbIMFqCL0XFJZC5HwCuZCTZCRGWlxoaUi94kOs8FJe9993H5RtsrJleGgZAAqHRxN9ZBnQ8BgHuRnOcf43lfwivwNsqWqeHLqbQBvKBAbKt0akfDalvJqFKZBeR50ls8g9caRnAOUasZA9ZBoqL3oxbfpGpZBj3uFjKDfPADbHe19ASgmkRLkDAgWQ1g'),
-(2, 'Ailiya', 94681498, '1234', NULL, 'verified', NULL, '2.jpg', NULL),
-(3, 'Kaiyu', 94681499, '1234', NULL, 'verified', NULL, '3.jpg', NULL),
-(4, 'Siyaooooooooo', 6594681497, '12345', NULL, 'verified', '7bb74d', NULL, NULL),
-(11, 'Silver Assistant', 0, '0', 'Silver Assistant Official Account', 'verified', NULL, NULL, NULL);
 
 --
 -- Dumping data for table `user_chatgroup`

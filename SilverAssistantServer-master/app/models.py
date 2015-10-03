@@ -6,6 +6,18 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 
 # <editor-fold desc="Association Table Entities">
+class CommentUserLikeAssociation(db.Model):
+    __table__ = dec_base.metadata.tables['comment_user_like']
+    user = db.relationship('User', backref='comment_user_like_association')
+    comment = db.relationship('Comment', backref='comment_user_like_association')
+
+
+class StatusTagAssociation(db.Model):
+    __table__ = dec_base.metadata.tables['status_tag']
+    tag = db.relationship('Tag', backref='status_tag_association')
+    status = db.relationship('Status', backref='status_tag_association')
+
+
 class StatusUserLikeAssociation(db.Model):
     __table__ = dec_base.metadata.tables['status_user_like']
     user = db.relationship('User', backref='status_user_like_association')
@@ -51,11 +63,44 @@ class GroupChatMessage(db.Model):
     def as_dict(self):
         return {c.name: convert_to_string(getattr(self, c.name)) for c in self.__table__.columns}
 
+
+class Relationship(db.Model):
+    __table__ = dec_base.metadata.tables['relationship']
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Question(db.Model):
+    __table__ = dec_base.metadata.tables['question']
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Comment(db.Model):
+    __table__ = dec_base.metadata.tables['comment']
+
+    author = db.relationship('User', foreign_keys='Comment.sent_by_user_id')
+    recipient = db.relationship('User', foreign_keys='Comment.send_to_user_id')
+    users_who_liked_this = association_proxy('comment_user_like_association', 'user')
+
+    def __repr__(self):
+        return str(self.text_content)
+
+    def as_dict(self):
+        d = {c.name: convert_to_string(getattr(self, c.name)) for c in self.__table__.columns}
+        # user from and user to
+        d['from_user'] = self.author.name
+        d['to_user'] = self.recipient.name
+        return d
+
+
 class Status(db.Model):
     __table__ = dec_base.metadata.tables['status']
 
-    # tags = association_proxy('status_tag_association', 'tag')
-    # comments = db.relationship('Comment', backref='status', lazy='dynamic')
+    tags = association_proxy('status_tag_association', 'tag')
+    comments = db.relationship('Comment', backref='status', lazy='dynamic')
     picture_contents = db.relationship('Picture', backref='status', lazy='dynamic')
     users_who_liked_this = association_proxy('status_user_like_association', 'user')
     teachable_agent_question = db.relationship('Question', backref='statuses')
@@ -74,13 +119,29 @@ class Status(db.Model):
         d['picture_contents'] = [i.as_dict() for i in pic]
         # liked by
         d['likes'] = [i.as_dict() for i in self.users_who_liked_this]
+        # comments
+        d['comments'] = [i.as_dict() for i in self.comments.order_by(Comment.id)]
+        #tags
+        d['tags'] = [i.as_dict() for i in self.tags]
         return d
+
 
 class Picture(db.Model):
     __table__ = dec_base.metadata.tables['picture']
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Tag(db.Model):
+    __table__ = dec_base.metadata.tables['tag']
+
+    def __repr__(self):
+        return str(self.text_content)
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
 
 class User(db.Model):
     # table construction and foreign keys
@@ -111,14 +172,17 @@ class User(db.Model):
         # if it is myself
         if from_user.ID == self.ID:
             self.relationship = 'Me'
+            self.nickname = self.name
             self.status = 'pending'
         else:
             instance = self.user_user_association_by_id2.filter_by(user_id1=from_user.ID).first()
             if instance:  # if there is a friend relationship
                 self.relationship = instance.relationship
+                self.nickname = instance.nickname if instance.nickname != '' else self.name
                 self.status = instance.status
             else:  # if they are not friends
                 self.relationship = ''
+                self.nickname = self.name
                 self.status = ''
 
     def __repr__(self):
