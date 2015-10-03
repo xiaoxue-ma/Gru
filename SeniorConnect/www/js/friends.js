@@ -12,7 +12,7 @@ angular.module('sc.friends',[])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
 
-    $scope.friends = Friends.all();
+    $scope.friends = Friends.query({user_id: 1});
   })
   .controller('CreateGroupCtrl', function($scope, Friends, Chats){
     $scope.friends = Friends.all();
@@ -39,7 +39,7 @@ angular.module('sc.friends',[])
   })
 
   .controller('ReceivedFriendRequestListCtrl', function($scope, ReceivedFriendRequestList) {
-    $scope.receivedFriendRequestList = ReceivedFriendRequestList.all();
+    $scope.receivedFriendRequestList = ReceivedFriendRequestList.query({user_id:1});
     $scope.clicked = false;
     $scope.request = "Get Received Friend Request";
 

@@ -5,12 +5,16 @@ angular.module('sc.services', ['ngResource'])
     function ($resource) {
       return $resource('http://127.0.0.1:5000/chats',
       { }, {
-
         query:{method:'GET', params:{user_id:1},isArray:true}
-      }
-
-      )
+      })
     }])
+
+   .factory('PrivateChat', ['$resource',
+    function($resource){
+      return $resource('http://127.0.0.1:5000/private_chat/:user_id1/:user_id2',{},
+      { query:{method:'GET', params:{user_id1:1, user_id2:2}, isArray:true}
+      })
+      }])
 // Might use a resource here that returns a JSON array
 
 // Some fake testing data
@@ -64,11 +68,16 @@ angular.module('sc.services', ['ngResource'])
 //};
 //})
 
-.factory('Friends', function () {
+.factory('Friends', ['$resource', function ($resource) {
+  return $resource('http://127.0.0.1:5000/friend',
+      { }, {
+        //query:{method:'GET', params:{user_id:''},isArray:true}
+      })
+   }])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var friends = [{
+  /*var friends = [{
     id: 0,
     name: 'Ben Sparrow',
     face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
@@ -106,7 +115,7 @@ angular.module('sc.services', ['ngResource'])
       return null;
     }
   };
-})
+})*/
 
   .factory('PhoneContactList', function () {
     // Might use a resource here that returns a JSON array
@@ -141,9 +150,13 @@ angular.module('sc.services', ['ngResource'])
   })
 
 
-  .factory('ReceivedFriendRequestList', function () {
-
-    var receivedFriendRequestList = [{
+  .factory('ReceivedFriendRequestList', ['$resource', function ($resource) {
+      return $resource('http://127.0.0.1:5000/friend_request',
+      { }, {
+        query:{method:'GET', params:{user_id:1},isArray:true}
+      })
+  }])
+  /*  var receivedFriendRequestList = [{
       id: 0,
       name: 'Yi Ersan',
       face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
@@ -169,7 +182,7 @@ angular.module('sc.services', ['ngResource'])
         return null;
       }
     };
-  })
+  })*/
   .factory('Feeds',['resource',
     function($resource){
 

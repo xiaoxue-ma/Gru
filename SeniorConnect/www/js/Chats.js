@@ -22,15 +22,14 @@ angular.module('sc.chats', ['sc.services'])
     }
   })
 
-  .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-    console.log("chat");
-    //$scope.chat = Chats.get($stateParams.chatId);
-    //
-    //$scope.sendMessage = function(sendMessageForm) {
-    //  var message = {
-    //    toId: $scope.chatId,
-    //    text: $scope.input.message
-    //  }}
+  .controller('ChatDetailCtrl', function($scope, $stateParams, PrivateChat) {
+    console.log(PrivateChat.query());
+    $scope.chats = PrivateChat.query();
+    $scope.sendMessage = function(sendMessageForm) {
+      var message = {
+        toId: $scope.chatId,
+        text: $scope.input.message
+      }}
   })
 
 

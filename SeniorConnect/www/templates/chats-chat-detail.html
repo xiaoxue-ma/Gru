@@ -13,16 +13,17 @@
         <a class="button button-large button-clear button-positive icon-center ion-videocamera" href="#/tab/chats/{{chat.id}}/video"> Video Call</a>
         <a class="button button-large button-clear button-positive icon-center ion-android-call"  href="#/tab/chats/{{chat.id}}/voice"> Voice Call</a>
       </div>
+        <ion-item ng-repeat = "chat in chats">
       <div class="message-wrapper">
           <div>
               <img ng- class="profile-pic left" ng-src="{{chat.face}}"/>
               <div class="chat-bubble left">
                 <p>
-                  {{chat.lastText}}
+                  {{chat.text_content}}
                 </p>
               </div>
           </div>
-      </div>
+      </div></ion-item>
     </ion-content>
 
 
