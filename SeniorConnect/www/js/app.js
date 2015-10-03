@@ -1,5 +1,4 @@
 angular.module('sc', ['ionic','sc.controllers', 'sc.services','stateBackButtonIonic'])
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -30,6 +29,12 @@ angular.module('sc', ['ionic','sc.controllers', 'sc.services','stateBackButtonIo
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
+
+    //.state('login', {
+    //  url: '/login',
+    //  parent:"sc",
+    //  templateUrl: 'templates/login.html'
+    //})
 
     .state('chats', {
       url: '/chats',
