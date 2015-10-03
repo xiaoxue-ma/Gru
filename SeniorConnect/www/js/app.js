@@ -81,6 +81,16 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       }
     })
 
+    .state('tab.received-request', {
+      url: '/friends/receivedFriendRequest',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/friends-receivedRequest.html',
+          controller: 'ReceivedFriendRequestListCtrl'
+        }
+      }
+    })
+
     .state('tab.community', {
     url: '/community',
     views: {

@@ -37,6 +37,22 @@ angular.module('sc.friends',[])
       $scope.request = "Request Sent";
     };
   })
+
+  .controller('ReceivedFriendRequestListCtrl', function($scope, ReceivedFriendRequestList) {
+    $scope.receivedFriendRequestList = ReceivedFriendRequestList.all();
+    $scope.clicked = false;
+    $scope.request = "Get Received Friend Request";
+
+    $scope.acceptFriendClick = function () {
+      $scope.clicked = true;
+      $scope.request = "Request Accepted";
+    };
+
+    $scope.rejectFriendClick = function () {
+      $scope.clicked = true;
+      $scope.request = 'Request Rejected';
+    };
+  })
   .controller('PhoneContactListPersonCtrl', function($scope, $stateParams, phoneContactListPeople) {
     $scope.phoneContactListPerson =phoneContactListPeople.get($stateParams.phoneContactListPersonID);
   });
