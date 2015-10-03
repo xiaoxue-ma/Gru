@@ -1,5 +1,7 @@
 from app.utility import sms_sender
 
+__author__ = 'Siyao'
+
 from portal_base import *
 from app import app
 

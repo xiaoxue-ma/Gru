@@ -39,20 +39,21 @@ def chat_broadcast(message):
 
 
 def handle_message(message, is_group=False):
-    type = 'text' if message['type'] is None else message['type']
+    type = message.get('type', 'text')
     from_user = message['from']
     data = message['data']
+    audio_length = message.get('audio_length', None)
     msg = {
         'from': from_user,
         'data': data,
-        'type': type
+        'type': type,
     }
     if is_group:
         msg['to_group'] = message['to']
         to_group = message['to'][1::]
         target_group = models.Chatgroup.query.get(int(to_group))
         m = models.GroupChatMessage(from_user_id=from_user, to_group_id=to_group,
-                                    text_content=data, type=type)
+                                    text_content=data, type=type, audio_length=audio_length)
         db.session.add(m)
         db.session.commit()
 
@@ -68,7 +69,7 @@ def handle_message(message, is_group=False):
     else:
         to_user = message['to']
         m = models.ChatMessage(from_user_id=from_user, to_user_id=to_user,
-                               text_content=data, type=type)
+                               text_content=data, type=type, audio_length=audio_length)
         db.session.add(m)
         db.session.commit()
 

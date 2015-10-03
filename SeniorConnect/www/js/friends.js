@@ -30,14 +30,11 @@ angular.module('sc.friends',[])
 
   .controller('GetPhoneContactListCtrl', function($scope, PhoneContactList) {
     $scope.phoneContactListPeople = PhoneContactList.all();
-    console.log("here");
-    console.log($scope.phoneContactListPeople);
-
+    $scope.clicked = false;
+    $scope.request = "Add Friend";
     $scope.addFriendClick = function () {
-      $scope.buttonDisable = true;
-      console.log("hehe");
-      console.log($scope.buttonDisable);
-      $scope.text = 'Friend Request Is Sent';
+      $scope.clicked = true;
+      $scope.request = "Request Sent";
     };
   })
   .controller('PhoneContactListPersonCtrl', function($scope, $stateParams, phoneContactListPeople) {
