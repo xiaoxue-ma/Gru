@@ -21,5 +21,8 @@ angular.module('sc.friends',[])
     $scope.remove = function(chat) {
       Friends.remove(friend);
     };
+    $scope.createGroup = function(createGroupForm) {
+
+    };
   })
 ;
