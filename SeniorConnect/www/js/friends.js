@@ -14,15 +14,27 @@ angular.module('sc.friends',[])
 
     $scope.friends = Friends.all();
   })
-  .controller('CreateGroupCtrl', function($scope, Friends){
+  .controller('CreateGroupCtrl', function($scope, Friends, Chats){
     $scope.friends = Friends.all();
     console.log("here");
     console.log($scope.friends);
     $scope.remove = function(chat) {
       Friends.remove(friend);
     };
-    $scope.createGroup = function(createGroupForm) {
-
+    $scope.createGroup = function(createGroupForm,Chats) {
+      $scope.chats = Chats.all();
+    console.log("hahahahahah");
+      var chat;
+      chat = {
+        id: 5,
+        name: 'Group1',
+        lastText: 'You on your way?',
+        face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+      };
+      console.log($scope.chats);
+      console.log(Chats);
+      Chats.add(chat);
+      console.log(Chats);
     };
   })
 

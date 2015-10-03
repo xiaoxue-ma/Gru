@@ -45,6 +45,10 @@ angular.module('sc.services', [])
           }
         }
         return null;
+      },
+      add: function(chat){
+        chats.push(chat);
+        return chats;
       }
     };
   })

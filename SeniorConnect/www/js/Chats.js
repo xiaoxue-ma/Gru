@@ -17,6 +17,9 @@ angular.module('sc.chats', ['sc.services'])
     $scope.remove = function(chat) {
       Chats.remove(chat);
     };
+    $scope.add=function(chat){
+      Chats.add(chat);
+    }
   })
 
   .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

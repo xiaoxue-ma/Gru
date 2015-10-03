@@ -2,7 +2,7 @@
 
   <ion-content>
 
-  <form name=createGroupForm ng-submit="createGroup(createGroupForm)">
+  <form name=createGroupForm ng-submit="createGroup()">
     <div class="list list-inset">
       <label class="item item-input">
         <input type="text" placeholder="Enter Group Name Here:"  style="font-size: 20px">
@@ -19,7 +19,7 @@
 
         </ion-item>
       </ion-list>
-      <button type="submit" class="button button-block icon-left ion-checkmark-circled button-positive">Create Group</button>
+      <a type="submit" ng-click="createGroup()" class="button button-block icon-left ion-checkmark-circled button-positive" href="#/tabs/chats">Create Group</a>
     </div>
   </form>
 
