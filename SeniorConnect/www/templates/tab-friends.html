@@ -4,10 +4,14 @@
       <a class="button icon-left ion-android-add-circle button-full button-positive" href="#/tab/friends/creategroup">
           Create new group
       </a>
-      <a class="button icon-left ion-person-add button-full button-positive" href="#/tab/friends/getPhoneContactList">
-      Add new friend
-      </a>
-
+      <div class="button-bar">
+        <a class="button icon-left ion-person-add button-outline button-positive" href="#/tab/friends/getPhoneContactList">
+        Add new friend
+        </a>
+        <a class="button icon-left ion-ios-list button-outline button-positive" href="#/tab/friends/getReceivedFriendRequest">
+          View friend request
+        </a>
+      </div>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/chats/{{friend.id}}">
         <img ng-src="{{friend.face}}" style="border-radius: 50%">
