@@ -22,7 +22,7 @@ angular.module('sc.friends',[])
         id: 5,
         name: 'Group1',
         lastText: 'You on your way?',
-        face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+        face: 'img/group1.png'
       };
       Chats.add(chat);
     };
@@ -35,6 +35,22 @@ angular.module('sc.friends',[])
     $scope.addFriendClick = function () {
       $scope.clicked = true;
       $scope.request = "Request Sent";
+    };
+  })
+
+  .controller('ReceivedFriendRequestListCtrl', function($scope, ReceivedFriendRequestList) {
+    $scope.receivedFriendRequestList = ReceivedFriendRequestList.all();
+    $scope.clicked = false;
+    $scope.request = "Get Received Friend Request";
+
+    $scope.acceptFriendClick = function () {
+      $scope.clicked = true;
+      $scope.request = "Request Accepted";
+    };
+
+    $scope.rejectFriendClick = function () {
+      $scope.clicked = true;
+      $scope.request = 'Request Rejected';
     };
   })
   .controller('PhoneContactListPersonCtrl', function($scope, $stateParams, phoneContactListPeople) {

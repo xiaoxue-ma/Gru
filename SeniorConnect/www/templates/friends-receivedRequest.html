@@ -1,0 +1,16 @@
+<ion-view view-title="Received Friend Request">
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-button-right" ng-repeat="receivedFriendRequest in receivedFriendRequestList" type="item-text-wrap"
+                style="align-items: center">
+
+        <img ng-src="{{receivedFriendRequest.face}}" width="40px" height="40px" style="border-radius: 50%; position: relative; vertical-align: middle">
+        <text>  {{receivedFriendRequest.name}}</text>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>
