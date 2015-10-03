@@ -26,7 +26,7 @@ angular.module('sc.friends',[])
     };
   })
 
-  .controller('GetPhoneContactListCtrl', function($scope, PhoneContactList){
+  .controller('GetPhoneContactListCtrl', function($scope, PhoneContactList) {
     $scope.phoneContactListPeople = PhoneContactList.all();
     console.log("here");
     console.log($scope.phoneContactListPeople);
@@ -36,4 +36,3 @@ angular.module('sc.friends',[])
     $scope.phoneContactListPerson =phoneContactListPeople.get($stateParams.phoneContactListPersonID);
   });
 
-;
