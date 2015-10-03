@@ -1,4 +1,4 @@
-angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonIonic'])
+angular.module('sc', ['ionic','sc.controllers', 'sc.services','stateBackButtonIonic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

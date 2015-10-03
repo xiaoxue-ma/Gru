@@ -13,10 +13,10 @@ angular.module('sc.chats', ['sc.services'])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
 
-    $scope.chats = Chats.all();
-    $scope.remove = function(chat) {
-      Chats.remove(chat);
-    };
+    $scope.chats = Chats.query();
+    //$scope.remove = function(chat) {
+    //  Chats.remove(chat);
+    //};
     $scope.add=function(chat){
       Chats.add(chat);
     }
@@ -24,13 +24,13 @@ angular.module('sc.chats', ['sc.services'])
 
   .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
     console.log("chat");
-    $scope.chat = Chats.get($stateParams.chatId);
-
-    $scope.sendMessage = function(sendMessageForm) {
-      var message = {
-        toId: $scope.chatId,
-        text: $scope.input.message
-      }}
+    //$scope.chat = Chats.get($stateParams.chatId);
+    //
+    //$scope.sendMessage = function(sendMessageForm) {
+    //  var message = {
+    //    toId: $scope.chatId,
+    //    text: $scope.input.message
+    //  }}
   })
 
 
