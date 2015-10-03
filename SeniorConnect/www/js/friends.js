@@ -22,7 +22,7 @@ angular.module('sc.friends',[])
         id: 5,
         name: 'Group1',
         lastText: 'You on your way?',
-        face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+        face: 'img/group1.png'
       };
       Chats.add(chat);
     };
