@@ -45,7 +45,7 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       url: '/:chatId',
       views: {
         'tab-chats@tab': {
-          templateUrl: 'templates/chat-detail.html',
+          templateUrl: 'templates/chats-chat-detail.html',
           controller: 'ChatDetailCtrl'
         }
       }
@@ -65,7 +65,7 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       url: '/friends/creategroup',
       views: {
         'tab-friends': {
-          templateUrl: 'templates/create-group.html',
+          templateUrl: 'templates/friends-create-group.html',
           controller: 'CreateGroupCtrl'
         }
       }
