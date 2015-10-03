@@ -16,14 +16,7 @@ angular.module('sc.friends',[])
   })
   .controller('CreateGroupCtrl', function($scope, Friends, Chats){
     $scope.friends = Friends.all();
-    console.log("here");
-    console.log($scope.friends);
-    $scope.remove = function(chat) {
-      Friends.remove(friend);
-    };
-    $scope.createGroup = function(createGroupForm,Chats) {
-      $scope.chats = Chats.all();
-    console.log("hahahahahah");
+    $scope.createGroup = function() {
       var chat;
       chat = {
         id: 5,
@@ -31,10 +24,7 @@ angular.module('sc.friends',[])
         lastText: 'You on your way?',
         face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
       };
-      console.log($scope.chats);
-      console.log(Chats);
       Chats.add(chat);
-      console.log(Chats);
     };
   })
 
