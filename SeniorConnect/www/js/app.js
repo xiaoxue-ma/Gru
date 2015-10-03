@@ -71,6 +71,16 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       }
     })
 
+    .state('tab.get-PhoneContactList', {
+      url: '/friends/getPhoneContactList',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/get-PhoneContactList.html',
+          controller: 'GetPhoneContactListCtrl'
+        }
+      }
+    })
+
     .state('tab.community', {
     url: '/community',
     views: {

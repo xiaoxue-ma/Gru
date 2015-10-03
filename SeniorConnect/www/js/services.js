@@ -92,10 +92,42 @@ angular.module('sc.services', [])
       }
     };
   })
+  .factory('PhoneContactList', function () {
+    // Might use a resource here that returns a JSON array
+
+    // Some fake testing data
+    var phoneContactListPeople = [{
+      id: 0,
+      name: 'Amy Chen',
+      face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+    }, {
+      id: 1,
+      name: 'Celion Dion',
+      face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
+    }];
+
+    return {
+      all: function () {
+        return phoneContactListPeople;
+      },
+      remove: function (phoneContactListPerson) {
+        phoneContactListPeople.splice(phoneContactListPeople.indexOf(phoneContactListPerson), 1);
+      },
+      get: function (phoneContactListPersonID) {
+        for (var i = 0; i < phoneContactListPeople.length; i++) {
+          if (phoneContactListPeople[i].id === parseInt(phoneContactListPersonID)) {
+            return phoneContactListPeople[i];
+          }
+        }
+        return null;
+      }
+    };
+  })
 
   .factory('Feeds',['resource',
     function($resource){
 
   }]);
+
 
 
