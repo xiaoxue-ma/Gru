@@ -8,8 +8,7 @@
 
             <img ng-src="{{phoneContactListPerson.face}}" width="40px" height="40px" style="border-radius: 50%; position: relative; vertical-align: middle">
             <text>  {{phoneContactListPerson.name}}</text>
-            <button class="button button-positive" style="vertical-align: middle">Add Friend</button>
-
+                <button ng-click="addFriendClick()" ng-disabled="{{buttonDisable}}" class="button button-positive" style="vertical-align: middle">{{ request.status }}</button>
             </ion-item>
         </ion-list>
 
