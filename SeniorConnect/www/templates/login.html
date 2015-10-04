@@ -1,0 +1,21 @@
+﻿<ion-view view-title="login" name="login-view">
+    <ion-content clsss="padding">
+        <h1>Login to Senior Connect</h1>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Phone number</span>
+                    <input type="tel" ng-model="data.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="data.password">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" ng-click="login()">Log in</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" ng-click="register()">Register</button>
+                </label>
+            </div>
+    </ion-content>
+</ion-view>

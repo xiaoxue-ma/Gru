@@ -1,4 +1,4 @@
-angular.module('sc.controllers', ['sc.chats', 'sc.friends', 'sc.moments','sc.community','sc.profile'])
+angular.module('sc.controllers', ['sc.chats', 'sc.friends', 'sc.moments', 'sc.community', 'sc.profile'])
 
 //.controller('ChatsCtrl', function($scope, Chats) {
 //  // With the new view caching in Ionic, Controllers are only called
@@ -15,9 +15,17 @@ angular.module('sc.controllers', ['sc.chats', 'sc.friends', 'sc.moments','sc.com
 //  };
 //})
 
+.controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
+    $scope.data = {};
 
-
-
-
-
-
+    $scope.login = function () {
+        LoginService.loginUser($scope.data.username, $scope.data.password).success(function (data) {
+            $state.go('chats');
+        }).error(function (data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed!',
+                template: 'Please check your credentials!'
+            });
+        });
+    }
+});

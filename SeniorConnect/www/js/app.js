@@ -101,8 +101,6 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
       }
     })
 
-
-
   .state('tab.profile', {
     url: '/profile',
     views: {
@@ -111,9 +109,15 @@ angular.module('sc', ['ionic', 'sc.controllers', 'sc.services','stateBackButtonI
         controller: 'ProfileCtrl'
       }
     }
-  });
+  })
+
+  .state('login', {
+      url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
+  $urlRouterProvider.otherwise('/login');
 
 });
