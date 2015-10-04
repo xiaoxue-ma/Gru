@@ -98,13 +98,14 @@ angular.module('sc.services', [])
 
     }])
 
-.sservice('LoginService', function ($q) {
+.service('LoginService', function ($q) {
     return {
         loginUser: function (name, pw) {
             var deferred = $q.defer();
             var promise = deferred.promise;
 
-            if (name == 'user' && pw == 'secret') {
+            //if (name == 'user' && pw == 'secret') {
+            if(name =='user') {
                 deferred.resolve('Welcome ' + name + '!');
             } else {
                 deferred.reject('Wrong credentials.');
