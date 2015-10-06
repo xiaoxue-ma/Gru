@@ -1,9 +1,10 @@
+var serverAddress = "http://localhost:5000";
 
 angular.module('sc.services', ['ngResource'])
 
   .factory('Chats', ['$resource',
     function ($resource) {
-      return $resource('http://127.0.0.1:5000/chats',
+      return $resource(serverAddress+'/chats',
       { }, {
         query:{method:'GET', params:{user_id:1},isArray:true}
       })
@@ -11,7 +12,7 @@ angular.module('sc.services', ['ngResource'])
 
    .factory('PrivateChat', ['$resource',
     function($resource){
-      return $resource('http://127.0.0.1:5000/private_chat/:user_id1/:user_id2',{},
+      return $resource(serverAddress+'/private_chat/:user_id1/:user_id2',{},
       { query:{method:'GET', params:{user_id1:1, user_id2:2}, isArray:true}
       })
       }])
@@ -69,7 +70,7 @@ angular.module('sc.services', ['ngResource'])
 //})
 
 .factory('Friends', ['$resource', function ($resource) {
-  return $resource('http://127.0.0.1:5000/friend',
+  return $resource(serverAddress+'/friend',
       { }, {
         //query:{method:'GET', params:{user_id:''},isArray:true}
       })
@@ -151,7 +152,7 @@ angular.module('sc.services', ['ngResource'])
 
 
   .factory('ReceivedFriendRequestList', ['$resource', function ($resource) {
-      return $resource('http://127.0.0.1:5000/friend_request',
+      return $resource(serverAddress+'/friend_request',
       { }, {
         query:{method:'GET', params:{user_id:1},isArray:true}
       })
