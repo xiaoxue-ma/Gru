@@ -1,4 +1,4 @@
-__author__ = 'Siyao'
+
 
 from app import socketio, app
 

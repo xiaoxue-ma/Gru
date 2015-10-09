@@ -12,7 +12,7 @@ var pluginlist = [
     "cordova-plugin-geolocation",
     "cordova-plugin-media",
     "ionic-plugin-keyboard",
-    "com.synconset.imagepicker",
+/*    "com.synconset.imagepicker",*/
     "https://github.com/alongubkin/phonertc.git"
 ];
 

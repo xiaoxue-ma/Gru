@@ -1,4 +1,3 @@
-__author__ = 'Siyao'
 
 from portal_base import *
 from app import app, socketio
