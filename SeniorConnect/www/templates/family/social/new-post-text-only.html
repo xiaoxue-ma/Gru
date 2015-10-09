@@ -1,0 +1,30 @@
+<ion-view title="{{ 'social.create_new_post' | translate }}">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <label class="item item-input">
+               <textarea style="height: 200px" placeholder="{{ ('social.whats_on_your_mind' | translate)}}" ng-model="status.text_content">
+               </textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{ 'social.tags' | translate }}</span>
+                <input type="text" placeholder="Separate by comma" ng-model="status.tags">
+            </label>
+            <div class="item item-input">
+                <span class="input-label">{{ 'social.location' | translate }}</span>
+                <label class="item-input-wrapper" style="background: transparent">
+                    <input type="text" placeholder="e.g. Singapore" ng-model="status.location">
+                </label>
+                <button class="button button-positive button-positive icon ion-location" ng-click="getLocation(status)"></button>
+            </div>
+            <div class="item item-input">
+                <span class="input-label">{{ 'social.event_time' | translate }}</span>
+                <input type="text" placeholder="e.g. 10am"
+                       ng-focus="pickDate(status)" ng-model="status.event_time">
+            </div>
+            <div class="button-bar">
+                <button class="button button-positive button-block" ng-click="publish(status)">{{ 'social.publish' | translate }}</button>
+                <button class="button button-assertive button-outline button-block" ng-click="cancel()">{{ 'cancel' | translate }}</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

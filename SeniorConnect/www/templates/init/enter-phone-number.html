@@ -1,0 +1,27 @@
+<ion-view title="Initialization">
+    <ion-content padding="true" scroll="false" class="has-header">
+        <div>
+            <p>To start using Sliver Assistant, we need to verify your phone number.</p>
+
+            <p>Your phone number will be your unique identification in Silver Assistant. Your password will help you log on to Silver Assistant on another device.</p>
+
+            <p>Enter phone number and set password below</p>
+        </div>
+        <form>
+            <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input type="text" placeholder="+6512345678" ng-model="user.phone_number">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Your Name</span>
+                <input type="text" placeholder="e.g. John, Alice" ng-model="user.name">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="" ng-model="user.password">
+            </label>
+            <button class="button button-block button-positive" ng-click="register(user)">Next</button>
+            <a href="#/init/login" class="button button-stable button-block">I already have an account</a>
+        </form>
+    </ion-content>
+</ion-view>

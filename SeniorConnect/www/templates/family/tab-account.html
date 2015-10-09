@@ -1,0 +1,44 @@
+<ion-view view-title="{{ 'tab.me' | translate }}">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-divider">{{ 'account.social_network' | translate }}</ion-item>
+      <ion-item class="item item-icon-left" ng-click="manageFacebookConnection();">
+        <i class="icon ion-social-facebook"></i>
+        {{ 'account.facebook' | translate }}
+        <span class="item-note" ng-show="isFacebookConnected">{{isFacebookConnected.email}}</span>
+      </ion-item>
+      <ion-item class="item item-icon-left">
+        <i class="icon ion-social-twitter"></i>
+        {{ 'account.twitter' | translate }}
+        <span class="item-note" ng-show="isTwitterConnected"> {{isTwitterConnected}}</span>
+      </ion-item>
+      <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
+      <label class="item item-select">
+        <span class="input-label">{{ 'account.language' | translate }}</span>
+        <select ng-model="currentLanguage"
+                ng-options="k as k for (k, v) in translations"
+                ng-change="setLanguage(currentLanguage);">
+        </select>
+      </label>
+      <label class="item item-select">
+        <span class="input-label">{{ 'account.font_size' | translate }}</span>
+        <select>
+        </select>
+      </label>
+      <label class="item item-select">
+        <span class="input-label">{{ 'account.identity' | translate }}</span>
+        <select>
+          <option>{{ 'account.elderly' | translate }}</option>
+          <option>{{ 'account.non_elderly' | translate }}</option>
+        </select>
+      </label>
+      <ion-item>
+        <a class="button button-block button-assertive"
+           href="#/init/login">
+          {{ 'account.logout' | translate }}
+        </a>
+      </ion-item>
+    </ion-list>
+    <div style="height: 50px;"></div>
+  </ion-content>
+</ion-view>

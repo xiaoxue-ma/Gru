@@ -1,0 +1,61 @@
+<ion-view view-title="Home">
+
+  <ion-nav-buttons side="left">
+      <img class="icon-logo" src="img/silver_life_logo.png"/>
+  </ion-nav-buttons>
+
+  <ion-content  scroll="false">
+  <!-- Do not need for now
+    <div class="weather-div">
+        Weather Here
+    </div> -->
+    
+    <ion-scroll delegate-handle="messageScroll" style="height: 95%; overflow-scroll=true"><!-- 75% -->
+        <div ng-repeat="msg in chats">
+            <div style="width: 100%; overflow:hidden; position:relative">
+                <img class="ng-class: 'profile-pic-'+msg.type"/>
+
+                <a class="ng-class: 'bubble-'+msg.type">
+                    <p ng-bind-html="msg.message" style="vertical-align: middle"></p> <!--{{ msg.message }} -->
+                </a>
+            </div>
+        </div>
+    </ion-scroll>
+  
+
+    <div id="waiting" ng-if="homePackage.waiting" style="bottom: 5px color: gray">
+      Waiting for a response...
+    </div>
+
+    <div id="chatbuttons" ng-if="homePackage.showButtons">
+      <ul>
+        <li> 
+          <button ng-click="sendWholeMsg('Yes.')" style="width: 25%"> 
+            Yes.
+          </button>
+        </li>
+        <li>
+          <button ng-click="sendWholeMsg('No.')" style="width: 25%"> 
+            No.
+          </button>
+        </li>
+        <li>
+          <button ng-click="sendWholeMsg('I\'m not sure.')" style="width: 33%"> 
+            I'm not sure.
+          </button>
+        </li>
+      </ul>
+    </div>
+
+  </ion-content>
+  
+  <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+    <textarea ng-model="homePackage.msg" value="" placeholder="Enter a message..." required minlength="1" maxlength="1500" msd-elastic>
+    </textarea>
+    <div class="footer-btn-wrap">
+        <button class="button" ng-click="sendMsg()" ng-disabled="!homePackage.msg || homePackage.msg === ''">
+            Send
+        </button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

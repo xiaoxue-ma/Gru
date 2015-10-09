@@ -1,4 +1,11 @@
 {
-  "name": "SeniorConnect",
-  "app_id": "708d4f3f"
+  "name": "SilverAssistant",
+  "app_id": "9844ffd4",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }

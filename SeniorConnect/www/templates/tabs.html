@@ -5,6 +5,11 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
+  <!-- Family Tab -->
+  <ion-tab class="tab-icon" title="Family" icon-off="ion-ios7-people-outline" icon-on="ion-ios7-people" href="#/tab/family">
+    <ion-nav-view name="tab-family"></ion-nav-view>
+  </ion-tab>
+
     <!-- Chats Tab -->
     <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
         <ion-nav-view name="tab-chats"></ion-nav-view>
@@ -12,7 +17,7 @@ navigation history that also transitions its views in and out.
 
     <!-- Friends Tab -->
     <ion-tab title="Friends" icon-off="ion-ios-contact-outline" icon-on="ion-ios-contact" ui-sref="tab.friends">
-      <ion-nav-view name="tab-friends"></ion-nav-view>
+        <ion-nav-view name="tab-friends"></ion-nav-view>
     </ion-tab>
 
     <!-- Community Tab -->
@@ -29,6 +34,5 @@ navigation history that also transitions its views in and out.
     <ion-tab title="Profile" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/profile">
         <ion-nav-view name="tab-profile"></ion-nav-view>
     </ion-tab>
-
 
 </ion-tabs>

@@ -1,144 +1,79 @@
-angular.module('sc', ['ionic','sc.controllers', 'sc.services','stateBackButtonIonic'])
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+//<editor-fold desc="Initialization of angular module">
+mod = angular.module('starter', ['ionic', 'ngCordova', 'openfb', 'twitterLib',
+    'family.controllers', 'family.services'])
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleLightContent();
-    }
-  });
-})
+    .run(function ($ionicPlatform, OpenFB) {
 
-.config(function($stateProvider, $urlRouterProvider) {
+        OpenFB.init('798254143592085', 'https://www.facebook.com/connect/login_success.html');
 
-  // Learn more here: https://github.com/angular-ui/ui-router
-  $stateProvider
-    .state('sc', {
-      abstract: true,
-      templateUrl: "templates/sc.html"
-    })
-    .state('tab', {
-    url: '/tab',
-      parent: "sc",
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
+        });
+    }).config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    //.state('login', {
-    //  url: '/login',
-    //  parent:"sc",
-    //  templateUrl: 'templates/login.html'
-    //})
+        $ionicConfigProvider.tabs.position("bottom");
 
-    .state('chats', {
-      url: '/chats',
-      parent: "tab",
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('chats.chat-detail', {
-      url: '/:chatId',
-      views: {
-        'tab-chats@tab': {
-          templateUrl: 'templates/chats-chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+        // Ionic uses AngularUI Router which uses the concept of states
+        // Learn more here: https://github.com/angular-ui/ui-router
+        // Set up the various states which the app can be in.
+        // Each state's controller can be found in controllers.js
+        $stateProvider
 
-    .state('tab.friends', {
-      url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
+            // setup an abstract state for the tabs directive
+            .state('tab', {
+                url: "/tab",
+                abstract: true,
+                templateUrl: "templates/tabs.html"
+            })
 
-    .state('tab.create-group', {
-      url: '/friends/creategroup',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friends-create-group.html',
-          controller: 'CreateGroupCtrl'
-        }
-      }
-    })
+            // Each tab has its own nav history stack:
+            .state( 'tab.home', {
+                url: '/home',
+                views: {
+                    'tab-home' : {
+                        templateUrl: 'templates/home.html'
+                    }
+                }
+            })
 
-    .state('tab.get-PhoneContactList', {
-      url: '/friends/getPhoneContactList',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/get-PhoneContactList.html',
-          controller: 'GetPhoneContactListCtrl'
-        }
-      }
-    })
+            .state('tab.health', {
+                url: '/health',
+                views: {
+                    'tab-health': {
+                        templateUrl: 'templates/tab-health.html'
+                    }
+                }
+            })
 
-    .state('tab.received-request', {
-      url: '/friends/receivedFriendRequest',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friends-receivedRequest.html',
-          controller: 'ReceivedFriendRequestListCtrl'
-        }
-      }
-    })
+            .state('tab.memory', {
+                url: '/memory',
+                views: {
+                    'tab-memory': {
+                        templateUrl: 'templates/tab-memory.html'
+                    }
+                }
+            })
 
-    .state('tab.community', {
-    url: '/community',
-    views: {
-      'tab-community': {
-        templateUrl: 'templates/tab-community.html',
-        controller: 'CommunityCtrl'
-      }
-    }
-    })
+            .state('tab.world', {
+                url: '/world',
+                views: {
+                    'tab-world': {
+                        templateUrl: 'templates/tab-world.html'
+                    }
+                }
+            });
 
-    .state('tab.community-event', {
-      url: '/community/event',
-      views: {
-        'tab-community': {
-          templateUrl: 'templates/community-event.html',
-          controller: 'CommunityEventCtrl'
-        }
-      }
-    })
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/tab/family/social');
 
-    .state('tab.moments', {
-      url:'/moments',
-      views:{
-        'tab-moments':{
-          templateUrl: 'templates/tab-moments.html',
-          controller: 'MomentsCtrl'
-        }
-      }
-    })
+    });
 
 
-
-  .state('tab.profile', {
-    url: '/profile',
-    views: {
-      'tab-profile': {
-        templateUrl: 'templates/tab-profile.html',
-        controller: 'ProfileCtrl'
-      }
-    }
-  });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
-
-});

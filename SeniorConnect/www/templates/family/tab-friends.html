@@ -1,0 +1,27 @@
+<ion-view view-title="{{ 'tab.friends' | translate }}">
+  <ion-nav-buttons side="right">
+    <button class="button icon ion-plus" ng-click="addFriend()"> </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher
+            pulling-text="{{ 'pull_to_refresh' | translate }}"
+            on-refresh="refresh()">
+    </ion-refresher>
+    <ion-list show-delete="false" can-swipe="true">
+      <a class="item item-icon-left" href="#/tab/family/friend/requests">
+        <i class="icon ion-person-add"></i>
+        {{ 'friends.friend_requests' | translate }}
+        <span class="badge badge-assertive">{{requests.length}}</span>
+      </a>
+      <ion-item class="item-avatar" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/family/friend/{{friend.ID}}">
+        <img ng-src="{{serverIconAddress + friend.icon}}">
+        <h2>{{friend.name}}</h2>
+        <p>
+          {{ 'friends.nickname' | translate }}: {{friend.nickname}}, {{ 'friends.relationship' | translate }}: {{friend.relationship}}
+        </p>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteFriend($index);"></ion-option-button>
+      </ion-item>
+    </ion-list>
+    <div style="height: 50px;"></div>
+  </ion-content>
+</ion-view>
