@@ -6,10 +6,10 @@ var translations = {
     "English": {
         "pull_to_refresh": "Pull down to refresh...",
 
-        "tab.chat": "Chat",
+        "tab.chat": "Chats",
         "tab.friends": "Friends",
-        "tab.social": "Social",
-        "tab.me": "Me",
+        "tab.social": "Moments",
+        "tab.me": "Profile",
 
         "accept": "Accept",
         "ignore": "Ignore",
