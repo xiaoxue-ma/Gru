@@ -19,7 +19,7 @@
 
     <div ng-repeat="item in feeds | orderBy: sorter(isBiographyMode)" class="list card">
       <!--header with user names and time-->
-        <a class="item item-avatar" href="#/tab/family/chats/{{item.author.ID}}">
+        <a class="item item-avatar" href="#/tab/chats/{{item.author.ID}}">
             <img ng-src="{{serverIconAddress + item.author.icon}}">
             <h2>{{item.author.nickname}}</h2>
             <p ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}

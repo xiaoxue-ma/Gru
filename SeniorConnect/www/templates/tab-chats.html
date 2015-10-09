@@ -10,7 +10,7 @@
         <ion-list show-delete="false" can-swipe="true">
             <ion-item class=" item-avatar"
                       ng-repeat="chat in chats"
-                      type="item-text-wrap" href="#/tab/family/chats/{{chat.id}}">
+                      type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
                 <img ng-src="{{serverIconAddress + chat.icon}}">
                 <span class="badge badge-assertive">{{chat.unread_count}}</span>
 

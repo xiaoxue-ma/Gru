@@ -1,79 +1,244 @@
-//<editor-fold desc="Initialization of angular module">
+/**
+ * Created by Siyao on 2015/3/26.
+ */
 mod = angular.module('starter', ['ionic', 'ngCordova', 'openfb', 'twitterLib',
-    'family.controllers', 'family.services'])
+  'family.controllers', 'family.services'])
 
-    .run(function ($ionicPlatform, OpenFB) {
+  .run(function ($ionicPlatform, OpenFB) {
 
-        OpenFB.init('798254143592085', 'https://www.facebook.com/connect/login_success.html');
+    OpenFB.init('798254143592085', 'https://www.facebook.com/connect/login_success.html');
 
-        $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    $ionicPlatform.ready(function () {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if (window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
+      }
+    });
+  });
+
+
+mod.config(function($compileProvider){
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+});
+
+mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  $ionicConfigProvider.tabs.position("bottom");
+
+    //<editor-fold desc="Main Page Tab State Area">
+    $stateProvider
+
+        .state('tab', {
+            url: "/tab",
+            abstract: true,
+                templateUrl: "templates/tabs.html",
+                controller: 'FamilyTabsCtrl'
+        })
+
+        .state('single-page', {
+            url: "/single-page",
+            abstract: true,
+            templateUrl: "templates/single-page-container.html"
+        })
+
+        .state('tab.social', {
+            url: '/social',
+            views: {
+                'tab-social': {
+                    templateUrl: 'templates/tab-social.html',
+                    controller: 'SocialCtrl'
+                }
             }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
+        })
+
+        .state('tab.friend-social', {
+            url: '/social/:friendId',
+            views: {
+                'tab-social': {
+                    templateUrl: 'templates/tab-social.html',
+                    controller: 'SocialCtrl'
+                }
+            }
+        })
+
+        .state('single-page.social-new-post-text-only', {
+            url: '/social/new-post-text-only',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/social/new-post-text-only.html',
+                    controller: 'SocialNewPostCtrl'
+                }
+            }
+        })
+
+        .state('single-page.social-new-post-new-photo', {
+            url: '/social/new-post-with-photo',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/social/new-post-with-photo.html',
+                    controller: 'SocialNewPostCtrl'
+                }
+            }
+        })
+
+        .state('single-page.social-new-post-upload-photo', {
+            url: '/social/new-post-upload-photo',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/social/new-post-with-photo.html',
+                    controller: 'SocialNewPostCtrl'
+                }
+            }
+        })
+
+        .state('tab.chats', {
+            url: '/chats',
+            views: {
+                'tab-chats': {
+                    templateUrl: 'templates/tab-chats.html',
+                    controller: 'ChatsCtrl'
+                }
+            }
+        })
+        .state('tab.chat-detail', {
+            url: '/chats/:chatId',
+            views: {
+                'tab-chats': {
+                    templateUrl: 'templates/chat/chat-detail.html',
+                    controller: 'ChatDetailCtrl'
+                }
+            }
+        })
+
+        .state('single-page.manage-a-group', {
+            url: '/chats/manage-a-group/:groupId',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/chat/manage-a-group.html',
+                    controller: 'ChatgroupDetailCtrl'
+                }
+            }
+        })
+
+        .state('single-page.manage-all-groups', {
+            url: '/chats/manage-all-groups',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/chat/manage-all-groups.html',
+                    controller: 'ChatgroupCtrl'
+                }
+            }
+        })
+
+        .state('tab.friends', {
+            url: '/friends',
+            views: {
+                'tab-friends': {
+                    templateUrl: 'templates/tab-friends.html',
+                    controller: 'FriendsCtrl'
+                }
+            }
+        })
+
+        .state('single-page.add-friend-from-contacts', {
+            url: '/friend/add-from-contacts',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/friend/add-friend-from-contacts.html',
+                    controller: 'AddFriendFromContactsCtrl'
+                }
+            }
+        })
+
+        .state('tab.friend-requests', {
+            url: '/friend/requests',
+            views: {
+                'tab-friends': {
+                    templateUrl: 'templates/friend/view-friend-requests.html',
+                    controller: 'FriendRequestCtrl'
+                }
+            }
+        })
+
+        .state('tab.friend-detail', {
+            url: '/friend/:friendId',
+            views: {
+                'tab-friends': {
+                    templateUrl: 'templates/friend/friend-detail.html',
+                    controller: 'FriendDetailCtrl'
+                }
+            }
+        })
+
+        .state('tab.account', {
+            url: '/account',
+            views: {
+                'tab-account': {
+                    templateUrl: 'templates/tab-account.html',
+                    controller: 'AccountCtrl'
+                }
             }
         });
-    }).config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+      //.state('tab.community', {
+      //  url: '/community',
+      //  views: {
+      //    'tab-community': {
+      //      templateUrl: 'templates/tab-community.html',
+      //      controller: 'CommunityCtrl'
+      //    }
+      //  }
+      //})
+      //
+      //.state('tab.community-event', {
+      //  url: '/community/event',
+      //  views: {
+      //    'tab-community': {
+      //      templateUrl: 'templates/community/events.html',
+      //      controller: 'CommunityEventCtrl'
+      //    }
+      //  }
+      //});
 
-        $ionicConfigProvider.tabs.position("bottom");
+    //</editor-fold>
 
-        // Ionic uses AngularUI Router which uses the concept of states
-        // Learn more here: https://github.com/angular-ui/ui-router
-        // Set up the various states which the app can be in.
-        // Each state's controller can be found in controllers.js
-        $stateProvider
-
-            // setup an abstract state for the tabs directive
-            .state('tab', {
-                url: "/tab",
-                abstract: true,
-                templateUrl: "templates/tabs.html"
-            })
-
-            // Each tab has its own nav history stack:
-            .state( 'tab.home', {
-                url: '/home',
-                views: {
-                    'tab-home' : {
-                        templateUrl: 'templates/home.html'
-                    }
+    //<editor-fold desc="Initialization State">
+    $stateProvider
+        .state('init', {
+            url: "/init",
+            abstract: true,
+            templateUrl: 'templates/init/init-container.html',
+            controller: 'InitCtrl'
+        })
+        .state('init.enter_phone_number', {
+            url: '/enter_phone_number',
+            views: {
+                'init-main-view': {
+                    templateUrl: 'templates/init/enter-phone-number.html'
                 }
-            })
-
-            .state('tab.health', {
-                url: '/health',
-                views: {
-                    'tab-health': {
-                        templateUrl: 'templates/tab-health.html'
-                    }
+            }
+        })
+        .state('init.verify_phone_number', {
+            url: '/verify_phone_number',
+            views: {
+                'init-main-view': {
+                    templateUrl: 'templates/init/verify-phone-number.html'
                 }
-            })
-
-            .state('tab.memory', {
-                url: '/memory',
-                views: {
-                    'tab-memory': {
-                        templateUrl: 'templates/tab-memory.html'
-                    }
+            }
+        })
+        .state('init.login', {
+            url: '/login',
+            views: {
+                'init-main-view': {
+                    templateUrl: 'templates/init/login.html'
                 }
-            })
+            }
+        });
 
-            .state('tab.world', {
-                url: '/world',
-                views: {
-                    'tab-world': {
-                        templateUrl: 'templates/tab-world.html'
-                    }
-                }
-            });
-
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/family/social');
-
-    });
-
-
+  $urlRouterProvider.otherwise('/tab/social');
+    //</editor-fold>
+});
