@@ -1,8 +1,9 @@
-<ion-view title="{{ 'tab.social' | translate }}">
+<ion-view title="{{ 'tab.social' | translate }}" class="background-dark-orange">
 
   <ion-nav-buttons side="right">
-    <button class="button icon ion-camera" ng-if="showAllFeeds" ng-click="newPost()"></button>
+    <button class="button icon ion-camera background-dark-orange content-light-white" ng-if="showAllFeeds" ng-click="newPost()"></button>
   </ion-nav-buttons>
+
 
   <ion-content has-header="true" padding="true">
 
@@ -18,17 +19,17 @@
 
     <div ng-repeat="item in feeds | orderBy: sorter(isBiographyMode)" class="list card">
       <!--header with user names and time-->
-      <a class="item item-avatar" href="#/tab/family/chats/{{item.author.ID}}">
-        <img ng-src="{{serverIconAddress + item.author.icon}}">
-        <h2>{{item.author.nickname}}</h2>
-        <p ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}
-          {{item.event_timestamp}}</p>
-        <p ng-if="!isBiographyMode">{{ 'social.posted_at' | translate }}
-          {{item.timestamp}}</p>
-      </a>
+        <a class="item item-avatar" href="#/tab/family/chats/{{item.author.ID}}">
+            <img ng-src="{{serverIconAddress + item.author.icon}}">
+            <h2>{{item.author.nickname}}</h2>
+            <p ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}
+                {{item.event_timestamp}}</p>
+            <p ng-if="!isBiographyMode">{{ 'social.posted_at' | translate }}
+                {{item.timestamp}}</p>
+        </a>
 
       <!--body part, display text and picture if any-->
-      <div class="item item-body">
+      <div class="item item-body background-light-orange">
         <!--Picture display-->
         <p ng-if="item.picture_contents.length>0">
           <span ng-repeat="pic in item.picture_contents">
@@ -46,17 +47,17 @@
             </ion-pane>
           </div>
         </script>
-      </div>
-      <!--icon bars to display comment and like bar-->
-      <div class="item tabs tabs-secondary tabs-icon-left">
+
+        <!--icon bars to display comment and like bar-->
+        <div class="item tabs tabs-secondary tabs-icon-left">
         <span class="tab-item" ng-hide="alreadyLiked(item)" ng-click="like(item)">
           <i class="icon ion-thumbsup"></i> {{ 'social.like_it' | translate }}
         </span>
           <span class="tab-item" ng-show="alreadyLiked(item)" ng-click="dislike(item)">
           <i class="icon ion-thumbsdown"></i> {{ 'social.unlike_it' | translate }}
         </span>
+        </div>
       </div>
-    </div>
     <div style="height: 50px;"></div>
   </ion-content>
 </ion-view>

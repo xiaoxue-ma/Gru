@@ -190,6 +190,7 @@ sac.controller('SocialCtrl', function ($scope, $ionicLoading, $stateParams, $htt
             buttons: [
                 {text: $translate.instant('social.take_photo')},
                 {text: $translate.instant('social.select_photos_from_phone')},
+                {text: $translate.instant('social.text_only')}
             ],
             titleText: $translate.instant('social.create_new_post'),
             buttonClicked: function (index) {

@@ -16,7 +16,6 @@
       <ion-item class="item-avatar" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/family/friend/{{friend.ID}}">
         <img ng-src="{{serverIconAddress + friend.icon}}">
         <h2>{{friend.name}}</h2>
-
         <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteFriend($index);"></ion-option-button>
       </ion-item>
     </ion-list>
