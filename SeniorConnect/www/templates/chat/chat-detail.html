@@ -1,4 +1,4 @@
-<ion-view view-title="<i class='icon ion-chatbubble user-messages-top-icon'></i>  {{friend.name}}">
+<ion-view view-title="{{friend.name}}">
     <ion-nav-buttons side="right">
         <button class="button icon ion-more"
                 ng-show="isGroupChat"
@@ -33,7 +33,7 @@
         <div style="height: 70px;"></div>
     </ion-content>
 
-  <!--  <div ng-show="!isInVoiceMessageMode" class="bar bar-footer bar-light has-tabs item-input-inset">
+    <div ng-show="!isInVoiceMessageMode" class="bar bar-footer bar-light has-tabs item-input-inset">
         <button class="button button-icon icon ion-mic-a" ng-click="isInVoiceMessageMode = !isInVoiceMessageMode"></button>
         <label class="item-input-wrapper">
             <input type="search" ng-model="messageToSend"
@@ -42,11 +42,11 @@
         <button class="button button-clear button-positive" ng-click="sendMessage(messageToSend); messageToSend=''">
             {{ 'chat.send' | translate }}
         </button>
-    </div>-->
+    </div>
 
 
-    <div class="bar bar-footer has-tabs bar-light">
-        <button class="button button-icon icon ion-chatbox-working"> </button>
+    <div ng-show="isInVoiceMessageMode" class="bar bar-footer has-tabs bar-light">
+        <button class="button button-icon icon ion-chatbox-working" ng-click="isInVoiceMessageMode = !isInVoiceMessageMode"> </button>
         <div class="title"><button class="button button-clear button-positive"
                 ng-click="record()">
             {{ 'chat.hold_to_record' | translate }}

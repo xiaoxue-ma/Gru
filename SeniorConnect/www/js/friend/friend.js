@@ -165,7 +165,7 @@ sac.controller('FriendDetailCtrl', function ($scope, $stateParams, $ionicActionS
         };
         Friends.instance.update(data, function (data, status, headers, config) {
             if (data.status == 200) {
-                $state.go('tab.family.friends');
+                $state.go('tab.friends');
             }
         });
     };

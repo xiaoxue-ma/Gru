@@ -1,14 +1,7 @@
 <ion-view title="{{ 'social.create_new_post' | translate }}" cache-view="false">
     <ion-content padding="true" class="has-header">
         <form>
-            <label class="item item-input">
-               <textarea style="height: 100px" placeholder="{{ ('social.whats_on_your_mind' | translate)}}" ng-model="status.text_content">
-               </textarea>
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{ 'social.tags' | translate }}</span>
-                <input type="text" placeholder="Separate by comma" ng-model="status.tags">
-            </label>
+
             <div class="item item-input">
                 <span class="input-label">{{ 'social.location' | translate }}</span>
                 <label class="item-input-wrapper" style="background: transparent">

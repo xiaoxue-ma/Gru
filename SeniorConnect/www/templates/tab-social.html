@@ -19,7 +19,7 @@
 
     <div ng-repeat="item in feeds | orderBy: sorter(isBiographyMode)" class="list card">
       <!--header with user names and time-->
-        <a class="item item-avatar" href="#/tab/family/chats/{{item.author.ID}}">
+        <a class="item item-avatar" href="#/tab/chats/{{item.author.ID}}">
             <img ng-src="{{serverIconAddress + item.author.icon}}">
             <h2>{{item.author.nickname}}</h2>
             <p ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}
@@ -47,9 +47,9 @@
             </ion-pane>
           </div>
         </script>
-
+      </div>
         <!--icon bars to display comment and like bar-->
-        <div class="item tabs tabs-secondary tabs-icon-left">
+          <div class="item tabs tabs-secondary tabs-icon-left background-light-orange">
         <span class="tab-item" ng-hide="alreadyLiked(item)" ng-click="like(item)">
           <i class="icon ion-thumbsup"></i> {{ 'social.like_it' | translate }}
         </span>
@@ -57,7 +57,7 @@
           <i class="icon ion-thumbsdown"></i> {{ 'social.unlike_it' | translate }}
         </span>
         </div>
-      </div>
+        </div>
     <div style="height: 50px;"></div>
   </ion-content>
 </ion-view>

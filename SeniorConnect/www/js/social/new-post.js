@@ -32,12 +32,12 @@ sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParam
                 }
             }
             $scope.imgURI = [];
-            $state.go('tab.family.social');
+            $state.go('tab.social');
         });
     }
 
     $scope.cancel = function(){
-        $state.go('tab.family.social');
+        $state.go('tab.social');
     };
 
     //<editor-fold desc="Geolocation and Datepicker">

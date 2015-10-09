@@ -1,0 +1,33 @@
+<ion-view view-title="{{ 'tab.me' | translate }}">
+  <ion-content>
+    <ion-list>
+        <ion-item class="item-avatar" type="item-text-wrap">
+            <img ng-src="{{serverIconAddress + user.icon}}">
+            <h2>{{user.name}}</h2>
+            <p>{{user.phone_number}}</p>
+        </ion-item>
+        <ion-item class="item-divider">{{ 'account.usage' | translate }}</ion-item>
+
+        <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
+      <label class="item item-select">
+        <span class="input-label">{{ 'account.language' | translate }}</span>
+        <select ng-model="currentLanguage"
+                ng-options="k as k for (k, v) in translations"
+                ng-change="setLanguage(currentLanguage);">
+        </select>
+      </label>
+      <label class="item item-select">
+        <span class="input-label">{{ 'account.font_size' | translate }}</span>
+        <select>
+        </select>
+      </label>
+      <ion-item>
+        <a class="button button-block button-assertive"
+           href="#/init/login">
+          {{ 'account.logout' | translate }}
+        </a>
+      </ion-item>
+    </ion-list>
+    <div style="height: 50px;"></div>
+  </ion-content>
+</ion-view>
