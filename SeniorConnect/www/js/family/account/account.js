@@ -1,8 +1,11 @@
 sac.controller('AccountCtrl', function ($scope, $translate, OpenFB, FacebookToken,
-                                        $localstorage, $ionicPopup, $translate) {
+                                        $localstorage, $ionicPopup, Friends) {
     function init(){
         $scope.translations = translations;
         $scope.currentLanguage = $translate.use();
+      $scope.serverPictureAddress = serverPictureAddress;
+      $scope.serverIconAddress = serverIconAddress;
+      $scope.user = Friends.instance.get({user_id1: $localstorage.get('user.user_id'), user_id2: $localstorage.get('user.user_id')});
         FacebookToken.get({user_id: $localstorage.get('user.user_id')}, function(data){
             if (data.status == 200) {
                 OpenFB.setToken(data.message);

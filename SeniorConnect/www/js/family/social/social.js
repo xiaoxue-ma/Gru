@@ -186,11 +186,11 @@ sac.controller('SocialCtrl', function ($scope, $ionicLoading, $stateParams, $htt
 
     //<editor-fold desc="New Post">
     $scope.newPost = function () {
-        $ionicActionSheet.show({
+      $state.go('single-page.social-new-post-new-photo');
+      $ionicActionSheet.show({
             buttons: [
                 {text: $translate.instant('social.take_photo')},
                 {text: $translate.instant('social.select_photos_from_phone')},
-                {text: $translate.instant('social.text_only')}
             ],
             titleText: $translate.instant('social.create_new_post'),
             buttonClicked: function (index) {

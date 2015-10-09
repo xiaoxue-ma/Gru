@@ -165,6 +165,26 @@ mod.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         });
+      //.state('tab.family.community', {
+      //  url: '/community',
+      //  views: {
+      //    'tab-family-community': {
+      //      templateUrl: 'templates/family/tab-community.html',
+      //      controller: 'CommunityCtrl'
+      //    }
+      //  }
+      //})
+      //
+      //.state('tab.family.community-event', {
+      //  url: '/community/event',
+      //  views: {
+      //    'tab-family-community': {
+      //      templateUrl: 'templates/family/community/events.html',
+      //      controller: 'CommunityEventCtrl'
+      //    }
+      //  }
+      //});
+
     //</editor-fold>
 
     //<editor-fold desc="Initialization State">
