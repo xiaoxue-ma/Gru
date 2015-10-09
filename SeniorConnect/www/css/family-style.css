@@ -1,4 +1,7 @@
 /* Empty. Add your own CSS if you like */
+.user-messages-top-icon {
+  color: #007AFF;
+}
 .transparent {
     background: transparent !important;
 }
