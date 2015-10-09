@@ -67,7 +67,7 @@ def get_chats():
             u.fetch_relationship_detail(me)
             user_last_msg_list.append({
                 'lastText': msg[0].text_content,
-                'name': u.nickname,
+                'name': u.name,
                 'id': u.ID,
                 'icon': u.icon,
                 'unread_count': sum(1 for m in messages if m.from_user_id == user and m.status == 'unread')
