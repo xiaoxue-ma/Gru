@@ -1,7 +1,3 @@
-/**
- * Created by Siyao on 2015/9/26.
- */
-
 
 sac.controller('ChatgroupCtrl', function ($scope, Chatgroup, $state,
                                           $localstorage, $ionicPopup) {

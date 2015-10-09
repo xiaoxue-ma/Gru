@@ -1,7 +1,7 @@
 <ion-view title="Friend Details">
-  <ion-nav-buttons side="right">
+<!--  <ion-nav-buttons side="right">
     <button class="button" ng-click="saveFriendDetails(friend)">{{ 'friends.save' | translate }}</button>
-  </ion-nav-buttons>
+  </ion-nav-buttons>-->
   <ion-content padding="true" class="has-header">
     <ion-item class="item-avatar" type="item-text-wrap">
       <img ng-src="{{serverIconAddress + friend.icon}}">
@@ -11,14 +11,6 @@
       <label class="item item-input">
         <span class="input-label">{{ 'friends.contact_number' | translate }}</span>
         <span class="input-label">{{friend.phone_number}}</span>
-      </label>
-      <label class="item item-input">
-        <span class="input-label">{{ 'friends.nickname' | translate }}</span>
-        <input type="text" placeholder="" ng-model="friend.nickname">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">{{ 'friends.relationship' | translate }}</span>
-        <input type="text" placeholder="" ng-model="friend.relationship">
       </label>
     </form>
     <div class="button-bar">

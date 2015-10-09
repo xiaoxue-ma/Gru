@@ -1,6 +1,3 @@
-/**
- * Created by Siyao on 2015/9/26.
- */
 
 sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
                                            ChatSocket, ChatData, Friends, $cordovaMedia,
