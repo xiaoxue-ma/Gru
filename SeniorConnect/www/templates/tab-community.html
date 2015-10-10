@@ -1,35 +1,19 @@
 <ion-view view-title="{{ 'tab.community' | translate }}">
 <ion-content>
+    <ion-refresher
+            pulling-text="{{ 'pull_to_refresh' | translate }}"
+            on-refresh="refresh()">
+    </ion-refresher>
         <ion-list>
-            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap" ng-click="readEvent()" href="#/tab/community/event">
-                <img ng-src="../www/img/Tai Ji.jpg">
-                <h2>Tai Chi</h2>
-                <p>Joined</p>
-
-                <i class="icon ion-chevron-right icon-accessory"></i>
-                <span class="badge badge-assertive" ng-hide="hasRead()">1</span>
-            </ion-item>
-
-
-            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap" href="#/tab/community/event">
-                <img ng-src="../www/img/social dance.jpg">
-                <h2>Social Dance</h2>
-                <p>Joined</p>
-                <i class="icon ion-chevron-right icon-accessory"></i>
-            </ion-item>
-
-
-            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-hide="hasJoinedGroup()" type="item-text-wrap" href="">
-                <img ng-src="../www/img/chess.png">
-                <h2>Chess</h2>
-                <a href="#/tab/community/event" ng-click="joinGroup()"><i class="icon ion-android-person-add icon-accessory" href="#/tab/community/event">Join</i></a>
-            </ion-item>
-
-            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-show="hasJoinedGroup()" type="item-text-wrap" href="#/tab/community/event">
-                <img ng-src="../www/img/chess.png">
-                <h2>Chess</h2>
-                <p>Joined</p>
-                <i class="icon ion-chevron-right icon-accessory"></i>
+            <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap"
+                      ng-repeat="community in communitys" ng-click="read(community.id)" href="#/tab/community/{{ community.id }}">
+                <img ng-src="../img/{{ community.img }}">
+                <h2>{{ community.name }}</h2>
+                <p>   </p>
+                <p ng-show="status(community.id)">Joined</p>
+                <i class="icon ion-person-add icon-accessory" ng-hide="joined(community.id)" ng-click="joinCom(community.id)">Join</i>
+                <span class="badge badge-assertive" style="margin-top: 2%" ng-hide="(hasRead(community.id) || !joined(community.id))" ng-click="read(community.id)">1</span>
+                <i class="icon ion-chevron-right icon-accessory" ng-show="(hasRead(community.id) && joined(community.id))"></i>
             </ion-item>
 
         </ion-list>

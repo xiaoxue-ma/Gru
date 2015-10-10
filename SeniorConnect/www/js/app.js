@@ -183,26 +183,26 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                     controller: 'AccountCtrl'
                 }
             }
-        });
-      //.state('tab.community', {
-      //  url: '/community',
-      //  views: {
-      //    'tab-community': {
-      //      templateUrl: 'templates/tab-community.html',
-      //      controller: 'CommunityCtrl'
-      //    }
-      //  }
-      //})
-      //
-      //.state('tab.community-event', {
-      //  url: '/community/event',
-      //  views: {
-      //    'tab-community': {
-      //      templateUrl: 'templates/community/events.html',
-      //      controller: 'CommunityEventCtrl'
-      //    }
-      //  }
-      //});
+        })
+      .state('tab.community', {
+        url: '/community',
+        views: {
+          'tab-community': {
+            templateUrl: 'templates/tab-community.html',
+            controller: 'CommunityCtrl'
+          }
+        }
+      })
+
+      .state('tab.community-event', {
+        url: '/community/:communityId',
+        views: {
+          'tab-community': {
+            templateUrl: 'templates/community/events.html',
+            controller: 'CommunityEventCtrl'
+          }
+        }
+      });
 
     //</editor-fold>
 

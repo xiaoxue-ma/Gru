@@ -8,6 +8,7 @@ var translations = {
 
     "tab.chat": "Chats",
     "tab.friends": "Friends",
+    "tab.community": "Community",
     "tab.social": "Moments",
     "tab.me": "Profile",
 
@@ -43,6 +44,10 @@ var translations = {
     "friends.chat": "Chat",
     "friends.save": "Save",
 
+    "":"",
+    "":"",
+    "":"",
+    "":"",
 
     "social.biography_mode": "Biography Mode",
     "social.happened_at": "Happened at",

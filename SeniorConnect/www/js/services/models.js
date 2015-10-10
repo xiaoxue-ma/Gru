@@ -82,3 +82,83 @@ saService.factory('FacebookToken', ['$resource',
         })
     }
 ]);
+
+saService.factory ('UserService', function() {
+  var userService = {};
+  userService.read = false;
+  userService.readEvent = function (value) {
+    userService.read = true;
+  };
+  userService.hasRead = function (value) {
+    return userService.read;
+  };
+
+  userService.joinedGroup = false;
+  userService.joinGroup = function(){
+    userService.joinedGroup = true;
+  };
+  userService.hasJoinedGroup = function () {
+    return userService.joinedGroup;
+  };
+  return userService;
+});
+saService.factory('Communitys',['$resource',
+  function($resource){
+      var communitys = [{
+        id: 1,
+        name: 'Tai Chi',
+        img: 'Tai Ji.jpg',
+        joined: true,
+        read:false,
+        events:[
+          {
+            id:1,
+            name:'Tai Chi Quan Workshop',
+            img:'Tai Chi Quan.gif',
+            description:'Jennifer Chung is a Tai Chi trainer and Master Trainer',
+            joined:false,
+            date:'01 Nov 2015',
+            time:'6:30-7:30pm'
+          },{
+            id:2,
+            name:'Tai Chi Quan Morning Exercise',
+            img:'tai chi exercise.jpg',
+            description:'Meet in Chinese Garden to do Tai Chi Quan as morning exercise together',
+            joined:false,
+            date:'Every day',
+            time:'6:00-7:00am'
+          }
+        ]
+      }, {
+        id: 2,
+        name: 'Social Dance',
+        img: 'social dance.jpg',
+        joined:true,
+        read:true
+      },{
+        id: 3,
+        name: 'Chess',
+        img: 'chess.png',
+        joined:false,
+        read:true
+      }];
+
+    return {
+      query: function () {
+        return communitys;
+      },
+
+      get: function (communityId) {
+        for (var i = 0; i < communitys.length; i++) {
+          if (communitys[i].id === parseInt(communityId)) {
+            console.log(parseInt(communityId));
+            return communitys[i].events;
+          }
+        }
+      },
+      update: function (communityID) {
+
+      }
+    };
+  }
+]);
