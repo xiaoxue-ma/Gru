@@ -1,4 +1,4 @@
-__author__ = 'Siyao'
+
 
 from flask import jsonify
 

@@ -1,4 +1,4 @@
-__author__ = 'Siyao'
+
 
 from app.utility.general import convert_to_string
 from app import db, dec_base

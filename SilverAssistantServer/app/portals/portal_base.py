@@ -1,4 +1,3 @@
-__author__ = 'Siyao'
 
 # app specific imports
 from app import db
