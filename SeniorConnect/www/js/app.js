@@ -194,6 +194,16 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
       })
 
+      .state('tab.community-calendar',{
+        url:'/community/calendar',
+        views:{
+          'tab-community':{
+            templateUrl: 'templates/community/calendar.html',
+            controller: 'CommunityCalendarCtrl'
+          }
+        }
+      })
+
       .state('tab.community-event', {
         url: '/community/:communityId',
         views: {

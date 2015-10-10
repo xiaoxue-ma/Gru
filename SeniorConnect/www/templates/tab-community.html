@@ -4,6 +4,10 @@
             pulling-text="{{ 'pull_to_refresh' | translate }}"
             on-refresh="refresh()">
     </ion-refresher>
+    <a class="button icon-left ion-ios7-calendar button-full button-positive" href="#/tab/community/calendar">
+        View Calendar
+    </a>
+
         <ion-list>
             <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap"
                       ng-repeat="community in communitys" ng-click="read(community.id)" href="#/tab/community/{{ community.id }}">

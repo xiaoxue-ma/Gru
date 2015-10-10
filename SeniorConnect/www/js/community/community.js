@@ -39,6 +39,10 @@ sac.controller('CommunityCtrl', function($scope, UserService, Communitys) {
     //}
   })
 
+  .controller('CommunityCalendarCtrl',function($scope){
+
+  })
+
   .controller('CommunityEventCtrl', function($scope, $stateParams,Communitys) {
     $scope.community = Communitys.query()[$stateParams.communityId - 1].name;
     $scope.events = Communitys.get($stateParams.communityId);
