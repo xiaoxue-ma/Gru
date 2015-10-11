@@ -1,11 +1,12 @@
 sac.controller('ChatsCtrl', function ($scope, $localstorage, ChatSocket, ChatData,
-                                      chatUnreadCountService, $ionicLoading,
+                                      chatUnreadCountService, $ionicLoading, RtcSocket,
                                       $ionicActionSheet, $translate, $state) {
 
     $scope.serverPictureAddress = serverPictureAddress;
     $scope.serverIconAddress = serverIconAddress;
 
     function init(){
+        RtcSocket.establishChannel($localstorage.get('user.user_id'));
         ChatSocket.establishChannel($localstorage.get('user.user_id'));
         $scope.chats = ChatData.list.query({user_id: $localstorage.get('user.user_id')});
     }

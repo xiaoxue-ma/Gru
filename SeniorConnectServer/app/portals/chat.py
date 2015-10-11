@@ -124,7 +124,7 @@ def get_all_chatgroups_of_user():
 @crossdomain(origin='*', headers='Content-Type')
 def create_chatgroup():
     try:
-        data = json.loads(requst.stream.read())
+        data = json.loads(request.stream.read())
         name = data['name']
         user_id = data['user_id']
         group = models.Chatgroup(name=name)

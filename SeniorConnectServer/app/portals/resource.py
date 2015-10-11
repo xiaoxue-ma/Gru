@@ -40,6 +40,7 @@ def upload_audio(message_id):
             target_filename = message_id + '.' + file.filename.rsplit('.', 1)[1]
             import os
             path = os.path.realpath('.') + os.path.join(app.config['UPLOAD_FOLDER_AUDIO'], target_filename)
+            print path
             file.save(path)
 
             if str(message_id)[0] == 'g':
@@ -52,4 +53,5 @@ def upload_audio(message_id):
         else:
             return response.response_fail('Error uploading file: file type not allowed')
     except Exception as e:
+        print e
         return response.response_fail('Error uploading file %s' % e)

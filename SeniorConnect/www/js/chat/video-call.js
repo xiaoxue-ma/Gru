@@ -48,7 +48,7 @@ sac.controller('VideoCallCtrl', function ($scope, $state, $rootScope, $timeout, 
             RtcSocket.sendMessage($scope.myself, userId, { type: 'ignore' });
             $scope.currentSession = null;
             $scope.callInProgress = false;
-            $state.go('tab.family.chats');
+            $state.go('tab.chats');
         });
 
         session.call();
@@ -57,7 +57,7 @@ sac.controller('VideoCallCtrl', function ($scope, $state, $rootScope, $timeout, 
 
     $scope.ignore = function () {
         RtcSocket.sendMessage($scope.myself, $scope.counterParty, { type: 'ignore' });
-        $state.go('tab.family.chats');
+        $state.go('tab.chats');
     };
 
 
@@ -71,7 +71,7 @@ sac.controller('VideoCallCtrl', function ($scope, $state, $rootScope, $timeout, 
         console.log("setting transition");
         $scope.currentSession = null;
         $scope.callInProgress = false;
-        $state.go('tab.family.chats');
+        $state.go('tab.chats');
     };
 
     $scope.answer = function () {
@@ -111,9 +111,9 @@ sac.controller('VideoCallCtrl', function ($scope, $state, $rootScope, $timeout, 
                     console.log("setting transition");
                     $scope.currentSession = null;
                     $scope.callInProgress = false;
-                    $state.go('tab.family.chats');
+                    $state.go('tab.chats');
                 } else {
-                    $state.go('tab.family.chats');
+                    $state.go('tab.chats');
                 }
                 break;
 

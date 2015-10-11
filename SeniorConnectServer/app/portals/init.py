@@ -37,7 +37,7 @@ def verify_code(user_id, code):
         user = models.User.query.get(user_id)
         if user.verification_code == str(code):
             user.verification_status = 'verified'
-            # Add Silver Assistant As Friend!
+            # Add System As Friend!
             r1 = models.UserUserAssociation(user_id1=user.ID, user_id2=app.config['SYSTEM_USER_ID'], status='confirmed')
             r2 = models.UserUserAssociation(user_id2=user.ID, user_id1=app.config['SYSTEM_USER_ID'], status='confirmed')
             db.session.add(r1)

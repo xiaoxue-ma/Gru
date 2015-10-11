@@ -8,7 +8,7 @@
     <ion-content padding="true" class="has-header">
         <ion-list show-delete="false" can-swipe="true">
             <ion-item class="item-avatar" ng-repeat="group in groups" type="item-text-wrap"
-                      href="#/single-page/family/chats/manage-a-group/{{group.id}}">
+                      href="#/single-page/chats/manage-a-group/{{group.id}}">
                 <img ng-src="{{serverIconAddress + group.icon}}">
                 <h2>{{group.name}}</h2>
                 <ion-option-button class="button-assertive icon ion-trash-a" ng-click="quitGroup($index);"></ion-option-button>

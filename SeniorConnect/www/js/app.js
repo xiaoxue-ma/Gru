@@ -1,12 +1,7 @@
-/**
- * Created by Siyao on 2015/3/26.
- */
-mod = angular.module('starter', ['ionic', 'ngCordova', 'openfb', 'twitterLib',
-  'family.controllers', 'family.services'])
+mod = angular.module('starter', ['ionic', 'ngCordova',
+  'sc.controllers', 'sc.services'])
 
-  .run(function ($ionicPlatform, OpenFB) {
-
-    OpenFB.init('798254143592085', 'https://www.facebook.com/connect/login_success.html');
+  .run(function ($ionicPlatform) {
 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -62,26 +57,6 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 'tab-social': {
                     templateUrl: 'templates/tab-social.html',
                     controller: 'SocialCtrl'
-                }
-            }
-        })
-
-        .state('single-page.social-new-post-text-only', {
-            url: '/social/new-post-text-only',
-            views: {
-                'main-view': {
-                    templateUrl: 'templates/social/new-post-text-only.html',
-                    controller: 'SocialNewPostCtrl'
-                }
-            }
-        })
-
-        .state('single-page.social-new-post-new-photo', {
-            url: '/social/new-post-with-photo',
-            views: {
-                'main-view': {
-                    templateUrl: 'templates/social/new-post-with-photo.html',
-                    controller: 'SocialNewPostCtrl'
                 }
             }
         })
@@ -261,4 +236,18 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   $urlRouterProvider.otherwise('/tab/community/calendar');
     //</editor-fold>c
+});
+
+mod.run(function ($state, RtcSocket) {
+    RtcSocket.socket.on('messageReceived', function (message) {
+        console.log("message Got Here. No");
+        switch (message.type) {
+            case 'call':
+                if ($state.current.name === 'single-page.rtc-chat') {
+                    return;
+                }
+                $state.go('single-page.rtc-chat', { isCalling: false, userId: message.from });
+                break;
+        }
+    });
 });

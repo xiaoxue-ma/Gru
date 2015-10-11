@@ -29,7 +29,7 @@ sac.controller('InitCtrl', function ($scope, $state, $localstorage, $http) {
             .success(function (data, status, headers, config) {
                 if (data.status == 200) {
                     $localstorage.set('user.user_id', data.message);
-                    $state.go('tab.family.social');
+                    $state.go('tab.social');
                 }
             })
             .error(function (data, status, header, config) {
@@ -41,7 +41,7 @@ sac.controller('InitCtrl', function ($scope, $state, $localstorage, $http) {
         $http.get(add)
             .success(function (data, status, headers, config) {
                 if (data.status == 200) {
-                    $state.go('tab.family.social');
+                    $state.go('tab.social');
                 }
             })
             .error(function (data, status, header, config) {

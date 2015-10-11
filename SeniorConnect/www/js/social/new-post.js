@@ -1,21 +1,10 @@
-/**
- * Created by Siyao on 2015/9/26.
- */
-
-
 sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParams,
-                                              $localstorage, $cordovaGeolocation,
-                                              $cordovaCamera, $cordovaImagePicker,
+                                              $localstorage, $cordovaCamera, $cordovaImagePicker,
                                               $ionicActionSheet, $ionicPopup,
-                                              $cordovaFileTransfer, $cordovaDatePicker,
-                                              Status){
-    $scope.publish = function(status){
+                                              $cordovaFileTransfer, Status){
+    $scope.publish = function(){
         var data = {
-            user_id: $localstorage.get('user.user_id'),
-            text_content: status.text_content,
-            tags: status.tags,
-            location: status.location,
-            event_timestamp: status.event_time
+            user_id: $localstorage.get('user.user_id')
         };
         publishStatus(data);
     };
@@ -39,28 +28,6 @@ sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParam
     $scope.cancel = function(){
         $state.go('tab.social');
     };
-
-    //<editor-fold desc="Geolocation and Datepicker">
-    $scope.getLocation = function(status){
-        var posOptions = {timeout: 10000, enableHighAccuracy: true};
-        $cordovaGeolocation
-            .getCurrentPosition(posOptions)
-            .then(function (position) {
-                status.location = position.coords.latitude + ', '
-                    + position.coords.longitude;
-            }, function(error) {});
-    };
-
-    $scope.pickDate = function(status){
-        var options = {
-            date: new Date(),
-            mode: 'date'
-        };
-        $cordovaDatePicker.show(options).then(function(date){
-            status.event_time = date.toJSON();
-        });
-    };
-    //</editor-fold>
 
     //<editor-fold desc="Photo Taking and Selection">
     $scope.takePicture = function() {
@@ -123,15 +90,6 @@ sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParam
         }
     };
 
-    function onStartTakePicture(){
-        $scope.imgURI = [];
-        if ($state.is('single-page.social-new-post-new-photo')){
-            $scope.takePicture();
-        } else if ($state.is('single-page.social-new-post-upload-photo')){
-            $scope.selectExistingPicture();
-        }
-    }
-
     $scope.addMorePhoto = function(){
         $ionicActionSheet.show({
             buttons: [
@@ -165,16 +123,13 @@ sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParam
                 }
             });
     };
-    // On enter, trigger camera if there is no existing picture.
-    // Avoid double trigger when view is back from camera
+
     $scope.$on("$ionicView.enter", function() {
         if(!$scope.imgURI || $scope.imgURI.length == 0) {
             $scope.imgURI = [];
-            //onStartTakePicture();
         }
     });
 
-    // On leave, clear selected images
     $scope.$on("$ionicView.leave", function() {
         $scope.imgURI = [];
     });

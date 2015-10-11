@@ -1,19 +1,6 @@
 <ion-view title="{{ 'social.create_new_post' | translate }}" cache-view="false">
     <ion-content padding="true" class="has-header">
         <form>
-
-            <div class="item item-input">
-                <span class="input-label">{{ 'social.location' | translate }}</span>
-                <label class="item-input-wrapper" style="background: transparent">
-                    <input type="text" placeholder="e.g. Singapore" ng-model="status.location">
-                </label>
-                <button class="button button-positive button-positive icon ion-location" ng-click="getLocation(status)"></button>
-            </div>
-            <div class="item item-input">
-                <span class="input-label">{{ 'social.event_time' | translate }}</span>
-                <input type="text" placeholder="e.g. 10am" ng-model="status.event_time"
-                        ng-focus="pickDate(status)">
-            </div>
             <!--Picture display-->
             <p>
                 <span ng-repeat="pic in imgURI">

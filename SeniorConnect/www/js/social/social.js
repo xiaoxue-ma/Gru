@@ -1,16 +1,12 @@
 sac.controller('SocialCtrl', function ($scope, $ionicLoading, $stateParams, $http,
                                        $ionicActionSheet,$localstorage, $state,
-                                       $ionicModal, Feeds, Status, Like, Comment,
-                                       FacebookToken, $ionicPopup, OpenFB, $timeout,
-                                       TwitterLib, $translate, $ionicScrollDelegate) {
+                                       $ionicModal, Feeds, Status, Like,
+                                       $ionicPopup, $timeout, $translate) {
     $scope.serverPictureAddress = serverPictureAddress;
     $scope.serverIconAddress = serverIconAddress;
-    $scope.showAllFeeds = !$state.is("tab.family.friend-social");
+    $scope.showAllFeeds = !$state.is("tab.friend-social");
 
     //<editor-fold desc="Feeds loading and display">
-    $scope.sorter = function(biography){
-        return '-timestamp';
-    };
 
     $scope.show = function () {
         $scope.loading = $ionicLoading.show({
@@ -86,26 +82,7 @@ sac.controller('SocialCtrl', function ($scope, $ionicLoading, $stateParams, $htt
 
     //<editor-fold desc="New Post">
     $scope.newPost = function () {
-      $state.go('single-page.social-new-post-new-photo');
-      $ionicActionSheet.show({
-            buttons: [
-                {text: $translate.instant('social.take_photo')},
-                {text: $translate.instant('social.select_photos_from_phone')},
-            ],
-            titleText: $translate.instant('social.create_new_post'),
-            buttonClicked: function (index) {
-                if (index == 0) {
-                    $state.go('single-page.social-new-post-new-photo');
-                }
-                if (index == 1) {
-                    $state.go('single-page.social-new-post-upload-photo');
-                }
-                if (index == 2) {
-                    $state.go('single-page.social-new-post-text-only');
-                }
-                return true;
-            }
-        });
+      $state.go('single-page.social-new-post-upload-photo');
     };
     //</editor-fold>
 

@@ -43,7 +43,7 @@ sac.controller('ChatgroupCtrl', function ($scope, Chatgroup, $state,
     };
 
     $scope.cancel = function(){
-        $state.go('tab.family.chats');
+        $state.go('tab.chats');
     };
 
     $scope.quitGroup = function (index){
@@ -117,7 +117,7 @@ sac.controller('ChatgroupDetailCtrl', function ($scope, $stateParams, $localstor
     };
 
     $scope.cancel = function(){
-        $state.go('tab.family.chats');
+        $state.go('tab.chats');
     };
 
     $scope.save = function (){
@@ -126,7 +126,7 @@ sac.controller('ChatgroupDetailCtrl', function ($scope, $stateParams, $localstor
             name: $scope.group.name
         }, function(res){
             if (res.status == 200) {
-                $state.go('tab.family.chats');
+                $state.go('tab.chats');
             }
         })
     }
