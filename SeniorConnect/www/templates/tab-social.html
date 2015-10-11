@@ -11,7 +11,7 @@
             on-refresh="refresh()">
     </ion-refresher>
 
-    <div ng-repeat="item in feeds | orderBy: sorter()" class="list card">
+    <div ng-repeat="item in feeds | orderBy: '-timestamp'" class="list card">
       <!--header with user names and time-->
         <a class="item item-avatar" href="#/tab/chats/{{item.author.ID}}">
             <img ng-src="{{serverIconAddress + item.author.icon}}">

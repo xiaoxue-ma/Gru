@@ -1,7 +1,3 @@
-/**
- * Created by Siyao on 2015/3/12.
- */
-
 var translations = {
   "English": {
     "pull_to_refresh": "Pull down to refresh...",

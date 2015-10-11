@@ -1,7 +1,4 @@
-/**
- * Created by Siyao on 2015/2/3.
- */
-angular.module('family.utils', [])
+angular.module('sc.utils', [])
 
     .factory('$localstorage', ['$window', function($window) {
         return {

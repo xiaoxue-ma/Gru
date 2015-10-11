@@ -1,17 +1,6 @@
-var sac = angular.module('family.controllers', ['family.utils', 'pascalprecht.translate','calendar']);
+var sac = angular.module('sc.controllers', ['sc.utils', 'pascalprecht.translate','calendar']);
 var serverPictureAddress = serverAddress + "/pic/";
 var serverIconAddress = serverAddress + "/icon/";
-
-sac.constant('twitterConfig', {
-    oauthSettings: {
-        consumerKey: 'ZsXQz4aQRc5CQ9NvXq9oJpSfF',
-        consumerSecret: 'aoYHe7qAEiC367ClcJqa1YUk7YbGxNOpTtiLIWOYnBwXimG6ym',
-        requestTokenUrl: 'https://api.twitter.com/oauth/request_token',
-        authorizationUrl: "https://api.twitter.com/oauth/authorize",
-        accessTokenUrl: "https://api.twitter.com/oauth/access_token",
-        callbackUrl: "callbackUrl"
-    }
-});
 
 sac.config(function ($compileProvider) {
     $compileProvider.imgSrcSanitizationWhitelist(/^\s(https|file|blob|cdvfile):|data:image\//);

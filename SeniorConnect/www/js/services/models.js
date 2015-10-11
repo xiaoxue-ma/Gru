@@ -1,8 +1,3 @@
-/**
- * Created by Siyao on 2015/9/27.
- */
-
-
 saService.factory('ChatData', ['$resource',
     function($resource){
         return {
@@ -44,6 +39,67 @@ saService.factory('Friends', ['$resource',
     }
 ]);
 
+saService.factory('Communitys',['$resource',
+    function($resource){
+        var communitys = [{
+            id: 1,
+            name: 'Tai Chi',
+            img: 'Tai Ji.jpg',
+            joined: true,
+            read:false,
+            events:[
+                {
+                    id:1,
+                    name:'Tai Chi Quan Workshop',
+                    img:'Tai Chi Quan.gif',
+                    description:'Jennifer Chung is a Tai Chi trainer and Master Trainer',
+                    joined:false,
+                    date:'01 Nov 2015',
+                    time:'6:30-7:30pm'
+                },{
+                    id:2,
+                    name:'Tai Chi Quan Morning Exercise',
+                    img:'tai chi exercise.jpg',
+                    description:'Meet in Chinese Garden to do Tai Chi Quan as morning exercise together',
+                    joined:false,
+                    date:'Every day',
+                    time:'6:00-7:00am'
+                }
+            ]
+        }, {
+            id: 2,
+            name: 'Social Dance',
+            img: 'social dance.jpg',
+            joined:true,
+            read:true
+        },{
+            id: 3,
+            name: 'Chess',
+            img: 'chess.png',
+            joined:false,
+            read:true
+        }];
+
+        return {
+            query: function () {
+                return communitys;
+            },
+
+            get: function (communityId) {
+                for (var i = 0; i < communitys.length; i++) {
+                    if (communitys[i].id === parseInt(communityId)) {
+                        console.log(parseInt(communityId));
+                        return communitys[i].events;
+                    }
+                }
+            },
+            update: function (communityID) {
+
+            }
+        };
+    }
+]);
+
 saService.factory('Feeds', ['$resource',
     function($resource) {
         return $resource(serverAddress + '/feeds/:user_id');
@@ -66,99 +122,4 @@ saService.factory('Like', ['$resource',
             comment: $resource(serverAddress + '/like/comment')
         };
     }
-]);
-
-saService.factory('Comment', ['$resource',
-    function ($resource) {
-        return $resource(serverAddress + '/comment')
-    }
-]);
-
-saService.factory('FacebookToken', ['$resource',
-    function ($resource){
-        return $resource(serverAddress + '/account/facebook/:user_id', {}, {
-            get: {method: 'GET', params: {user_id: '@user_id'}},
-            update: {method: 'PUT', params: {user_id: '@user_id'}}
-        })
-    }
-]);
-
-saService.factory ('UserService', function() {
-  var userService = {};
-  userService.read = false;
-  userService.readEvent = function (value) {
-    userService.read = true;
-  };
-  userService.hasRead = function (value) {
-    return userService.read;
-  };
-
-  userService.joinedGroup = false;
-  userService.joinGroup = function(){
-    userService.joinedGroup = true;
-  };
-  userService.hasJoinedGroup = function () {
-    return userService.joinedGroup;
-  };
-  return userService;
-});
-saService.factory('Communitys',['$resource',
-  function($resource){
-      var communitys = [{
-        id: 1,
-        name: 'Tai Chi',
-        img: 'Tai Ji.jpg',
-        joined: true,
-        read:false,
-        events:[
-          {
-            id:1,
-            name:'Tai Chi Quan Workshop',
-            img:'Tai Chi Quan.gif',
-            description:'Jennifer Chung is a Tai Chi trainer and Master Trainer',
-            joined:false,
-            date:'01 Nov 2015',
-            time:'6:30-7:30pm'
-          },{
-            id:2,
-            name:'Tai Chi Quan Morning Exercise',
-            img:'tai chi exercise.jpg',
-            description:'Meet in Chinese Garden to do Tai Chi Quan as morning exercise together',
-            joined:false,
-            date:'Every day',
-            time:'6:00-7:00am'
-          }
-        ]
-      }, {
-        id: 2,
-        name: 'Social Dance',
-        img: 'social dance.jpg',
-        joined:true,
-        read:true
-      },{
-        id: 3,
-        name: 'Chess',
-        img: 'chess.png',
-        joined:false,
-        read:true
-      }];
-
-    return {
-      query: function () {
-        return communitys;
-      },
-
-      get: function (communityId) {
-        for (var i = 0; i < communitys.length; i++) {
-          if (communitys[i].id === parseInt(communityId)) {
-            console.log(parseInt(communityId));
-            return communitys[i].events;
-          }
-        }
-      },
-      update: function (communityID) {
-
-      }
-    };
-  }
 ]);

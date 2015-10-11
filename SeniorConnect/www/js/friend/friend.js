@@ -42,7 +42,7 @@ sac.controller('FriendsCtrl', function ($scope, $ionicActionSheet, $localstorage
     function addFriendByPhoneDialog(){
         $scope.user = {};
         $ionicPopup.show({
-            templateUrl: 'templates/family/friend/add-friend-by-number.html',
+            templateUrl: 'templates/friend/add-friend-by-number.html',
             title: $translate.instant('friends.add_by_phone_number'),
             scope: $scope,
             buttons: [
@@ -90,7 +90,8 @@ sac.controller('FriendsCtrl', function ($scope, $ionicActionSheet, $localstorage
     };
 });
 
-sac.controller('AddFriendFromContactsCtrl', function ($scope, $localstorage, $cordovaContacts) {
+sac.controller('AddFriendFromContactsCtrl', function ($scope, $localstorage,
+                                                      $cordovaContacts, Friends) {
 
     function getContactList() {
         $cordovaContacts.find({filter: ''}).then(function(result) {
