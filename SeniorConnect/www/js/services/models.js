@@ -71,13 +71,51 @@ saService.factory('Communitys',['$resource',
             name: 'Social Dance',
             img: 'social dance.jpg',
             joined:true,
-            read:true
+            read:true,
+            events:[
+                {
+                    id:1,
+                    name:'Social Dance Workshop',
+                    img:'social-dance-workshop.jpg',
+                    description:'Anna Lee is a senior social dance trainer and Master Trainer',
+                    joined:false,
+                    date:'01 Nov 2015',
+                    time:'6:30-7:30pm'
+                },{
+                    id:2,
+                    name:'Evening Park Social Dance',
+                    img:'social-dance-park.jpg',
+                    description:'Meet in Chinese Garden to dance after dinner in the evening',
+                    joined:false,
+                    date:'Every day',
+                    time:'7:00-8:00pm'
+                }
+            ]
         },{
             id: 3,
             name: 'Chess',
             img: 'chess.png',
             joined:false,
-            read:true
+            read:true,
+            events:[
+                {
+                    id:1,
+                    name:'Annual Chess Competiton',
+                    img:'chess-competition.jpg',
+                    description:'The chess competition will have participants from the whole Singapore aged above 65',
+                    joined:false,
+                    date:'01 Nov 2015',
+                    time:'6:30-7:30pm'
+                },{
+                    id:2,
+                    name:'Chess and Chat',
+                    img:'chess-in-park.jpg',
+                    description:'Meet in Chinese Garden to play chess with other people and make friends',
+                    joined:false,
+                    date:'12 Nov 2015',
+                    time:'9:00-11:00am'
+                }
+            ]
         }];
 
         return {
