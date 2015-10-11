@@ -11,7 +11,7 @@
         <ion-list>
             <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap"
                       ng-repeat="community in communitys" ng-click="read(community.id)">
-                <img ng-src="../img/{{ community.img }}">
+                <img ng-src="../www/img/{{ community.img }}">
                 <h2>{{ community.name }}</h2>
                 <p>   </p>
                 <p ng-show="status(community.id)">Joined</p>
