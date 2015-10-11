@@ -17,6 +17,7 @@ var translations = {
     "select_all": "Select All",
     "deselect_all": "Deselect All",
 
+    "community.calendar":"View Calendar",
 
     "chat.type_your_message": "Type your message here",
     "chat.send": "Send",
@@ -101,6 +102,7 @@ var translations = {
     "select_all": "全选",
     "deselect_all": "全不选",
 
+
     "chat.type_your_message": "输入消息",
     "chat.send": "发送",
     "chat.load_more": "更多记录",
@@ -110,6 +112,9 @@ var translations = {
     "chat.manage_my_groups": "管理我的群",
     "chat.group_name": "群名",
     "chat.group_members": "群成员",
+
+
+    "community.calendar":"查看日历",
 
     "friends.nickname": "昵称",
     "friends.relationship": "关系",
