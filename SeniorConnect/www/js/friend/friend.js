@@ -91,7 +91,7 @@ sac.controller('FriendsCtrl', function ($scope, $ionicActionSheet, $localstorage
 });
 
 sac.controller('AddFriendFromContactsCtrl', function ($scope, $localstorage,
-                                                      $cordovaContacts, Friends) {
+                                                      $cordovaContacts, Friends, $state) {
 
     function getContactList() {
         $cordovaContacts.find({filter: ''}).then(function(result) {
@@ -119,6 +119,7 @@ sac.controller('AddFriendFromContactsCtrl', function ($scope, $localstorage,
                     nickname: v.displayName
                 };
                 Friends.request.save(post_data);
+                $state.go('tab.friends');
             }
         });
     };
