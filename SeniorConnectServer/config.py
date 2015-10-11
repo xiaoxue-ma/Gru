@@ -1,6 +1,6 @@
 __author__ = 'Xiaoxue'
 
-SQLALCHEMY_DATABASE_URI = 'mysql://yikolyk:0323@127.0.0.1/silverassistant'
+SQLALCHEMY_DATABASE_URI = 'mysql://yikolyk:0323@127.0.0.1/seniorconnect'
 
 UPLOAD_FOLDER_PIC = '/app/static/pic/'
 UPLOAD_FOLDER_AUDIO = '/app/static/audio/'
