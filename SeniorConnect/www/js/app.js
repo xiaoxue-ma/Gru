@@ -115,6 +115,16 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         })
 
+        .state('single-page.rtc-chat', {
+            url: '/chats/call/:userId?isCalling',
+            views: {
+                'main-view': {
+                    templateUrl: 'templates/chat/video-call.html',
+                    controller: 'VideoCallCtrl'
+                }
+            }
+        })
+
         .state('single-page.manage-a-group', {
             url: '/chats/manage-a-group/:groupId',
             views: {
