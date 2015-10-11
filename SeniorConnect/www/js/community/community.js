@@ -42,7 +42,7 @@ sac.controller('CommunityCtrl', function($scope, $state, Communitys) {
 
 
   .controller('CommunityEventCtrl', function($scope, $stateParams,Communitys) {
-    $scope.community = Communitys.query()[$stateParams.communityId - 1].name;
+    $scope.community = Communitys.query()[$stateParams.communityId - 1];
     $scope.events = Communitys.get($stateParams.communityId);
     console.log($scope.events);
 
@@ -56,5 +56,13 @@ sac.controller('CommunityCtrl', function($scope, $state, Communitys) {
     $scope.cancelEvent = function(i){
       $scope.events[i-1].joined = false;
     };
+
+      $scope.quitCom = function(i){
+        Communitys.query()[i-1].joined = false;
+      };
+
+      $scope.joinedCom = function(){
+        return $scope.community.joined;
+      };
 
   });

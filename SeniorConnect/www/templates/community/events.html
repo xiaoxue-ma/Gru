@@ -1,6 +1,13 @@
-<ion-view view-title="{{ community }}">
+<ion-view view-title="{{ community.name }}">
     <ion-content class="padding">
+        <div>
+            <a class="item item-icon-left" ng-show="joinedCom(community.id)" ng-click="quitCom(community.id)" style="background: red;color:white" href="#/tab/community">
+                <i class="icon ion-close-circled"></i>
+                Quit this community
+            </a>
+        </div>
         <div ng-repeat="event in events" class="list card">
+
             <div class="item item-divider"></div>
             <div class="item item-thumbnail-left" >
 
@@ -11,11 +18,11 @@
                 <p>Time: {{ event.time }}</p>
                 <div class="list card">
 
-                    <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" >
+                    <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" style="background: #2c63f0;color:white">
                         <i class="icon ion-checkmark-round"></i>
                         Join Event
                     </a>
-                    <a class="item item-icon-left" ng-show="joined(event.id)" ng-click="cancelEvent(event.id)">
+                    <a class="item item-icon-left" ng-show="joined(event.id)" ng-click="cancelEvent(event.id)" style="background: red;color:white">
                         <i class="icon ion-close-circled"></i>
                         Cancel
                     </a>
