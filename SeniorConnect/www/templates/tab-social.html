@@ -4,7 +4,6 @@
     <button class="button icon ion-camera background-dark-orange content-light-white" ng-if="showAllFeeds" ng-click="newPost()"></button>
   </ion-nav-buttons>
 
-
   <ion-content has-header="true" padding="true">
 
     <ion-refresher
@@ -12,20 +11,13 @@
             on-refresh="refresh()">
     </ion-refresher>
 
-    <ion-toggle ng-show="!showAllFeeds"
-                ng-model="isBiographyMode">
-      {{ 'social.biography_mode' | translate }}
-    </ion-toggle>
-
-    <div ng-repeat="item in feeds | orderBy: sorter(isBiographyMode)" class="list card">
+    <div ng-repeat="item in feeds | orderBy: sorter()" class="list card">
       <!--header with user names and time-->
         <a class="item item-avatar" href="#/tab/chats/{{item.author.ID}}">
             <img ng-src="{{serverIconAddress + item.author.icon}}">
             <h2>{{item.author.nickname}}</h2>
-            <p ng-if="isBiographyMode">{{ 'social.happened_at' | translate }}
-                {{item.event_timestamp}}</p>
-            <p ng-if="!isBiographyMode">{{ 'social.posted_at' | translate }}
-                {{item.timestamp}}</p>
+            <p>{{ 'social.posted_at' | translate }} {{item.timestamp}}
+            </p>
         </a>
 
       <!--body part, display text and picture if any-->
@@ -48,7 +40,7 @@
           </div>
         </script>
       </div>
-        <!--icon bars to display comment and like bar-->
+        <!--icon bars to display like bar-->
           <div class="item tabs tabs-secondary tabs-icon-left background-light-orange">
         <span class="tab-item" ng-hide="alreadyLiked(item)" ng-click="like(item)">
           <i class="icon ion-thumbsup"></i> {{ 'social.like_it' | translate }}

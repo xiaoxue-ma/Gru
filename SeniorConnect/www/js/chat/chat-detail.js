@@ -1,4 +1,3 @@
-
 sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
                                            ChatSocket, ChatData, Friends, $cordovaMedia,
                                            $ionicScrollDelegate, $timeout, $cordovaFileTransfer,
@@ -11,6 +10,7 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         $scope.isInVoiceMessageMode = true;
         $scope.hideTime = true;
         $scope.myId = $localstorage.get('user.user_id');
+        $scope.counterParty = $stateParams.chatId;
         $scope.isGroupChat = $stateParams.chatId.indexOf('g') === 0;
         $scope.isInRecordingMode = false;
         $scope.isInPlaybackMode = false;

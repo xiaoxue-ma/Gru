@@ -1,23 +1,15 @@
 <ion-view title="Call" hide-back-button="true">
-    <ion-nav-buttons side="right">
-        <button class="button button-icon icon"
-                ng-class="{ 'ion-ios7-mic-off': muted, 'ion-ios7-mic': !muted }"
-                ng-click="toggleMute()"
-                ng-if="cordova.platformId === 'ios' || cordova.platformId === 'android'"></button>
-        <button class="button button-icon icon ion-plus-round"
-                ng-click="openSelectContactModal()"></button>
-    </ion-nav-buttons>
     <ion-content on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
         <div class="calling-container" ng-if="isCalling && !callInProgress">
-            <p>Calling to <span class="balanced">{{ contactName }}</span>...</p>
+            <p>Calling to <span class="balanced">{{ counterParty }}</span>...</p>
 
             <button class="button button-assertive" ng-click="ignore()">
-                Nevermind
+                Never mind
             </button>
         </div>
 
         <div class="calling-container" ng-if="!isCalling && !callInProgress">
-            <p><span class="balanced">{{ contactName }}</span> is calling you</p>
+            <p><span class="balanced">{{ counterParty }}</span> is calling you</p>
 
             <button class="button button-positive" ng-click="answer()">
                 Answer
@@ -32,13 +24,11 @@
             <p>
                 Call in progress...
             </p>
-
             <button class="button button-assertive" ng-click="end()">
                 End
             </button>
         </div>
 
-        <video-view></video-view>
-
+        <div ng-show="false"><video-view></video-view></div>
     </ion-content>
 </ion-view>
