@@ -4,7 +4,7 @@
 /**
 * Created by Boss on 25/9/15.
 */
-sac.controller('CommunityCtrl', function($scope, UserService, Communitys) {
+sac.controller('CommunityCtrl', function($scope, $state, Communitys) {
   $scope.communitys = Communitys.query();
   $scope.status = function(i){
     return $scope.communitys[i-1].joined;
@@ -14,6 +14,7 @@ sac.controller('CommunityCtrl', function($scope, UserService, Communitys) {
   };
   $scope.read = function(i){
     $scope.communitys[i-1].read = true;
+    $state.go('tab.community-event',{'communityId':i});
   };
   $scope.joined = function(i){
     return $scope.communitys[i-1].joined;
@@ -39,9 +40,6 @@ sac.controller('CommunityCtrl', function($scope, UserService, Communitys) {
     //}
   })
 
-  .controller('CommunityCalendarCtrl',function($scope){
-
-  })
 
   .controller('CommunityEventCtrl', function($scope, $stateParams,Communitys) {
     $scope.community = Communitys.query()[$stateParams.communityId - 1].name;

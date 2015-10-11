@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/amcharts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/serial.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/themes/light.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/themes/chalk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/themes/black.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/themes/dark.js"></script>
+    <script src="https://rawgit.com/ThumbsAlmighty/amCharts-Angular/master/dist/amChartsDirective.js"></script>
+    <script src="test.js"></script>
+
+</head>
+<body>
+
+<div ng-app="amChartsDirectiveExample">
+    <div ng-controller="amChartsController as ctrl" style="height: 400px; width: 600px;">
+        <am-chart id="myFirstChart" options="ctrl.amChartOptions"></am-chart>
+    </div>
+</div>
+</body>
+</html>

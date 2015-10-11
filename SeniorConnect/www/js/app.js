@@ -249,6 +249,6 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         });
 
-  $urlRouterProvider.otherwise('/tab/social');
+  $urlRouterProvider.otherwise('/tab/community');
     //</editor-fold>
 });

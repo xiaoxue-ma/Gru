@@ -1,3 +1,4 @@
+
 <ion-view view-title="{{ 'tab.me' | translate }}">
   <ion-content>
     <ion-list>
@@ -7,6 +8,8 @@
             <p>{{user.phone_number}}</p>
         </ion-item>
         <ion-item class="item-divider">{{ 'account.usage' | translate }}</ion-item>
+
+        <div id="chartdiv" style="width: 100%; height: 400px;"></div>
 
         <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
       <label class="item item-select">
@@ -21,12 +24,10 @@
         <select>
         </select>
       </label>
-      <ion-item>
         <a class="button button-block button-assertive"
            href="#/init/login">
           {{ 'account.logout' | translate }}
         </a>
-      </ion-item>
     </ion-list>
     <div style="height: 50px;"></div>
   </ion-content>

@@ -16,6 +16,7 @@ sac.controller('AccountCtrl', function ($scope, $translate, OpenFB, FacebookToke
                 $scope.isFacebookConnected = false;
             }
         });
+
     }
 
     init();
@@ -70,4 +71,5 @@ sac.controller('AccountCtrl', function ($scope, $translate, OpenFB, FacebookToke
             }
         });
     }
+
 });

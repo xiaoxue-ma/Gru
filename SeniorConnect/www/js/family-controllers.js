@@ -1,4 +1,4 @@
-var sac = angular.module('family.controllers', ['family.utils', 'pascalprecht.translate']);
+var sac = angular.module('family.controllers', ['family.utils', 'pascalprecht.translate','calendar']);
 var serverPictureAddress = serverAddress + "/pic/";
 var serverIconAddress = serverAddress + "/icon/";
 

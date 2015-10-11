@@ -170,7 +170,7 @@ sac.controller('SocialNewPostCtrl', function ($scope, $state, $http, $stateParam
     $scope.$on("$ionicView.enter", function() {
         if(!$scope.imgURI || $scope.imgURI.length == 0) {
             $scope.imgURI = [];
-            onStartTakePicture();
+            //onStartTakePicture();
         }
     });
 
