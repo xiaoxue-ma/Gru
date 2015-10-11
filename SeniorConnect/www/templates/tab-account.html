@@ -8,8 +8,10 @@
             <p>{{user.phone_number}}</p>
         </ion-item>
         <ion-item class="item-divider">{{ 'account.usage' | translate }}</ion-item>
-
-        <div id="chartdiv" style="width: 100%; height: 400px;"></div>
+        <div class="container-fluid">
+            <activity-chart data="data" title="" style="width: 570px;
+            height: 400px;
+            text-align: left;"></activity-chart></div>
 
         <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
       <label class="item item-select">

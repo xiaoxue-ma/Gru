@@ -234,7 +234,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         });
 
-  $urlRouterProvider.otherwise('/tab/community/calendar');
+  $urlRouterProvider.otherwise('/tab/community');
     //</editor-fold>c
 });
 
