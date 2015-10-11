@@ -10,27 +10,30 @@
                     <div class="row">
 
                         <div class="col-md-5 text-center">
-                            <div class="btn-group">
+                            <div class="btn-group" style="width: 300px;" >
 
                                 <button
-                                        class="btn btn-primary"
+                                        class="btn" style="background: #2C63F0; color: white;"
                                         mwl-date-modifier
                                         date="vm.calendarDay"
-                                        decrement="vm.calendarView">
+                                        decrement="vm.calendarView"
+                                        >
                                     Prev
                                 </button>
                                 <button
-                                        class="btn btn-default"
+                                        class="btn" style="background: #f7f7f7; color: #2C63F0;"
                                         mwl-date-modifier
                                         date="vm.calendarDay"
-                                        set-to-today>
+                                        set-to-today
+                                        >
                                     Today
                                 </button>
                                 <button
-                                        class="btn btn-primary"
+                                        class="btn" style="background: #2C63F0; color: white"
                                         mwl-date-modifier
                                         date="vm.calendarDay"
-                                        increment="vm.calendarView">
+                                        increment="vm.calendarView"
+                                        >
                                     Next
                                 </button>
                             </div>
@@ -38,12 +41,11 @@
 
                         <br>
 
-                        <div class="col-md-7 text-center">
-                            <div class="btn-group">
-                                <label class="btn btn-primary" ng-model="vm.calendarView" btn-radio="'year'">Year</label>
-                                <label class="btn btn-primary" ng-model="vm.calendarView" btn-radio="'month'">Month</label>
-                                <label class="btn btn-primary" ng-model="vm.calendarView" btn-radio="'week'">Week</label>
-                                <label class="btn btn-primary" ng-model="vm.calendarView" btn-radio="'day'">Day</label>
+                        <div class="col-md-7 text-center" >
+                            <div class="btn-group" style="width: 300px;" >
+                                <label class="btn" style="background: #2C63F0; color: white;" ng-model="vm.calendarView" btn-radio="'year'">Year</label>
+                                <label class="btn" style="background: #2C63F0; color: white;" ng-model="vm.calendarView" btn-radio="'month'">Month</label>
+                                <label class="btn" style="background: #2C63F0; color: white;" ng-model="vm.calendarView" btn-radio="'week'">Week</label>
                             </div>
                         </div>
 

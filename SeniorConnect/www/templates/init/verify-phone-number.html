@@ -1,7 +1,7 @@
 <ion-view title="Verify Your Phone">
     <ion-content padding="true" class="has-header">
-        <div>
-            <p>
+        <div class="card">
+            <p class="item item-text-wrap">
                 We have sent a verification code to your phone. Please enter it below.
             </p>
         </div>
@@ -11,8 +11,7 @@
                 <input type="text" placeholder="" ng-model="code">
             </label>
             <button class="button button-positive button-block" ng-click="verify(code)">Verify</button>
-            <button class="button button-positive button-clear button-block" ng-click="send_code_again()">Or send verification code again</button>
-            <ion-checkbox>Import my phone contacts</ion-checkbox>
+            <button class="button button-stable button-block" ng-click="send_code_again()">Send verification Code Again</button>
         </form>
     </ion-content>
 </ion-view>
