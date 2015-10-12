@@ -41,6 +41,7 @@ var translations = {
         "friends.chat": "Chat",
         "friends.save": "Save",
 
+        "social.new": "New",
         "social.biography_mode": "Biography Mode",
         "social.happened_at": "Happened at",
         "social.posted_at": "Posted at",
@@ -128,6 +129,7 @@ var translations = {
         "friends.chat": "和TA聊天",
         "friends.save": "保存",
 
+        "social.new": "新分享",
         "social.biography_mode": "自传模式",
         "social.happened_at": "发生于",
         "social.posted_at": "上传于",
