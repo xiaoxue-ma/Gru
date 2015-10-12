@@ -4,24 +4,24 @@
     <ion-list>
         <ion-item class="item-avatar" type="item-text-wrap">
             <img ng-src="{{serverIconAddress + user.icon}}">
-            <h2>{{user.name}}</h2>
-            <p>{{user.phone_number}}</p>
+            <h2 style="font-size: 18pt">{{user.name}}</h2>
+            <p style="font-size: 18pt">{{user.phone_number}}</p>
         </ion-item>
-        <ion-item class="item-divider">{{ 'account.usage' | translate }}</ion-item>
+        <ion-item class="item-divider" style="font-size: 18pt">{{ 'account.usage' | translate }}</ion-item>
         <div class="container-fluid">
             <activity-chart data="data" title="" style="width: 570px;
             height: 400px;
-            text-align: left;"></activity-chart></div>
+            text-align: left; font-size: 18pt"></activity-chart></div>
 
-        <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
+        <ion-item class="item-divider" style="font-size: 18pt">{{ 'account.general' | translate }}</ion-item>
       <label class="item item-select">
-        <span class="input-label" style="align-self: center">{{ 'account.language' | translate }}</span>
-        <select ng-model="currentLanguage"
+        <span class="input-label" style="align-self: center; font-size: 18pt">{{ 'account.language' | translate }}</span>
+        <select style="font-size: 18pt" ng-model="currentLanguage"
                 ng-options="k as k for (k, v) in translations"
-                ng-change="setLanguage(currentLanguage);" style="margin-top: 1.5%">
+                ng-change="setLanguage(currentLanguage);" style="margin-top:4%">
         </select>
       </label>
-        <a class="button button-block button-assertive"
+        <a class="button button-block button-assertive" style="font-size: 18pt"
            href="#/init/login">
           {{ 'account.logout' | translate }}
         </a>

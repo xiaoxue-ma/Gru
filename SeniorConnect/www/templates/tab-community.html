@@ -1,12 +1,12 @@
 <ion-view view-title="{{ 'tab.community' | translate }}">
 <ion-content>
-    <ion-refresher
+    <ion-refresher style="font-size: 18pt"
             pulling-text="{{ 'pull_to_refresh' | translate }}"
             on-refresh="refresh()">
     </ion-refresher>
 
         <ion-list>
-            <a class="item item-icon-left" href="#/tab/community/calendar" style="color: white; background: #2C63F0">
+            <a class="item item-icon-left" href="#/tab/community/calendar" style="color: white; font-size: 18pt;background: #2C63F0 ">
                 <i class="icon ion-ios7-calendar" style="color: white"></i>
                 {{ 'community.calendar' | translate }}
                 <span class="badge badge-assertive">{{requests.length}}</span>
@@ -14,10 +14,10 @@
             <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap"
                       ng-repeat="community in communitys" ng-click="read(community.id)">
                 <img ng-src="../www/img/{{ community.img }}">
-                <h2>{{ community.name }}</h2>
+                <h2 style="font-size: 18pt">{{ community.name }}</h2>
                 <p>   </p>
-                <p ng-show="status(community.id)">Joined</p>
-                <i class="icon ion-person-add icon-accessory" style="color: #2C63F0" ng-hide="joined(community.id)" ng-click="joinCom(community.id)">Join</i>
+                <p style="font-size: 18pt" ng-show="status(community.id)">Joined</p>
+                <i class="button button-large button-clear button-positive icon ion-person-add icon-accessory" style="font-size: 18pt; margin-top: 2%" ng-hide="joined(community.id)" ng-click="joinCom(community.id)">Join</i>
                 <span class="badge badge-assertive" style="margin-top: 2%" ng-hide="(hasRead(community.id) || !joined(community.id))" ng-click="read(community.id)">1</span>
                 <i class="icon ion-chevron-right icon-accessory custom-icon" ng-show="(hasRead(community.id) && joined(community.id))"></i>
             </ion-item>

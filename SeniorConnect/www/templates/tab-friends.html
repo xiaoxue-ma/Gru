@@ -1,21 +1,21 @@
 <ion-view view-title="{{ 'tab.friends' | translate }}">
   <ion-nav-buttons side="right">
-    <button class="button button-outline button-positive icon-left ion-person-add " ng-click="addFriend()">&nbsp;{{ 'friends.add' | translate }} </button>
+    <button class="button button-outline button-positive icon-left ion-person-add " style="font-size: 18pt" ng-click="addFriend()">&nbsp;{{ 'friends.add' | translate }} </button>
   </ion-nav-buttons>
   <ion-content>
-    <ion-refresher
+    <ion-refresher style="font-size: 18pt"
             pulling-text="{{ 'pull_to_refresh' | translate }}"
             on-refresh="refresh()">
     </ion-refresher>
     <ion-list show-delete="false" can-swipe="true">
-      <a class="item item-icon-left" href="#/tab/friend/requests" style="color: white; background: #2C63F0">
-        <i class="icon icon-left ion-navicon" style="color: white"></i>
+      <a class="item item-icon-left" href="#/tab/friend/requests" style="color: white; background: #2C63F0; font-size: 18pt">
+        <i class="icon icon-left ion-navicon" style="color: white; font-size: 18pt"></i>
         {{ 'friends.friend_requests' | translate }}
         <span class="badge badge-assertive">{{requests.length}}</span>
       </a>
       <ion-item class="item-avatar" ng-repeat="friend in friends|orderBy:'name'" type="item-text-wrap" href="#/tab/friend/{{friend.ID}}">
         <img ng-src="{{serverIconAddress + friend.icon}}">
-        <h2>{{friend.name}}</h2>
+        <h2 style="font-size: 18pt">{{friend.name}}</h2>
         <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteFriend($index);"></ion-option-button>
       </ion-item>
     </ion-list>

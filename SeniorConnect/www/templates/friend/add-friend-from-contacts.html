@@ -1,14 +1,14 @@
 <ion-view title="{{ 'friends.add_from_contacts' | translate }}">
     <ion-nav-buttons side="right">
-        <button class="button" ng-click="addSelectedContacts()">{{ 'add' | translate }}</button>
+        <button class="button" style="font-size: 18pt" ng-click="addSelectedContacts()">{{ 'add' | translate }}</button>
     </ion-nav-buttons>
 
     <ion-content padding="true" class="has-header">
         <div class="button-bar">
-            <button class="button button-positive button-block" ng-click="setAll(true)">{{ 'select_all' | translate }}</button>
-            <button class="button button-assertive button-outline button-block" ng-click="setAll(false)">{{ 'deselect_all' | translate }}</button>
+            <button class="button button-positive button-block" style="font-size: 18pt" ng-click="setAll(true)">{{ 'select_all' | translate }}</button>
+            <button class="button button-assertive button-outline button-block" style="font-size: 18pt" ng-click="setAll(false)">{{ 'deselect_all' | translate }}</button>
         </div>
-        <ion-list>
+        <ion-list style="font-size: 18pt">
             <ion-checkbox ng-repeat="contact in contacts"
                           ng-model="contact.checked"
                           ng-checked="contact.checked">

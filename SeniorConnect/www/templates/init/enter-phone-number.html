@@ -2,28 +2,28 @@
     <ion-content padding="true" scroll="false" class="has-header">
       <div class="card">
         <div class="item item-text-wrap">
-          <p>To start using <b>SeniorConnect</b>, we need to verify your phone number.</p>
+          <p style="font-size: 18pt">To start using <b>SeniorConnect</b>, we need to verify your phone number.</p>
 
-          <p>Your phone number will be your unique identification in <b>SeniorConnect</b>. Your password will help you log on to <b>SeniorConnect</b> on another device.</p>
+          <p style="font-size: 18pt">Your phone number will be your unique identification in <b>SeniorConnect</b>. Your password will help you log on to <b>SeniorConnect</b> on another device.</p>
 
-          <p>Enter phone number and set password below</p>
+          <p style="font-size: 18pt">Enter phone number and set password below</p>
         </div>
       </div>
         <form>
             <label class="item item-input">
-                <span class="input-label">Phone</span>
-                <input type="text" placeholder="+6512345678" ng-model="user.phone_number">
+                <span class="input-label" style="font-size: 18pt">Phone</span>
+                <input type="text" style="font-size: 18pt" placeholder="+6512345678" ng-model="user.phone_number">
+            </label>
+            <label class="item item-input" style="font-size: 18pt">
+                <span class="input-label" style="font-size: 18pt">Your Name</span>
+                <input type="text" style="font-size: 18pt" placeholder="e.g. John, Alice" ng-model="user.name">
             </label>
             <label class="item item-input">
-                <span class="input-label">Your Name</span>
-                <input type="text" placeholder="e.g. John, Alice" ng-model="user.name">
+                <span class="input-label" style="font-size: 18pt">Password</span>
+                <input type="password" style="font-size: 18pt" placeholder="" ng-model="user.password">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="" ng-model="user.password">
-            </label>
-            <button class="button button-block button-positive" ng-click="register(user)">Next</button>
-            <a href="#/init/login" class="button button-stable button-block">I already have an account</a>
+            <button class="button button-block button-positive" style="font-size: 18pt" ng-click="register(user)">Next</button>
+            <a href="#/init/login" class="button button-stable button-block" style="font-size: 18pt">I already have an account</a>
         </form>
     </ion-content>
 </ion-view>

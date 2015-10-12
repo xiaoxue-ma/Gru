@@ -1,16 +1,16 @@
 <ion-view title="{{ 'chat.manage_my_groups' | translate }}" cache-view="false">
     <ion-nav-buttons side="left">
-        <button class="button button-clear" ng-click="cancel()">{{ 'cancel' | translate }}</button>
+        <button class="button button-clear" ng-click="cancel()" style="font-size: 18pt">{{ 'cancel' | translate }}</button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-        <button class="button button-clear" ng-click="addGroup()">{{ 'add' | translate }}</button>
+        <button class="button button-clear" ng-click="addGroup()" style="font-size: 18pt">{{ 'add' | translate }}</button>
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
         <ion-list show-delete="false" can-swipe="true">
             <ion-item class="item-avatar" ng-repeat="group in groups" type="item-text-wrap"
                       href="#/single-page/chats/manage-a-group/{{group.id}}">
                 <img ng-src="{{serverIconAddress + group.icon}}">
-                <h2>{{group.name}}</h2>
+                <h2 style="font-size: 18pt">{{group.name}}</h2>
                 <ion-option-button class="button-assertive icon ion-trash-a" ng-click="quitGroup($index);"></ion-option-button>
             </ion-item>
         </ion-list>

@@ -2,16 +2,16 @@
   <ion-content padding="true" class="has-header">
     <ion-item class="item-avatar" type="item-text-wrap">
       <img ng-src="{{serverIconAddress + friend.icon}}">
-      <h2>{{friend.name}}</h2>
+      <h2 style="font-size: 18pt">{{friend.name}}</h2>
     </ion-item>
     <form>
       <label class="item item-input">
-        <span class="input-label">{{ 'friends.contact_number' | translate }}</span>
-        <span class="input-label">{{friend.phone_number}}</span>
+        <span class="input-label" style="font-size: 18pt">{{ 'friends.contact_number' | translate }}</span>
+        <span class="input-label" style="font-size: 18pt">{{friend.phone_number}}</span>
       </label>
     </form>
     <div class="button-bar">
-      <a class="button button-positive button-outline button-block" href="#/tab/chats/{{friend.ID}}">{{ 'friends.chat' | translate }}</a>
+      <a class="button button-positive button-outline button-block" href="#/tab/chats/{{friend.ID}}" style="font-size: 18pt">{{ 'friends.chat' | translate }}</a>
     </div>
     <div style="height: 50px;"></div>
   </ion-content>

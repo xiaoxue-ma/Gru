@@ -442,6 +442,7 @@
 }
 
 .cal-row-head [class*=cal-cell], .cal-row-head [class*=cal-cell]:first-child {
+    font-size: 18pt;
     font-weight: bolder;
     text-align: center;
     border: 0 solid;
@@ -457,7 +458,7 @@
 }
 
 .cal-month-day {
-    height: 75pt
+    height: 50pt
 }
 
 .cal-cell.drop-active, .cell-focus, [class*=cal-cell] .drop-active, [class*=cal-cell]:hover {
@@ -499,7 +500,7 @@
 }
 
 span[data-cal-date] {
-    font-size: 1.2em;
+    font-size: 18pt;
     font-weight: 400;
     opacity: .5;
     transition: all .3s ease-in-out;
@@ -529,7 +530,7 @@ span[data-cal-date]:hover {
 }
 
 .cal-month-box .cal-day-today span[data-cal-date] {
-    font-size: 1.9em
+    font-size: 25pt
 }
 
 .cal-day-holiday span[data-cal-date] {

@@ -1511,12 +1511,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	          hour: 'ha',
 	          day: 'd MMM',
 	          month: 'MMMM',
-	          weekDay: 'EEEE',
+	          weekDay: 'EEE',
 	          time: 'HH:mm',
 	          datetime: 'MMM d, h:mm a'
 	        },
 	        title: {
-	          day: 'EEEE d MMMM, yyyy',
+	          day: 'EEE d MMMM, yyyy',
 	          week: 'Week {week} of {year}',
 	          month: 'MMMM yyyy',
 	          year: 'yyyy'
@@ -1527,12 +1527,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	          hour: 'ha',
 	          day: 'D MMM',
 	          month: 'MMMM',
-	          weekDay: 'dddd',
+	          weekDay: 'ddd',
 	          time: 'HH:mm',
 	          datetime: 'MMM D, h:mm a'
 	        },
 	        title: {
-	          day: 'dddd D MMMM, YYYY',
+	          day: 'ddd D MMMM, YYYY',
 	          week: 'Week {week} of {year}',
 	          month: 'MMMM YYYY',
 	          year: 'YYYY'

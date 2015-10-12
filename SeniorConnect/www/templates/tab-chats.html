@@ -1,9 +1,10 @@
 <ion-view view-title="{{ 'tab.chat' | translate }}">
     <ion-nav-buttons side="right">
-        <button class="button icon ion-person-stalker" ng-click="manageGroups()"> </button>
+        <button class="button button-outline button-positive icon-left icon ion-person-stalker" style="font-size: 18pt" ng-click="manageGroups()">&nbsp;{{ 'chat.groups' | translate }} </button>
     </ion-nav-buttons>
     <ion-content>
         <ion-refresher
+                style="font-size: 18pt"
                 pulling-text="{{ 'pull_to_refresh' | translate }}"
                 on-refresh="refresh()">
         </ion-refresher>
@@ -14,9 +15,9 @@
                 <img ng-src="{{serverIconAddress + chat.icon}}">
                 <span class="badge badge-assertive">{{chat.unread_count}}</span>
 
-                <h2>{{chat.name}}</h2>
+                <h2 style="font-size: 18pt">{{chat.name}}</h2>
 
-                <p>{{chat.lastText}}</p>
+                <p style="font-size: 18pt">{{chat.lastText}}</p>
                 <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
 
                 <ion-option-button class="button-assertive icon ion-trash-a" ng-click="remove($index)">

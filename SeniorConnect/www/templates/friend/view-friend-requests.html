@@ -1,16 +1,16 @@
 <ion-view title="{{ 'friends.friend_requests' | translate }}">
     <ion-content padding="true" class="has-header">
         <div class="list">
-            <div class="item item-button-right"
+            <div class="item item-button-right" style="font-size: 18pt"
                     ng-repeat="req in requests">
                 {{req.name}}
                 <div class="buttons">
                     <button class="button button-positive"
-                            ng-click="accept($index)">
+                            ng-click="accept($index)" style="font-size: 18pt">
                         {{ 'accept' | translate }}
                     </button>
                     <button class="button button-assertive"
-                            ng-click="ignore($index)">
+                            ng-click="ignore($index)" style="font-size: 18pt">
                         {{ 'ignore' | translate }}
                     </button>
                 </div>
