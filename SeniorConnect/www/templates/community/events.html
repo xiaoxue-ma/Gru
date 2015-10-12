@@ -16,7 +16,7 @@
                 <p>{{ event.description }}</p>
                 <p>Date: {{ event.date }}</p>
                 <p>Time: {{ event.time }}</p>
-                <div class="list card">
+                <div class="list card" ng-show="joinedCom(community.id)">
 
                     <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" style="background: #2c63f0;color:white">
                         <i class="icon ion-checkmark-round"></i>

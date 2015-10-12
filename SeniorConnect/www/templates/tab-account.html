@@ -15,15 +15,10 @@
 
         <ion-item class="item-divider">{{ 'account.general' | translate }}</ion-item>
       <label class="item item-select">
-        <span class="input-label">{{ 'account.language' | translate }}</span>
+        <span class="input-label" style="align-self: center">{{ 'account.language' | translate }}</span>
         <select ng-model="currentLanguage"
                 ng-options="k as k for (k, v) in translations"
-                ng-change="setLanguage(currentLanguage);">
-        </select>
-      </label>
-      <label class="item item-select">
-        <span class="input-label">{{ 'account.font_size' | translate }}</span>
-        <select>
+                ng-change="setLanguage(currentLanguage);" style="margin-top: 1.5%">
         </select>
       </label>
         <a class="button button-block button-assertive"

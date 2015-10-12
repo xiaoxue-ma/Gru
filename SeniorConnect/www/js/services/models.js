@@ -54,8 +54,8 @@ saService.factory('Communitys',['$resource',
                     img:'Tai Chi Quan.gif',
                     description:'Jennifer Chung is a Tai Chi trainer and Master Trainer',
                     joined:false,
-                    date:'01 Nov 2015',
-                    time:'6:30-7:30pm'
+                    date:'Oct 13 2015',
+                    time:'18:30-19:30'
                 },{
                     id:2,
                     name:'Tai Chi Quan Morning Exercise',
@@ -63,7 +63,7 @@ saService.factory('Communitys',['$resource',
                     description:'Meet in Chinese Garden to do Tai Chi Quan as morning exercise together',
                     joined:false,
                     date:'Every day',
-                    time:'6:00-7:00am'
+                    time:'08:00-10:00'
                 }
             ]
         }, {
@@ -79,8 +79,8 @@ saService.factory('Communitys',['$resource',
                     img:'social-dance-workshop.jpg',
                     description:'Anna Lee is a senior social dance trainer and Master Trainer',
                     joined:false,
-                    date:'01 Nov 2015',
-                    time:'6:30-7:30pm'
+                    date:'Oct 14 2015',
+                    time:'18:30-19:30'
                 },{
                     id:2,
                     name:'Evening Park Social Dance',
@@ -88,7 +88,7 @@ saService.factory('Communitys',['$resource',
                     description:'Meet in Chinese Garden to dance after dinner in the evening',
                     joined:false,
                     date:'Every day',
-                    time:'7:00-8:00pm'
+                    time:'19:00-20:00'
                 }
             ]
         },{
@@ -104,16 +104,16 @@ saService.factory('Communitys',['$resource',
                     img:'chess-competition.jpg',
                     description:'The chess competition will have participants from the whole Singapore aged above 65',
                     joined:false,
-                    date:'01 Nov 2015',
-                    time:'6:30-7:30pm'
+                    date:'Oct 22 2015',
+                    time:'18:30-19:30'
                 },{
                     id:2,
                     name:'Chess and Chat',
                     img:'chess-in-park.jpg',
                     description:'Meet in Chinese Garden to play chess with other people and make friends',
                     joined:false,
-                    date:'12 Nov 2015',
-                    time:'9:00-11:00am'
+                    date:'Nov 12 2015',
+                    time:'09:00-11:00'
                 }
             ]
         }];
@@ -130,9 +130,6 @@ saService.factory('Communitys',['$resource',
                         return communitys[i].events;
                     }
                 }
-            },
-            update: function (communityID) {
-
             }
         };
     }
