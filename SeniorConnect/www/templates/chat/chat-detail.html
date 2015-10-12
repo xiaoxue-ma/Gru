@@ -2,12 +2,12 @@
     <ion-nav-buttons side="right">
         <button class="button button-outline button-positive icon-left icon ion-person-stalker" style="font-size: 18pt"
                 ng-show="isGroupChat"
-                ng-click="manageGroup()"> </button>
+                ng-click="manageGroup()">&nbsp;Group</button>
 
         <button class="button button-positive"
                 ng-show="!isGroupChat"
                 ui-sref="single-page.rtc-chat({ isCalling: true, userId: counterParty })">
-            <i class="icon ion-ios7-telephone"></i>
+            <i class="icon ion-ios7-telephone" style="font-size: 18pt"> &nbsp;Call</i>
         </button>
     </ion-nav-buttons>
     <ion-content style="background-color: #f2f2f2" has-header="true" has-footer="true" has-tabs="true"

@@ -43,10 +43,10 @@
         <!--icon bars to display like bar-->
           <div class="item tabs tabs-secondary tabs-icon-left" ng-hide="alreadyLiked(item)"style="background:#2C63F0">
             <span class="tab-item" style="font-size: 18pt; color:white;"  ng-click="like(item)">
-              <i class="icon ion-thumbsup"></i> {{ 'social.like_it' | translate }}
+              <i class="icon ion-thumbsup" ></i> {{ 'social.like_it' | translate }}
             </span>
           </div>
-          <div class="item tabs tabs-secondary tabs-icon-left" ng-show="alreadyLiked(item)"style="background:#C7C7CC;color:white;">
+          <div class="item tabs tabs-secondary tabs-icon-left" ng-show="alreadyLiked(item)"style="background:#C7C7CC">
 
               <span class="tab-item" style="font-size: 18pt; color:white;"  ng-click="dislike(item)">
               <i class="icon ion-thumbsdown"></i> {{ 'social.unlike_it' | translate }}
