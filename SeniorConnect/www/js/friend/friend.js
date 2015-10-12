@@ -21,6 +21,7 @@ sac.controller('FriendsCtrl', function ($scope, $ionicActionSheet, $localstorage
     loadFriends();
 
     $scope.addFriend = function () {
+        $state.go('single-page.add-friend-from-contacts');
         $ionicActionSheet.show({
             buttons: [
                 {text: $translate.instant('friends.add_by_phone_number')},
