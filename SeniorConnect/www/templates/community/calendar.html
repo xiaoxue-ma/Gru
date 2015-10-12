@@ -18,7 +18,7 @@
                                         date="vm.calendarDay"
                                         decrement="vm.calendarView"
                                         >
-                                    Prev
+                                    {{'calendar.previous'| translate}}
                                 </button>
                                 <button
                                         class="btn" style="background: #f7f7f7; color: #2C63F0; font-size: 18pt"
@@ -26,7 +26,8 @@
                                         date="vm.calendarDay"
                                         set-to-today
                                         >
-                                    Today
+                                    {{'calendar.today'| translate}}
+
                                 </button>
                                 <button
                                         class="btn" style="background: #2C63F0; color: white; font-size: 18pt"
@@ -34,7 +35,8 @@
                                         date="vm.calendarDay"
                                         increment="vm.calendarView"
                                         >
-                                    Next
+                                    {{'calendar.next'| translate}}
+
                                 </button>
                             </div>
                         </div>
@@ -43,9 +45,9 @@
 
                         <div class="col-md-7 text-center" >
                             <div class="btn-group" style="width: 300px;" >
-                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'year'">Year</label>
-                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'month'">Month</label>
-                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'week'">Week</label>
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'year'">{{'calendar.year'|translate}}</label>
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'month'">{{'calendar.month'|translate}}</label>
+                                <label class="btn" style="background: #2C63F0; color: white; font-size: 18pt" ng-model="vm.calendarView" btn-radio="'week'">{{'calendar.week'|translate}}</label>
                             </div>
                         </div>
 

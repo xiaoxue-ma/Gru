@@ -1,31 +1,31 @@
 <ion-view title="Call" hide-back-button="true">
     <ion-content style="background-color: #f2f2f2" on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
         <div class="calling-container" ng-if="isCalling && !callInProgress">
-            <p style="font-size: 18pt">Calling to <span class="balanced">{{ counterParty }}</span>...</p>
+            <p style="font-size: 18pt">{{'video.calling_to'|translate}} <span class="balanced">{{ counterParty }}</span>...</p>
 
             <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
-                Never mind
+                {{'video.never_mind'|translate}}
             </button>
         </div>
 
         <div class="calling-container" ng-if="!isCalling && !callInProgress">
-            <p style="font-size: 18pt"><span class="balanced">{{ counterParty }}</span> is calling you</p>
+            <p style="font-size: 18pt"><span class="balanced">{{ counterParty }}</span> {{'video.is_calling'|translate}}</p>
 
             <button class="button button-positive" ng-click="answer()" style="font-size: 18pt">
-                Answer
+                {{'video.answer'|translate}}
             </button>
 
             <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
-                Ignore
+                {{'video.ignore'|translate}}
             </button>
         </div>
 
         <div class="calling-container" ng-if="callInProgress">
             <p style="font-size: 18pt">
-                Call in progress...
+                {{'video.process'|translate}}
             </p>
             <button class="button button-assertive" ng-click="end()" style="font-size: 18pt">
-                End
+                {{'video.end'|translate}}
             </button>
         </div>
 

@@ -3,17 +3,17 @@
         <form>
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label" style="font-size: 18pt">Phone</span>
+                    <span class="input-label" style="font-size: 18pt">{{'init.phone'|translate}}</span>
                     <input type="text" style="font-size: 18pt" placeholder="+6512345678" ng-model="user.phone_number">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label" style="font-size: 18pt">Password</span>
+                    <span class="input-label" style="font-size: 18pt">{{'init.password'|translate}}</span>
                     <input type="password" style="font-size: 18pt" placeholder="" ng-model="user.password">
                 </label>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <button class="button button-positive button-block" style="font-size: 18pt" ng-click="logIn(user)">Log in</button>
-            <a href="#/init/enter_phone_number" class="button button-stable button-block" style="font-size: 18pt">Register a new Account</a>
+            <button class="button button-positive button-block" style="font-size: 18pt" ng-click="logIn(user)">{{'init.login'|translate}}</button>
+            <a href="#/init/enter_phone_number" class="button button-stable button-block" style="font-size: 18pt">{{'init.register'|translate}}</a>
         </form>
     </ion-content>
 </ion-view>

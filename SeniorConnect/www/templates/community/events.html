@@ -3,7 +3,7 @@
         <div>
             <a class="item item-icon-left" ng-show="joinedCom(community.id)" ng-click="quitCom(community.id)" style="background: #3f51b5;color:white;font-size: 18pt" href="#/tab/community">
                 <i class="icon ion-close-circled"></i>
-                Quit this community
+                {{'community.quit'|translate}}
             </a>
         </div>
         <div ng-repeat="event in events" class="list card">
@@ -13,17 +13,17 @@
                 <img ng-src="../www/img/{{ event.img }}" width="30%" height="30%">
                 <h2 style="font-size: 18pt; padding: 5pt">{{ event.name }}</h2>
                 <p style="font-size: 18pt;padding: 5pt">{{ event.description }}</p>
-                <p style="font-size: 18pt; padding: 5pt">Date: {{ event.date }}</p>
-                <p style="font-size: 18pt;padding: 5pt">Time: {{ event.time }}</p>
+                <p style="font-size: 18pt; padding: 5pt">{{'event.date'|translate}}{{ event.date }}</p>
+                <p style="font-size: 18pt;padding: 5pt">{{'event.time'|translate}}{{ event.time }}</p>
                 <div class="list card" ng-show="joinedCom(community.id)">
 
                     <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" style="background: #2196f3;color:white;font-size: 18pt">
                         <i class="icon ion-checkmark-round"></i>
-                        Join Event
+                        {{'community.join_event'|translate}}
                     </a>
                     <a class="item item-icon-left" ng-show="joined(event.id)" ng-click="cancelEvent(event.id)" style="background: #3f51b5;color:white;font-size: 18pt">
                         <i class="icon ion-close-circled"></i>
-                        Cancel
+                        {{'cancel'|translate}}
                     </a>
                 </div>
             </div>

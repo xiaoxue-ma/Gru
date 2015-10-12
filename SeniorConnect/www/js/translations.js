@@ -16,8 +16,42 @@ var translations = {
         "save": "Save",
         "select_all": "Select All",
         "deselect_all": "Deselect All",
+        "back":"Back",
+
+        "init_msg.0":"SeniorConnect",
+        "init_msg.1.1":"To start using ",
+        "init_msg.1.2":", we need to verify your phone number.",
+        "init_msg.2.1":"Your phone number will be your unique identification in ",
+        "init_msg.2.2":". Your password will help you log on to ",
+        "init_msg.2.3":" on another device.",
+        "init_msg.3":"Enter phone number and set password below。",
+
+        "init.phone":"Phone",
+        "init.name":"Your Name",
+        "init.password":"Password",
+        "init.next":"Next",
+        "init.have_account":"I already have an account",
+        "init.login":"Login",
+        "init.register":"Register a new Account",
+        "init.verification_code":"Verification Code",
+        "init.verify":"Verify",
+        "init.send_again":"Send verification code again",
+        "verify_msg":"We have sent a verification code to your phone. Please enter it below.",
 
         "community.calendar": "View Calendar",
+        "community.join": "Join",
+        "community.joined": "Joined",
+        "community.join_event": "Join Event",
+        "community.quit": "Quit this Community",
+
+        "calendar.previous": "Prev",
+        "calendar.today": "Today",
+        "calendar.next": "Next",
+        "calendar.year": "Year",
+        "calendar.month": "Month",
+        "calendar.week": "Week",
+        "event.date":"Date:",
+        "event.time":"Time:",
 
         "chat.type_your_message": "Type your message here",
         "chat.send": "Send",
@@ -29,6 +63,16 @@ var translations = {
         "chat.group_name": "Group Name",
         "chat.group_members": "Group Members",
         "chat.hold_to_record": "Hold to Record Voice Message",
+        "chat.call": "Call",
+
+        "video.calling_to": "Calling to",
+        "video.never_mind": "Never Mind",
+        "video.is_calling":"is calling you",
+        "video.answer":"Answer",
+        "video.ignore":"Ignore",
+        "video.end":"End",
+        "video.process":"Call in process",
+
 
         "friends.nickname": "Nickname",
         "friends.relationship": "Relationship",
@@ -104,6 +148,30 @@ var translations = {
         "save": "保存",
         "select_all": "全选",
         "deselect_all": "全不选",
+        "back":"返回",
+
+
+        "init_msg.0":"SeniorConnect",
+        "init_msg.1.1":"开始使用",
+        "init_msg.1.2":"之前，我们需要验证您的手机号",
+        "init_msg.2.1":"您的手机号是您在",
+        "init_msg.2.2":"里唯一的身份号码。您设置的密码可以帮助您在别的设备上登陆",
+        "init_msg.2.3":"。",
+        "init_msg.3":"请在下面输入您的手机号并设置密码。",
+
+
+        "init.phone":"电话",
+        "init.name":"您的姓名",
+        "init.password":"密码",
+        "init.next":"下一步",
+        "init.have_account":"我已有账号",
+        "init.login":"登陆",
+        "init.register":"注册账号",
+        "init.verification_code":"验证码",
+        "init.verify":"验证",
+        "init.send_again":"再次发送验证码",
+        "verify_msg":"我们已经向您的手机发送了一条验证码。请在下面输入。",
+
 
 
         "chat.type_your_message": "输入消息",
@@ -115,9 +183,31 @@ var translations = {
         "chat.manage_my_groups": "管理我的群",
         "chat.group_name": "群名",
         "chat.group_members": "群成员",
+        "chat.call": "通话",
+
+        "video.calling_to": "打电话给",
+        "video.never_mind": "放弃通话",
+        "video.is_calling":"想与您通话",
+        "video.answer":"接听",
+        "video.ignore":"忽略",
+        "video.end":"结束通话",
+        "video.process":"通话中",
 
 
         "community.calendar": "查看日历",
+        "community.join": "加入",
+        "community.joined": "已加入",
+        "community.join_event": "加入活动",
+        "community.quit": "退出兴趣小组",
+        "event.date":"日期：",
+        "event.time":"时间：",
+
+        "calendar.previous": "前一天",
+        "calendar.today": "今天",
+        "calendar.next": "后一天",
+        "calendar.year": "年",
+        "calendar.month": "月",
+        "calendar.week": "周",
 
         "friends.nickname": "昵称",
         "friends.relationship": "关系",

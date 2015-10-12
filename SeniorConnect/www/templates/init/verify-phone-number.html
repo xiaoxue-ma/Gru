@@ -2,16 +2,16 @@
     <ion-content padding="true" class="has-header">
         <div class="card">
             <p class="item item-text-wrap" style="font-size: 18pt">
-                We have sent a verification code to your phone. Please enter it below.
+                {{'verify_msg'|translate}}
             </p>
         </div>
         <form>
             <label class="item item-input">
-                <span class="input-label" style="font-size: 18pt">Verification Code</span>
+                <span class="input-label" style="font-size: 18pt">{{'init.verification_code'|translate}}</span>
                 <input type="text" style="font-size: 18pt" placeholder="" ng-model="code">
             </label>
-            <button class="button button-positive button-block" style="font-size: 18pt" ng-click="verify(code)">Verify</button>
-            <button class="button button-stable button-block" style="font-size: 18pt" ng-click="send_code_again()">Send verification Code Again</button>
+            <button class="button button-positive button-block" style="font-size: 18pt" ng-click="verify(code)">{{'init.verify'|translate}}</button>
+            <button class="button button-stable button-block" style="font-size: 18pt" ng-click="send_code_again()">{{'init.send_again'|translate}}</button>
         </form>
     </ion-content>
 </ion-view>
