@@ -1,5 +1,5 @@
 <ion-view view-title="{{ 'tab.community' | translate }}">
-<ion-content>
+<ion-content style="background-color: #f2f2f2">
     <ion-refresher style="font-size: 18pt"
             pulling-text="{{ 'pull_to_refresh' | translate }}"
             on-refresh="refresh()">
@@ -12,7 +12,7 @@
                 <span class="badge badge-assertive">{{requests.length}}</span>
             </a>
             <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" type="item-text-wrap"
-                      ng-repeat="community in communitys" ng-click="read(community.id)">
+                      ng-repeat="community in communitys" ng-click="read(community.id)" style="min-height: 100pt">
                 <img ng-src="../www/img/{{ community.img }}">
                 <h2 style="font-size: 18pt">{{ community.name }}</h2>
                 <p>   </p>

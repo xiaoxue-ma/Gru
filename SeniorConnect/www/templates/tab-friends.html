@@ -2,14 +2,14 @@
   <ion-nav-buttons side="right">
     <button class="button button-outline button-positive icon-left ion-person-add " style="font-size: 18pt" ng-click="addFriend()">&nbsp;{{ 'friends.add' | translate }} </button>
   </ion-nav-buttons>
-  <ion-content>
+  <ion-content style="background-color: #f2f2f2">
     <ion-refresher style="font-size: 18pt"
             pulling-text="{{ 'pull_to_refresh' | translate }}"
             on-refresh="refresh()">
     </ion-refresher>
     <ion-list show-delete="false" can-swipe="true">
       <a class="item item-icon-left" href="#/tab/friend/requests" style="color: white; background: #2C63F0; font-size: 18pt">
-        <i class="icon icon-left ion-navicon" style="color: white; font-size: 18pt"></i>
+        <i class="icon icon-left ion-navicon-round" style="color: white; font-size: 18pt"></i>
         {{ 'friends.friend_requests' | translate }}
         <span class="badge badge-assertive">{{requests.length}}</span>
       </a>

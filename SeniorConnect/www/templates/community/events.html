@@ -1,7 +1,7 @@
 <ion-view view-title="{{ community.name }}">
-    <ion-content class="padding">
+    <ion-content class="padding" style="background-color: #f2f2f2">
         <div>
-            <a class="item item-icon-left" ng-show="joinedCom(community.id)" ng-click="quitCom(community.id)" style="background: red;color:white" href="#/tab/community">
+            <a class="item item-icon-left" ng-show="joinedCom(community.id)" ng-click="quitCom(community.id)" style="background: #3f51b5;color:white;font-size: 18pt" href="#/tab/community">
                 <i class="icon ion-close-circled"></i>
                 Quit this community
             </a>
@@ -12,17 +12,17 @@
             <div class="item item-thumbnail-left" >
 
                 <img ng-src="../www/img/{{ event.img }}" width="30%" height="30%">
-                <h2>{{ event.name }}</h2>
-                <p>{{ event.description }}</p>
-                <p>Date: {{ event.date }}</p>
-                <p>Time: {{ event.time }}</p>
+                <h2 style="font-size: 18pt; padding: 5pt">{{ event.name }}</h2>
+                <p style="font-size: 18pt;padding: 5pt">{{ event.description }}</p>
+                <p style="font-size: 18pt; padding: 5pt">Date: {{ event.date }}</p>
+                <p style="font-size: 18pt;padding: 5pt">Time: {{ event.time }}</p>
                 <div class="list card" ng-show="joinedCom(community.id)">
 
-                    <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" style="background: #2c63f0;color:white">
+                    <a class="item item-icon-left" ng-hide="joined(event.id)" ng-click="joinEvent(event.id)" style="background: #2196f3;color:white;font-size: 18pt">
                         <i class="icon ion-checkmark-round"></i>
                         Join Event
                     </a>
-                    <a class="item item-icon-left" ng-show="joined(event.id)" ng-click="cancelEvent(event.id)" style="background: red;color:white">
+                    <a class="item item-icon-left" ng-show="joined(event.id)" ng-click="cancelEvent(event.id)" style="background: red;color:white;font-size: 18pt">
                         <i class="icon ion-close-circled"></i>
                         Cancel
                     </a>

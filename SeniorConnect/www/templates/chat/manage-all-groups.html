@@ -5,7 +5,7 @@
     <ion-nav-buttons side="right">
         <button class="button button-clear" ng-click="addGroup()" style="font-size: 18pt">{{ 'add' | translate }}</button>
     </ion-nav-buttons>
-    <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header" style="background-color: #f2f2f2">
         <ion-list show-delete="false" can-swipe="true">
             <ion-item class="item-avatar" ng-repeat="group in groups" type="item-text-wrap"
                       href="#/single-page/chats/manage-a-group/{{group.id}}">
