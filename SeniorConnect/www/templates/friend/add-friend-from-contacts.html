@@ -1,6 +1,6 @@
 <ion-view title="{{ 'friends.add_from_contacts' | translate }}">
     <ion-nav-buttons side="right">
-        <button class="button button-outline button-positive icon-left ion-android-add" style="font-size: 18pt" ng-click="addSelectedContacts()">{{ 'add' | translate }}</button>
+        <button class="button button-outline button-positive icon-left ion-android-add" style="font-size: 18pt" ng-click="addSelectedContacts()"> &nbsp;{{ 'add' | translate }}</button>
     </ion-nav-buttons>
 
     <ion-content padding="true" class="has-header" style="background-color: #f2f2f2">
@@ -11,7 +11,7 @@
         <ion-list style="font-size: 18pt">
             <ion-checkbox ng-repeat="contact in contacts"
                           ng-model="contact.checked"
-                          ng-checked="contact.checked">
+                          ng-checked="contact.checked" style="font-size: 18pt">
                 {{ contact.displayName }} {{ contact.phoneNumbers[0].type }}
             </ion-checkbox>
         </ion-list>

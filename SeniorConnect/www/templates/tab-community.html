@@ -17,7 +17,7 @@
                 <h2 style="font-size: 18pt">{{ community.name }}</h2>
                 <p>   </p>
                 <p style="font-size: 18pt" ng-show="status(community.id)">Joined</p>
-                <i class="button button-large button-clear button-positive icon ion-person-add icon-accessory" style="font-size: 18pt; margin-top: 2%" ng-hide="joined(community.id)" ng-click="joinCom(community.id)">Join</i>
+                <i class="button button-large button-clear button-positive icon ion-person-add icon-accessory" style="font-size: 18pt; margin-top:4%" ng-hide="joined(community.id)" ng-click="joinCom(community.id)">Join</i>
                 <span class="badge badge-assertive" style="margin-top: 2%" ng-hide="(hasRead(community.id) || !joined(community.id))" ng-click="read(community.id)">1</span>
                 <i class="icon ion-chevron-right icon-accessory custom-icon" ng-show="(hasRead(community.id) && joined(community.id))"></i>
             </ion-item>

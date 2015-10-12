@@ -1,6 +1,6 @@
 <ion-view view-title="{{friend.name}}">
     <ion-nav-buttons side="right">
-        <button class="button icon ion-more"
+        <button class="button button-outline button-positive icon-left icon ion-person-stalker" style="font-size: 18pt"
                 ng-show="isGroupChat"
                 ng-click="manageGroup()"> </button>
 
@@ -17,7 +17,7 @@
         <!--ion-content's text-align is used to center system_message-->
         <button class="button button-clear button-positive button-block"
                 ng-show="canLoadMore"
-                ng-click="loadMoreChatHistory();">
+                ng-click="loadMoreChatHistory();" style="font-size: 18pt">
             {{ 'chat.load_more' | translate }}
         </button>
         <span ng-show="!canLoadMore" class="system_message">
