@@ -12,39 +12,74 @@
 
             var chartData = [
                 {
-                    "year": 2003,
-                    "europe": 2.5,
-                    "namerica": 2.5,
-                    "asia": 2.1,
-                    "lamerica": 0.3,
-                    "meast": 0.2,
-                    "africa": 0.1
+                    "name": "Huiqi",
+                    "Frontend - Chats": 0,
+                    "Frontend - Friends": 5,
+                    "Frontend - Community": 25,
+                    "Frontend - Moments": 0,
+                    "Frontend - Profile": 5,
+                    "Backend Server": 0,
+                    "Database": 0
                 },
                 {
-                    "year": 2004,
-                    "europe": 2.6,
-                    "namerica": 2.7,
-                    "asia": 2.2,
-                    "lamerica": 0.3,
-                    "meast": 0.3,
-                    "africa": 0.1
+                    "name": "Siqi",
+                    "Frontend - Chats": 32,
+                    "Frontend - Friends": 0,
+                    "Frontend - Community": 0,
+                    "Frontend - Moments": 0,
+                    "Frontend - Profile": 0,
+                    "Backend Server": 0,
+                    "Database": 0
                 },
                 {
-                    "year": 2005,
-                    "europe": 2.8,
-                    "namerica": 2.9,
-                    "asia": 2.4,
-                    "lamerica": 0.3,
-                    "meast": 0.3,
-                    "africa": 0.1
+                    "name": "Xiaoxue",
+                    "Frontend - Chats": 0,
+                    "Frontend - Friends": 0,
+                    "Frontend - Community": 0,
+                    "Frontend - Moments": 0,
+                    "Frontend - Profile": 1.5,
+                    "Backend Server": 30,
+                    "Database": 5
+                },
+                {
+                    "name": "Way-ne",
+                    "Frontend - Chats": 0,
+                    "Frontend - Friends": 0,
+                    "Frontend - Community": 0,
+                    "Frontend - Moments": 0,
+                    "Frontend - Profile": 0.5,
+                    "Backend Server": 0,
+                    "Database": 0
+                },
+                {
+                    "name": "Yishan",
+                    "Frontend - Chats": 0,
+                    "Frontend - Friends": 8,
+                    "Frontend - Community": 0,
+                    "Frontend - Moments": 22,
+                    "Frontend - Profile": 0,
+                    "Backend Server": 0,
+                    "Database": 0
+                },
+                {
+                    "name": "Yikun",
+                    "Frontend - Chats": 0,
+                    "Frontend - Friends": 0,
+                    "Frontend - Community": 0,
+                    "Frontend - Moments": 0,
+                    "Frontend - Profile": 0,
+                    "Backend Server": 10,
+                    "Database": 25
                 }
+
+
             ];
 
             AmCharts.ready(function () {
                 // SERIALL CHART
                 chart = new AmCharts.AmSerialChart();
                 chart.dataProvider = chartData;
-                chart.categoryField = "year";
+                chart.categoryField = "name";
                 chart.plotAreaBorderAlpha = 0.2;
                 chart.rotate = true;
 
@@ -65,9 +100,9 @@
                 // GRAPHS
                 // firstgraph
                 var graph = new AmCharts.AmGraph();
-                graph.title = "Europe";
+                graph.title = "Frontend - Chats";
                 graph.labelText = "[[value]]";
-                graph.valueField = "europe";
+                graph.valueField = "Frontend - Chats";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
@@ -78,9 +113,9 @@
 
                 // second graph
                 graph = new AmCharts.AmGraph();
-                graph.title = "North America";
+                graph.title = "Frontend - Friends";
                 graph.labelText = "[[value]]";
-                graph.valueField = "namerica";
+                graph.valueField = "Frontend - Friends";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
@@ -91,9 +126,9 @@
 
                 // third graph
                 graph = new AmCharts.AmGraph();
-                graph.title = "Asia-Pacific";
+                graph.title = "Frontend - Community";
                 graph.labelText = "[[value]]";
-                graph.valueField = "asia";
+                graph.valueField = "Frontend - Community";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
@@ -104,9 +139,9 @@
 
                 // fourth graph
                 graph = new AmCharts.AmGraph();
-                graph.title = "Latin America";
+                graph.title = "Frontend - Moments";
                 graph.labelText = "[[value]]";
-                graph.valueField = "lamerica";
+                graph.valueField = "Frontend - Moments";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
@@ -117,9 +152,9 @@
 
                 // fifth graph
                 graph = new AmCharts.AmGraph();
-                graph.title = "Middle-East";
+                graph.title = "Frontend - Profile";
                 graph.labelText = "[[value]]";
-                graph.valueField = "meast";
+                graph.valueField = "Frontend - Profile";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
@@ -130,14 +165,27 @@
 
                 // sixth graph
                 graph = new AmCharts.AmGraph();
-                graph.title = "Africa";
+                graph.title = "Backend Server";
                 graph.labelText = "[[value]]";
-                graph.valueField = "africa";
+                graph.valueField = "Backend Server";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#F4E23B";
                 graph.balloonText = "<b><span style='color:#c3b218'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+                graph.labelPosition = "middle";
+                chart.addGraph(graph);
+
+                // seventh graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "Database";
+                graph.labelText = "[[value]]";
+                graph.valueField = "Database";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#67b7dc";
+                graph.balloonText = "<b><span style='color:#67b7dc'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
                 graph.labelPosition = "middle";
                 chart.addGraph(graph);
 

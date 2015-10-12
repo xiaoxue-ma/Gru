@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Code Distribution</title>
+    <link rel="stylesheet" href="amcharts_3.17.2.free/samples/style.css" type="text/css">
+    <script src="amcharts_3.17.2.free/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="amcharts_3.17.2.free/amcharts/serial.js" type="text/javascript"></script>
+    <script src="amcharts_3.17.2.free/amcharts/pie.js"></script>
+    <script>
+        var chart;
+
+        var chartData = [
+            {
+                "name": "Huiqi",
+                "Frontend - Chats": 0,
+                "Frontend - Friends": 5,
+                "Frontend - Community": 25,
+                "Frontend - Moments": 0,
+                "Frontend - Profile": 5,
+                "Backend Server": 0,
+                "Database": 0
+            },
+            {
+                "name": "Siqi",
+                "Frontend - Chats": 32,
+                "Frontend - Friends": 0,
+                "Frontend - Community": 0,
+                "Frontend - Moments": 0,
+                "Frontend - Profile": 0,
+                "Backend Server": 0,
+                "Database": 0
+            },
+            {
+                "name": "Xiaoxue",
+                "Frontend - Chats": 0,
+                "Frontend - Friends": 0,
+                "Frontend - Community": 0,
+                "Frontend - Moments": 0,
+                "Frontend - Profile": 1.5,
+                "Backend Server": 30,
+                "Database": 5
+            },
+            {
+                "name": "Way-ne",
+                "Frontend - Chats": 0,
+                "Frontend - Friends": 0,
+                "Frontend - Community": 0,
+                "Frontend - Moments": 0,
+                "Frontend - Profile": 0.5,
+                "Backend Server": 0,
+                "Database": 0
+            },
+            {
+                "name": "Yishan",
+                "Frontend - Chats": 0,
+                "Frontend - Friends": 8,
+                "Frontend - Community": 0,
+                "Frontend - Moments": 22,
+                "Frontend - Profile": 0,
+                "Backend Server": 0,
+                "Database": 0
+            },
+            {
+                "name": "Yikun",
+                "Frontend - Chats": 0,
+                "Frontend - Friends": 0,
+                "Frontend - Community": 0,
+                "Frontend - Moments": 0,
+                "Frontend - Profile": 0,
+                "Backend Server": 10,
+                "Database": 25
+            }
+
+
+        ];
+
+        AmCharts.ready(function () {
+            // SERIALL CHART
+            chart = new AmCharts.AmSerialChart();
+            chart.dataProvider = chartData;
+            chart.categoryField = "name";
+            chart.plotAreaBorderAlpha = 0.2;
+            chart.rotate = true;
+
+            // AXES
+            // Category
+            var categoryAxis = chart.categoryAxis;
+            categoryAxis.gridAlpha = 0.1;
+            categoryAxis.axisAlpha = 0;
+            categoryAxis.gridPosition = "start";
+
+            // value
+            var valueAxis = new AmCharts.ValueAxis();
+            valueAxis.stackType = "regular";
+            valueAxis.gridAlpha = 0.1;
+            valueAxis.axisAlpha = 0;
+            chart.addValueAxis(valueAxis);
+
+            // GRAPHS
+            // firstgraph
+            var graph = new AmCharts.AmGraph();
+            graph.title = "Frontend - Chats";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Frontend - Chats";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#C72C95";
+            graph.balloonText = "<b><span style='color:#C72C95'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // second graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Frontend - Friends";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Frontend - Friends";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#D8E0BD";
+            graph.balloonText = "<b><span style='color:#afbb86'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // third graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Frontend - Community";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Frontend - Community";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#B3DBD4";
+            graph.balloonText = "<b><span style='color:#74bdb0'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // fourth graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Frontend - Moments";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Frontend - Moments";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#69A55C";
+            graph.balloonText = "<b><span style='color:#69A55C'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // fifth graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Frontend - Profile";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Frontend - Profile";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#B5B8D3";
+            graph.balloonText = "<b><span style='color:#7a81be'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // sixth graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Backend Server";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Backend Server";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#F4E23B";
+            graph.balloonText = "<b><span style='color:#c3b218'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // seventh graph
+            graph = new AmCharts.AmGraph();
+            graph.title = "Database";
+            graph.labelText = "[[value]]";
+            graph.valueField = "Database";
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 1;
+            graph.lineColor = "#67b7dc";
+            graph.balloonText = "<b><span style='color:#67b7dc'>[[title]]</b></span><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+            graph.labelPosition = "middle";
+            chart.addGraph(graph);
+
+            // LEGEND
+            var legend = new AmCharts.AmLegend();
+            legend.position = "right";
+            legend.borderAlpha = 0.3;
+            legend.horizontalGap = 10;
+            legend.switchType = "v";
+            chart.addLegend(legend);
+
+            chart.creditsPosition = "top-right";
+
+            // WRITE
+            chart.write("chartdiv");
+        });
+
+        // Make chart 2D/3D
+        function setDepth() {
+            if (document.getElementById("rb1").checked) {
+                chart.depth3D = 0;
+                chart.angle = 0;
+            } else {
+                chart.depth3D = 20;
+                chart.angle = 30;
+            }
+            chart.validateNow();
+        };
+
+        var chart2;
+        var legend2;
+
+        var chartData2 = [
+            {
+                "name": "Huiqi",
+                "value": 35
+            },
+            {
+                "name": "Siqi",
+                "value": 32
+            },
+            {
+                "name": "Way-ne",
+                "value": 0.5
+            },
+            {
+                "name": "Xiaoxue",
+                "value": 36.5
+            },
+            {
+                "name": "Yikun",
+                "value": 35
+            },
+            {
+                "name": "Yishan",
+                "value": 30
+            }
+        ];
+
+        AmCharts.ready(function () {
+            // PIE CHART
+            chart2 = new AmCharts.AmPieChart();
+            chart2.dataProvider = chartData2;
+            chart2.titleField = "name";
+            chart2.valueField = "value";
+            chart2.outlineColor = "#FFFFFF";
+            chart2.outlineAlpha = 0.8;
+            chart2.outlineThickness = 2;
+            chart2.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+            // this makes the chart 3D
+            chart2.depth3D = 15;
+            chart2.angle = 30;
+
+            // WRITE
+            chart2.write("chartdiv2");
+        });
+    </script>
+</head>
+
+<body>
+<h3> Code Distribution of Team GruFamily</h3>
+<p>(Weighted credits are calculated based on task difficulty and LOC.)</p>
+<div id="chartdiv2" style="width: 100%; height: 400px; margin-top: -50px;"></div>
+
+<div id="chartdiv" style="width: 100%; height: 400px;"></div>
+<div style="margin-left:40px;">
+    <input type="radio" checked="true" name="group" id="rb1" onclick="setDepth()">2D
+    <input type="radio" name="group" id="rb2" onclick="setDepth()">3D
+</div>
+
+
+</body>
+
+</html>
