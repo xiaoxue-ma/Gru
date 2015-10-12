@@ -40,6 +40,7 @@ var translations = {
         "friends.go_to_social": "Go to Social",
         "friends.chat": "Chat",
         "friends.save": "Save",
+        "friends.add": "Add Friends",
 
         "social.biography_mode": "Biography Mode",
         "social.happened_at": "Happened at",
@@ -127,7 +128,7 @@ var translations = {
         "friends.go_to_social": "去TA的社交圈子",
         "friends.chat": "和TA聊天",
         "friends.save": "保存",
-
+        "friends.add": "加好友",
         "social.biography_mode": "自传模式",
         "social.happened_at": "发生于",
         "social.posted_at": "上传于",

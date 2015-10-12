@@ -1,6 +1,6 @@
 <ion-view view-title="{{ 'tab.friends' | translate }}">
   <ion-nav-buttons side="right">
-    <button class="button icon ion-plus" ng-click="addFriend()"> </button>
+    <button class="button button-outline button-positive icon-left ion-person-add " ng-click="addFriend()">&nbsp;{{ 'friends.add' | translate }} </button>
   </ion-nav-buttons>
   <ion-content>
     <ion-refresher
@@ -9,7 +9,7 @@
     </ion-refresher>
     <ion-list show-delete="false" can-swipe="true">
       <a class="item item-icon-left" href="#/tab/friend/requests" style="color: white; background: #2C63F0">
-        <i class="icon ion-person-add" style="color: white"></i>
+        <i class="icon icon-left ion-navicon" style="color: white"></i>
         {{ 'friends.friend_requests' | translate }}
         <span class="badge badge-assertive">{{requests.length}}</span>
       </a>
