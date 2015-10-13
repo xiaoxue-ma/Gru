@@ -1,7 +1,7 @@
 <ion-view title="Call" hide-back-button="true">
     <ion-content style="background-color: #f2f2f2" on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
         <div class="calling-container" ng-if="isCalling && !callInProgress">
-            <p style="font-size: 18pt">{{'video.calling_to'|translate}} <span class="balanced">{{ counterParty }}</span>...</p>
+            <p style="font-size: 18pt">{{'video.calling_to'|translate}} <span class="balanced">Yikun</span>...</p>
 
             <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
                 {{'video.never_mind'|translate}}
@@ -9,7 +9,7 @@
         </div>
 
         <div class="calling-container" ng-if="!isCalling && !callInProgress">
-            <p style="font-size: 18pt"><span class="balanced">{{ counterParty }}</span> {{'video.is_calling'|translate}}</p>
+            <p style="font-size: 18pt"><span class="balanced">Xiaoxue</span> {{'video.is_calling'|translate}}</p>
 
             <button class="button button-positive" ng-click="answer()" style="font-size: 18pt">
                 {{'video.answer'|translate}}

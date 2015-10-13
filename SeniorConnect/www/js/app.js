@@ -234,7 +234,7 @@ mod.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         });
 
-  $urlRouterProvider.otherwise('/tab/community');
+  $urlRouterProvider.otherwise('/tab/friends');
     //</editor-fold>c
 });
 
