@@ -1,10 +1,10 @@
-<ion-view title="Call" hide-back-button="true">
+<ion-view title="{{'video.call'| translate}}" hide-back-button="true">
     <ion-content style="background-color: #f2f2f2" on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
         <div class="calling-container" ng-if="isCalling && !callInProgress">
             <p style="font-size: 18pt">{{'video.calling_to'|translate}} <span class="balanced">Yikun</span>...</p>
 
             <button class="button button-assertive" ng-click="ignore()" style="font-size: 18pt">
-                {{'video.never_mind'|translate}}
+                {{'video.cancel'|translate}}
             </button>
         </div>
 

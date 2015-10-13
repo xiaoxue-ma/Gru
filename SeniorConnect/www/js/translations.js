@@ -66,14 +66,15 @@ var translations = {
         "chat.call": "Call",
 
         "video.calling_to": "Calling to",
-        "video.never_mind": "Never Mind",
+        "video.cancel": "Cancel",
         "video.is_calling":"is calling you",
         "video.answer":"Answer",
         "video.ignore":"Ignore",
         "video.end":"End",
         "video.process":"Call in process",
+        "video.call": "Call",
 
-
+        "friends.details": "Friend Details",
         "friends.nickname": "Nickname",
         "friends.relationship": "Relationship",
         "friends.friend_requests": "Friend Requests",
@@ -184,14 +185,16 @@ var translations = {
         "chat.group_name": "群名",
         "chat.group_members": "群成员",
         "chat.call": "通话",
+        "chat.hold_to_record": "按住说话",
 
         "video.calling_to": "打电话给",
-        "video.never_mind": "放弃通话",
+        "video.cancel": "放弃通话",
         "video.is_calling":"想与您通话",
         "video.answer":"接听",
         "video.ignore":"忽略",
         "video.end":"结束通话",
         "video.process":"通话中",
+        "video.call": "语音通话",
 
 
         "community.calendar": "查看日历",
@@ -209,6 +212,7 @@ var translations = {
         "calendar.month": "月",
         "calendar.week": "周",
 
+        "friends.details": "好友资料",
         "friends.nickname": "昵称",
         "friends.relationship": "关系",
         "friends.friend_requests": "好友申请",
