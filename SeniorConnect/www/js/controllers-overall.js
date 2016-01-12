@@ -15,7 +15,7 @@ sac.config(function ($stateProvider, $urlRouterProvider, $translateProvider) {
 
 sac.run(function($localstorage){
     // debug purpose!!!
-    $localstorage.set('user.user_id', 1);
+    $localstorage.set('user.user_id', 2);
     // delete!!
 
     $localstorage.setObject('messages', [])

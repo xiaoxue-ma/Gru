@@ -25,7 +25,10 @@ sac.controller('VideoCallCtrl', function ($scope, $state, $rootScope, $timeout, 
                 video: false
             }
         };
+        console.log(config);
         var session = new cordova.plugins.phonertc.Session(config);
+        console.log(cordova.plugins.phonertc.Session);
+        console.log(session);
 
         session.on('sendMessage', function (data) {
             RtcSocket.sendMessage($scope.myself, userId, {
