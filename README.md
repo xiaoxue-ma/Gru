@@ -32,9 +32,10 @@ For more details, please refer to official [documents][documents].
 2. Install Cordova and Ionic: `npm install -g cordova ionic`
 3. Config server address @ `www/js/services-overall.js`
 4. Create phonertcTurnServerConfig variable and save in `www/js/secret.js`
-5. Add Android platform: `ionic platform add android`
-6. Connect your mobile phone to computer
-7. Build SeniorConnect application: `ionic run android`
+5. Install [Android SDK 22][Android SDK 22]
+6. Add Android platform: `ionic platform add android`
+7. Connect your mobile phone to computer
+8. Build SeniorConnect application: `ionic run android`
 
 Good luck!
 
@@ -45,3 +46,4 @@ Good luck!
 [documents]: https://github.com/elevenloveseleven/Gru/tree/master/Doc
 [git]: http://git-scm.com/
 [Node.js]: https://nodejs.org/en/
+[Android SDK 22]: http://developer.android.com/about/versions/lollipop.html
