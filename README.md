@@ -2,11 +2,12 @@
 SeniorConnect is a social media mobile app implemented in client-server architecture.
 
 Client side is built with [Ionic][Ionic] + [AngularJS][AngularJS];
-Server side is built with [Flask][Flask] and [MySQL][MySQL] DB [git][git].
+Server side is built with [Flask][Flask] and [MySQL][MySQL] DB.
 
 ### Functions
 SeniorConnect provides a platform to engage the elderly in social life.
-Our design emphasizes on convenient voice channel, accessible functionalities within 4 steps and security.
+
+The design emphasizes on convenient voice channel, accessible functionalities within 4 steps and security.
 
 ```
 Chatting           --> Send/ Receive/ Listen to voice message
