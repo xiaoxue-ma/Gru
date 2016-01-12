@@ -24,5 +24,5 @@ For more details, please refer to official [documents][documents].
 [AngularJS]: https://angularjs.org
 [Flask]: http://flask.pocoo.org
 [MySQL]: https://www.mysql.com
-[documents]: https://github.com/elevenloveseleven/Gru/tree/master/Doc
+[documents]: https://github.com/elevenloveseleven/SeniorConnect/tree/master/Doc
 [git]: http://git-scm.com/
