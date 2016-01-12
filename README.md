@@ -1,6 +1,4 @@
-<snippet>
-  <content><![CDATA[
-  # ${1:SeniorConnect by Gru Team}
+# SeniorConnect by Gru Team
 SeniorConnect is a social media mobile app implemented in client-server architecture.
 
 Client side is built with [Ionic][Ionic] + [AngularJS][AngularJS];
@@ -20,10 +18,6 @@ Multilingual       --> Use SeniorConnect in your language
 ```
 For more details, please refer to official [documents][documents].
 ## Installation
-
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
 
 [Ionic] : http://ionicframework.com
 [AngularJS] : https://angularjs.org
