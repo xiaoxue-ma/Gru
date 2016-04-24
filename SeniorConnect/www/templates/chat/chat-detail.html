@@ -29,7 +29,11 @@
             <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}" ng-click="playAudio(message)">
                 <img ng-src="{{(message.from_user_id == myId && serverIconAddress + myId  || serverIconAddress + message.from_user_id) + '.jpg'}}"
                      class="message_icon">
-                <span class="message_body">{{ message.text_content }}</span>
+                <span ng-if="message.type != 'image'" class="message_body">{{ message.text_content }}</span>
+                <span ng-if="message.type == 'image'" class="message_body">
+                    <img ng-if="message.image_content.indexOf('/') == -1" ng-src="{{ serverChatImageAddress + message.image_content}}"
+                         style="width: 150px; height: 150px"/>
+                </span>
             </div>
 
             <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">

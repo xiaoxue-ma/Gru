@@ -1,9 +1,10 @@
 var sac = angular.module('sc.controllers', ['sc.utils', 'pascalprecht.translate','calendar']);
 var serverPictureAddress = serverAddress + "/pic/";
 var serverIconAddress = serverAddress + "/icon/";
+var serverChatImageAddress = serverAddress + "/chat_image/";
 
 sac.config(function ($compileProvider) {
-    $compileProvider.imgSrcSanitizationWhitelist(/^\s(https|file|blob|cdvfile):|data:image\//);
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(local|http|https|app|tel|ftp|file|blob|content|ms-appx|x-wmapp0|cdvfile):|data:image\//);
 });
 
 sac.config(function ($stateProvider, $urlRouterProvider, $translateProvider) {

@@ -6,6 +6,7 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
 
     $scope.serverPictureAddress = serverPictureAddress;
     $scope.serverIconAddress = serverIconAddress;
+    $scope.serverChatImageAddress = serverChatImageAddress;
 
     function init(){
         $scope.isInVoiceMessageMode = true;
@@ -149,7 +150,9 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
             console.log('uploading image start');
             console.log('file: ' + $scope.internalUrl);
             var add = serverAddress + '/chat_image/' + msg.message_id;
-            $cordovaFileTransfer.upload(add, $scope.internalUrl, {});
+            $cordovaFileTransfer.upload(add, $scope.internalUrl, {}).then(function(){
+                $scope.messages[$scope.last_index_img].image_content = msg.message_id + '.jpg';
+            });
             $scope.internalUrl = '';
         }
     });
@@ -179,6 +182,8 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         } else {
             ChatSocket.sendPrivateMessage(data);
         }
+        console.log('internalUrl: ' + $scope.internalUrl);
+        $scope.last_index_img = $scope.messages.length;
         $scope.messages.push({
             text_content: message,
             from_user_id: $localstorage.get('user.user_id'),
