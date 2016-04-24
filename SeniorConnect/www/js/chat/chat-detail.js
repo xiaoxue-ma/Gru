@@ -146,7 +146,11 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
                 }
             });
         } else if (msg.type == 'image'){
-
+            console.log('uploading image start');
+            console.log('file: ' + $scope.internalUrl);
+            var add = serverAddress + '/chat_image/' + msg.message_id;
+            $cordovaFileTransfer.upload(add, $scope.internalUrl, {});
+            $scope.internalUrl = '';
         }
     });
 
@@ -232,28 +236,7 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         });
     };
 
-
     function selectExistingPicture() {
-        //var options = {
-        //    maximumImagesCount: 1,
-        //    quality: 100
-        //};
-        //
-        //$cordovaImagePicker.getPictures(options)
-        //    .then(function (results) {
-        //        for (var i = 0; i < results.length; i++) {
-        //            window.resolveLocalFileSystemURL(results[i], success, failed);
-        //            function success(fileEntry) {
-        //                $scope.internalUrl = fileEntry.toURL();
-        //                $scope.sendMessage('image', 'image', 0);
-        //            }
-        //            function failed(){
-        //
-        //            }
-        //        }
-        //    }, function(error) {
-        //        // error getting photos
-        //    });
         var options = {
             quality : 100,
             destinationType : Camera.DestinationType.FILE_URI,
@@ -264,8 +247,8 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         $cordovaCamera.getPicture(options).then(function(result) {
             window.resolveLocalFileSystemURL(result, success, failed);
             function success(fileEntry) {
-                var internalUrl = fileEntry.toURL();
-                $scope.sendMessage('image', 'image', 0);
+                $scope.internalUrl = fileEntry.toURL();
+                $scope.sendMessage('', 'image', 0);
             }
 
             function failed(){
@@ -287,8 +270,8 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         $cordovaCamera.getPicture(options).then(function(result) {
             window.resolveLocalFileSystemURL(result, success, failed);
             function success(fileEntry) {
-                var internalUrl = fileEntry.toURL();
-                $scope.sendMessage('image', 'image', 0);
+                $scope.internalUrl = fileEntry.toURL();
+                $scope.sendMessage('', 'image', 0);
             }
 
             function failed(){
@@ -298,5 +281,4 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
             // An error occured
         });
     }
-
 });

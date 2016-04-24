@@ -3,6 +3,7 @@ __author__ = 'Xiaoxue'
 SQLALCHEMY_DATABASE_URI = 'mysql://root:root@127.0.0.1/criminal_check'
 
 UPLOAD_FOLDER_PIC = '/app/static/pic/'
+UPLOAD_FOLDER_CHAT_IMAGE = '/app/static/chat_image/'
 UPLOAD_FOLDER_AUDIO = '/app/static/audio/'
 UPLOAD_FOLDER_VIDEO = '/app/static/video/'
 UPLOAD_FOLDER_ICON = '/app/static/icon/'

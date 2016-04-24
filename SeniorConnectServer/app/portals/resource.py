@@ -31,6 +31,27 @@ def upload_pic(status_id, index):
         return response.response_fail('Error uploading file %s' % e)
 
 
+@app.route('/chat_image/<message_id>', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='*', headers='Content-Type')
+def upload_chat_image(message_id):
+    try:
+        file = request.files['file']
+        # if file and is_extension_allowed(file.filename, 'pic'):
+        # target_filename = message_id + '.' + file.filename.rsplit('.', 1)[1]
+        target_filename = message_id + '.jpg'
+        import os
+        path = os.path.realpath('.') + os.path.join(app.config['UPLOAD_FOLDER_CHAT_IMAGE'], target_filename)
+        file.save(path)
+        m = models.ChatMessage.query.get(message_id)
+        m.image_content = target_filename
+        db.session.commit()
+        return response.response_ok('Upload file successful')
+        # else:
+        #     return response.response_fail('Error uploading file: file type not allowed')
+    except Exception as e:
+        return response.response_fail('Error uploading file %s' % e)
+
+
 @app.route('/audio/<message_id>', methods=['POST', 'OPTIONS'])
 @crossdomain(origin='*', headers='Content-Type')
 def upload_audio(message_id):
