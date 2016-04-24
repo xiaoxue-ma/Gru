@@ -39,10 +39,20 @@
         <div style="height: 70px;"></div>
     </ion-content>
 
-    <div class="bar bar-footer has-tabs bar-light" style="margin-bottom: 30pt">
-        <div class="title"><button class="button button-block button-positive" style="font-size: 18pt"
-                                   ng-click="record()">
-            {{ 'chat.hold_to_record' | translate }}
-        </button></div>
+    <!--<div class="bar bar-footer has-tabs bar-light" style="margin-bottom: 30pt">-->
+        <!--<div class="title"><button class="button button-block button-positive" style="font-size: 18pt"-->
+                                   <!--ng-click="record()">-->
+            <!--{{ 'chat.hold_to_record' | translate }}-->
+        <!--</button></div>-->
+    <!--</div>-->
+    <div class="bar bar-footer bar-light has-tabs" style="margin-bottom: 25pt">
+        <button class="button button-icon icon ion-camera" ng-click="sendPhoto()"></button>
+        <label class="item-input-wrapper">
+            <input type="search" ng-model="messageToSend"
+                   placeholder="{{ 'chat.type_your_message' | translate }}">
+        </label>
+        <button class="button button-clear button-positive" ng-click="sendMessage(messageToSend); messageToSend=''">
+            {{ 'chat.send' | translate }}
+        </button>
     </div>
 </ion-view>

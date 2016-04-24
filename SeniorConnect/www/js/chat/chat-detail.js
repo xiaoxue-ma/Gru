@@ -1,7 +1,8 @@
 sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
                                            ChatSocket, ChatData, Friends, $cordovaMedia,
                                            $ionicScrollDelegate, $timeout, $cordovaFileTransfer,
-                                           chatUnreadCountService, $state, localIdentifier) {
+                                           chatUnreadCountService, $state, localIdentifier,
+                                           $ionicActionSheet, $cordovaImagePicker, $cordovaCamera) {
 
     $scope.serverPictureAddress = serverPictureAddress;
     $scope.serverIconAddress = serverIconAddress;
@@ -14,6 +15,7 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
         $scope.isGroupChat = $stateParams.chatId.indexOf('g') === 0;
         $scope.isInRecordingMode = false;
         $scope.isInPlaybackMode = false;
+        $scope.internalUrl = '';
     }
 
     init();
@@ -143,6 +145,8 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
                     message.audio_content = msg.message_id + '.amr';
                 }
             });
+        } else if (msg.type == 'image'){
+
         }
     });
 
@@ -177,7 +181,8 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
             to_group_id: $stateParams.chatId,
             type: type,
             local_identifier: localIdentifier.id,
-            audio_length: length
+            audio_length: length,
+            image_content: $scope.internalUrl
         });
         $localstorage.set('chat.last_text', message);
         $ionicScrollDelegate.scrollBottom(true);
@@ -208,4 +213,90 @@ sac.controller('ChatDetailCtrl', function ($scope, $stateParams, $localstorage,
     $scope.manageGroup = function(){
         $state.go('single-page.manage-a-group', {groupId:$stateParams.chatId.substring(1)});
     };
+
+    $scope.sendPhoto = function () {
+        $ionicActionSheet.show({
+            buttons: [
+                {text: 'Take Photo'},
+                {text: 'Select Photo from Phone'}
+            ],
+            buttonClicked: function (index) {
+                if (index == 0) {
+                    takePicture();
+                }
+                if (index == 1) {
+                    selectExistingPicture();
+                }
+                return true;
+            }
+        });
+    };
+
+
+    function selectExistingPicture() {
+        //var options = {
+        //    maximumImagesCount: 1,
+        //    quality: 100
+        //};
+        //
+        //$cordovaImagePicker.getPictures(options)
+        //    .then(function (results) {
+        //        for (var i = 0; i < results.length; i++) {
+        //            window.resolveLocalFileSystemURL(results[i], success, failed);
+        //            function success(fileEntry) {
+        //                $scope.internalUrl = fileEntry.toURL();
+        //                $scope.sendMessage('image', 'image', 0);
+        //            }
+        //            function failed(){
+        //
+        //            }
+        //        }
+        //    }, function(error) {
+        //        // error getting photos
+        //    });
+        var options = {
+            quality : 100,
+            destinationType : Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
+            allowEdit : true,
+            saveToPhotoAlbum: true
+        };
+        $cordovaCamera.getPicture(options).then(function(result) {
+            window.resolveLocalFileSystemURL(result, success, failed);
+            function success(fileEntry) {
+                var internalUrl = fileEntry.toURL();
+                $scope.sendMessage('image', 'image', 0);
+            }
+
+            function failed(){
+
+            }
+        }, function(err) {
+            // An error occured
+        });
+    }
+
+    function takePicture() {
+        var options = {
+            quality : 100,
+            destinationType : Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.CAMERA,
+            allowEdit : true,
+            saveToPhotoAlbum: true
+        };
+        $cordovaCamera.getPicture(options).then(function(result) {
+            window.resolveLocalFileSystemURL(result, success, failed);
+            function success(fileEntry) {
+                var internalUrl = fileEntry.toURL();
+                $scope.sendMessage('image', 'image', 0);
+            }
+
+            function failed(){
+
+            }
+        }, function(err) {
+            // An error occured
+        });
+    }
+
 });
