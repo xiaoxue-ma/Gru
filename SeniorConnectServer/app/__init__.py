@@ -6,7 +6,7 @@ from flask.ext.socketio import SocketIO
 
 app = Flask(__name__, static_url_path='')
 app.config.from_object('config')
-app.debug = True
+app.debug = False
 db = SQLAlchemy(app)
 dec_base = db.make_declarative_base()
 dec_base.metadata.reflect(db.engine)
